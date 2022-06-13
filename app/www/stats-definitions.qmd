@@ -1,0 +1,46 @@
+---
+title: "![CodeClan logo](codeclan-logo-blue.png){width=200}"
+format:
+  html:
+    mainfont: Gilroy
+    self-contained: true
+---
+
+:::{.callout-tip collapse=true}
+## Info
+When a change in what we do is followed by some change, it is tempting to believe that the change happened as a response to the change we implemented. For example, if after updating our website we receive a higher than usual number of bookings, we might ascribe the bookings to the new website.
+
+The number of bookings will usually be fairly typical, but not exactly the same day-to-day.
+The exact number will swing highrer and lower around some average number
+It is even possible for these wobbles to be quite extreme, just by sheer randomness.
+
+The value in this box gives a way to assess how unusual the number of bookings is actually likely to be.
+The more extreme the swing the more unusual the result will be, and the lower this number will become.
+This number gives us a more objective idea of just how unusual a given sample is.
+:::
+
+:::{.callout-tip collapse=true}
+## Confidence
+
+Even if we believe we have a highly unusual result, and that it is plausibly because of our intervention, there is still some variation around how that value might change if our sample was different.
+
+Imagine a survey that finds 
+
+:::
+
+
+:::{.callout-tip collapse=true}
+## Info
+blah blah blah blah blah blah blah blah  
+blah blah blah blah blah blah blah blah  
+blah blah blah blah blah  
+blah blah blah blah blah  
+blah blah blah blah blah blah blah blah  
+:::
+
+:::{.callout-tip collapse=true}
+## Info
+Why did the chicken cross the road?
+
+Because it was stapled to the punkrocker's ear
+:::
