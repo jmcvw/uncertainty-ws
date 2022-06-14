@@ -48,6 +48,8 @@ body, div.content-wrapper {
 .small-box .small-box-footer {
   text-align: left;
   color: #e9415e;
+  font-size: 1.5rem;
+  padding: 0.2rem;
 }
 
 .small-box > .small-box-footer:hover {

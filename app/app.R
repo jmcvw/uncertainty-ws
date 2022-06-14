@@ -1,33 +1,3 @@
-library(shiny)
-library(bs4Dash)
-
-pal <- c(students1  = "#38b0e3",
-         students2  = "#50a3cd",
-         students3  = "#e8f3f9",
-         partners1  = "#fad350",
-         data1      = "#e9415e",
-         psd_blue1  = "#1b3445",
-         partners2  = "#e3c375",
-         data2      = "#fef0f2",
-         psd_blue2  = "#0f252f")
-
-
-expected_mean <- 100
-mean_init <- sample(seq(90, 120, 5), 1)
-
-res <- t.test(rnorm(100))
-p <- res$p.value
-alpha <- 0.05 / 2
-
-
-xs <- seq(-4, 4, l = 100)
-distr_data <- list(
-  xs = xs, dfun = dnorm(xs), pfun = pnorm(xs)
-)
-
-
-
-
 ui <- dashboardPage(dark = NULL, title = 'Understanding Uncertainty',
 
   header = dashboardHeader(disable = TRUE,
@@ -41,15 +11,12 @@ ui <- dashboardPage(dark = NULL, title = 'Understanding Uncertainty',
 
   dashboardSidebar(
     fluidRow(
-      # column(2,
-             numericInput('sample_mean', label = 'Mean',
-                          value = mean_init, min = 0, max = 100),
-             numericInput('sample_sd', label = 'SD',
-                          value = 10, min = 1, max = 20),
+             numericInput('sample_mean', label = 'Average value',
+                          value = mean_init, min = 0, max = 150),
+             numericInput('sample_sd', label = 'Spread of values',
+                          value = 1, min = 1, max = 20),
              numericInput('n_x', label = 'Number of observations',
-                          value = 20, min = 10, max = 200),
-             # numericInput('n_y', label = 'N y', value = 1e6, min = 100, max = 1e6)
-      # )
+                          value = 2, min = 10, max = 200),
       column(2,
              div(width = '200px',
              img(src = 'freeagent-brand-assets__logo--white/freeagent-logo-white.png'))
@@ -67,18 +34,15 @@ ui <- dashboardPage(dark = NULL, title = 'Understanding Uncertainty',
              plotOutput('plot2')
     )
     ),
-    fluidRow(
-             bs4ValueBoxOutput('vb_pval', width = 3),
-             bs4ValueBoxOutput('vb_ci', width = 3),
-             bs4ValueBoxOutput('vb_dqfun', width = 3),
-             bs4ValueBoxOutput('vb_cdf', width = 3)
-    )
+    valueBoxUI('vb')
   )
 )
 
-server <- function(input, output) {
+server <- function(input, output, session) {
 
   x <- reactive({
+    req(input$sample_mean, input$sample_sd >= 1, input$n_x >= 2)
+
     res <- t.test(rnorm(input$n_x, input$sample_mean, input$sample_sd), mu = expected_mean)
 
     list(estimate = res$estimate,
@@ -93,9 +57,9 @@ server <- function(input, output) {
 
 
   output$plot1 <- renderPlot({
-    validate(need(input$sample_mean, 'Please enter a value for the mean'),
-             need(input$sample_sd, 'Please enter a value for the Standard deviation'),
-             need(input$n_x > 1, 'Please enter a value of 2 or more for the sample size'))
+    validate(need(input$sample_mean, 'Please enter a value for the mean.'),
+             need(input$sample_sd >= 1, 'Data must have a spread greater than 0.'),
+             need(input$n_x >= 2, 'Please enter a value of 2 or more for the sample size.'))
 
     par(mar = c(2,6,1,1), bg = pal['students1'])
 
@@ -112,7 +76,7 @@ server <- function(input, output) {
   })
 
   output$plot2 <- renderPlot({
-    req(input$sample_mean, input$sample_sd, input$n_x > 1)
+    req(input$sample_mean, input$sample_sd > 0, input$n_x > 1)
 
     par(mar = c(3, 8, 1, 1), mfrow = c(2, 1),
         xpd = TRUE, bg = pal['students1'])
@@ -123,7 +87,7 @@ server <- function(input, output) {
          axes = F, cex = 4)
 
     mtext('Probability\ndensity\n', side = 2, line = 3,
-          cex = 1.8, col = '#1b3445', outer = FALSE)
+          cex = 1.8, col = pal['psd_blue1'], outer = FALSE)
 
     abline(v = -4:4, col = 'grey90')
     axis(2, 0:4/10, las = 1, cex.axis = 2)
@@ -146,14 +110,12 @@ server <- function(input, output) {
     plot(distr_data$xs, distr_data$pfun, cex.axis = 2,
          las = 1, type = 'n', bty = 'n',
          xlab = '', ylab = '')
-    # abline(v = -4:4, col = 'grey90')
     mtext('Cumulative\ndistribution\n', side = 2, line = 3,
-          cex = 1.8, col = '#1b3445', outer = F)
+          cex = 1.8, col = pal['psd_blue1'], outer = F)
     segments(-4:4, rep(-.05, 9), -4:4, rep(2, 9), col = 'grey90')
 
     lines(distr_data$xs, distr_data$pfun, lwd = 6, col = pal['psd_blue1'])
 
-    # abline(v = qnorm(c(alpha, 1 - alpha)), col = 'pink')
     points(0, 0.5, pch = '|', cex = 2, col = pal['psd_blue1'])
     points(x()$qfun, x()$pval,
            pch = 21, col = pal['psd_blue1'], bg = pal['data1'],
@@ -166,54 +128,8 @@ server <- function(input, output) {
 
   })
 
-  output$vb_pval <- renderbs4ValueBox({
-    req(input$sample_mean, input$sample_sd, input$n_x > 1)
-
-    bs4ValueBox(
-      value = if (x()$pval < 0.001) paste('< 0.001') else round(x()$pval, 3),
-      # subtitle = 'Plausibility',
-      subtitle = '',
-      icon = icon('hat-wizard'),
-      color = if(x()$pval < 0.05) 'success' else 'lightblue',
-      footer = a('P value ', href = 'stats-definitions.html', target = 'blank')
-      # href = 'plausibility.html'
-    )
-  })
-
-  output$vb_ci <- renderbs4ValueBox({
-    req(input$sample_mean, input$sample_sd, input$n_x > 1)
-
-    bs4ValueBox(
-      # title = 'Confidence interval',
-      subtitle = '',
-      value = paste(round(c(x()$ci_lwr, x()$ci_upr), 1), collapse = ' - '),
-      icon = icon('arrows-alt-v'),
-      color = if(x()$ci_lwr < expected_mean & x()$ci_upr > expected_mean) 'warning' else 'success',
-      footer = a('Confidence interval ', href = 'stats-definitions.html', target = 'blank')
-    )
-  })
-
-  output$vb_dqfun <- renderbs4ValueBox({
-    req(input$sample_mean, input$sample_sd, input$n_x > 1)
-
-    bs4ValueBox(
-      value = round(x()$dqfun, 3),
-      subtitle = "",
-      icon = icon('info'),
-      footer = a('Density function ', href = 'stats-definitions.html', target = 'blank')
-    )
-  })
-
-  output$vb_cdf <- renderbs4ValueBox({
-    req(input$sample_mean, input$sample_sd, input$n_x > 1)
-
-    bs4ValueBox(
-      value = round(x()$cdf, 3),
-      subtitle = "",
-      icon = icon('info'),
-      footer = a('Distribution function ', href = 'stats-definitions.html', target = 'blank')
-    )
-  })
+  valueBoxServer('vb', x)
 }
 
 
+shinyApp(ui, server, options = list(port = 4466), onStart = \() source('global.R'))
