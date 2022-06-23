@@ -39,32 +39,7 @@ ui <- dashboardPage(dark = NULL, fullscreen = TRUE, title = 'Understanding Uncer
       )
     ),
     valueBoxUI('vb'),
-
-
-    fluidRow(
-
-      column(11,
-             accordion(
-               id = "accordion_data",
-               accordionItem(
-                 title = "Data",
-                 status = "lightblue",
-                 collapsed = TRUE,
-                 fluidRow(
-                   column(8,
-                          p(strong('Five number summary')),
-                          tableOutput('data_5num')
-                   ),
-                   column(3,
-                          p(strong('The data')),
-                          tableOutput('data_table'),
-                   )
-                 )
-               )
-             )
-      )
-    )
-
+    accordionUI('data_summary')
   )
 )
 
@@ -73,9 +48,11 @@ server <- function(input, output, session) {
   test_data <- reactive({
       rnorm(input$n_x, input$sample_mean, input$sample_sd)
   }) |>
-    bindEvent(input$update_btn, input$n_x, ignoreNULL = FALSE)
+    bindEvent(input$update_btn, input$sample_mean,
+              input$sample_sd, input$n_x,
+              ignoreNULL = FALSE)
 
-  x <- reactive({
+  test_res <- reactive({
     req(input$sample_mean, input$sample_sd >= 1, input$n_x >= 2)
 
     res <- t.test(test_data(),
@@ -83,14 +60,14 @@ server <- function(input, output, session) {
 
     p <- res$p.value / 2
     list(estimate = res$estimate,
-         tval   = res$statistic,
-         pval   = res$p.val,
-         alpha  = 1 - attr(res$conf.int, 'conf.level'),
-         ci_lwr = res$conf.int[1],
-         ci_upr = res$conf.int[2],
-         dfun   = dnorm(p),
-         qfun   = qnorm(p),
-         dqfun  = dnorm(qnorm(p))
+         tval     = res$statistic,
+         pval     = res$p.val,
+         alpha    = 1 - attr(res$conf.int, 'conf.level'),
+         ci_lwr   = res$conf.int[1],
+         ci_upr   = res$conf.int[2],
+         dfun     = dnorm(p),
+         qfun     = qnorm(p),
+         dqfun    = dnorm(qnorm(p))
          )
   })
 
@@ -109,10 +86,10 @@ server <- function(input, output, session) {
     abline(h = expected_mean, col = pal['partners1'], lwd = 3)
     text(.7, y = expected_mean, labels = 'Expected', col = pal['partners1'],
          cex = 1.5, pos = 3)
-    text(1, y = x()$estimate, labels = (paste('Observed:\n', round(x()$estimate, 2))), col = pal['psd_blue'],
+    text(1, y = test_res()$estimate, labels = (paste('Observed:\n', round(test_res()$estimate, 2))), col = pal['psd_blue'],
          cex = 1.5, pos = 4, offset = 2)
-    if ('CI' %in% input$show_stuff) arrows(1, x()$ci_lwr, 1, x()$ci_upr, angle = 90, code = 3, lwd = 3)
-    points(1, x()$estimate, pch = 21, col = pal['psd_blue1'], bg = pal['data1'], lwd = 4, cex = 3)
+    if ('CI' %in% input$show_stuff) arrows(1, test_res()$ci_lwr, 1, test_res()$ci_upr, angle = 90, code = 3, lwd = 3)
+    points(1, test_res()$estimate, pch = 21, col = pal['psd_blue1'], bg = pal['data1'], lwd = 4, cex = 3)
 
     if ('Points' %in% input$show_stuff)
       points(jitter(rep(.9, input$n_x)), test_data(), pch = 20, col = pal['data1'], cex = 1)
@@ -129,7 +106,7 @@ server <- function(input, output, session) {
     abline(v = -4:4, col = 'grey90')
     add_p_curve(distr_data, 'p')
     abline(v = sig_threshold, col = pal['partners1'], lwd = 3)
-    add_prob_lines(x()$qfun, x()$pval/2, -10)
+    add_prob_lines(test_res()$qfun, test_res()$pval/2, -10)
 
     # --------------------------------------------- #
 
@@ -139,21 +116,19 @@ server <- function(input, output, session) {
     add_p_curve(distr_data, 'd')
     segments(sig_threshold, -.01, sig_threshold, .5,
              col = pal['partners1'], lwd = 3)
-    add_prob_lines(x()$qfun, x()$dqfun, 10)
+    add_prob_lines(test_res()$qfun, test_res()$dqfun, 10)
 
   })
-  # distrPlotServer('distr_plot', x, distr_data, isolate(input$alpha), pal)
+  # distrPlotServer('distr_plot', test_res, distr_data, reactive(input$alpha), pal)
 
-  valueBoxServer('vb', x)
+  valueBoxServer('vb', test_res)
 
-  output$data_5num <- renderTable({
-    s <- summary(test_data())
-    as.matrix(s)
-  }, rownames = TRUE, colnames = FALSE, digits = 2, hover = TRUE)
-
-  output$data_table <- renderTable({
-    sort(test_data())
-  }, colnames = FALSE, digits = 2, hover = TRUE)
+  ri <- reactive({
+    list(mn = input$sample_mean,
+         sd = input$sample_sd)
+  })
+  accordionServer('data_summary', test_data,
+                  ri()$mn, ri()$sd)
 }
 
 shinyApp(ui, server, options = list(port = 3388))
