@@ -13,6 +13,8 @@ pal <- c(students1  = "#38b0e3",
          data2      = "#fef0f2",
          psd_blue2  = "#0f252f")
 
+# Init --------------------------------------------------------------------
+
 expected_mean <- 100
 mean_init <- 100#sample(seq(90, 120, 5), 1)
 
@@ -26,14 +28,11 @@ distr_data <- list(
   xs = xs, dfun = dnorm(xs), pfun = pnorm(xs)
 )
 
-
-# Init --------------------------------------------------------------------
-
-input_init <- list(inputId = c('n_x', 'sample_mean', 'sample_sd'),
-                   label   = c('Number of observations', 'Average value', 'Spread of values'),
-                   value   = c(2, mean_init, 20),
-                   min     = c(10, 0, 10),
-                   max     = c(200, 150, 20))
+input_init <- list(inputId = c('sample_mean', 'n_x', 'sample_sd'),
+                   label   = c('Average value', 'Number of observations', 'Spread of values'),
+                   value   = c(mean_init, 5, 20),
+                   min     = c(10, 2, 10),
+                   max     = c(120, 1e6, 20))
 
 
 # Carousel ----------------------------------------------------------------
@@ -172,11 +171,9 @@ distrPlotServer <- function(id, x, distr_data, sig, pal) {
 # Valueboxes --------------------------------------------------------------
 
 valueBoxUI <- function(id) {
-  tagList(
     fluidRow(
-      purrr::map(NS(id, c('pval', 'ci', 'dqfun', 'cdf')), width = 3, valueBoxOutput)
+      purrr::map(NS(id, c('pval', 'ci', 'cdf', 'dfun')), width = 3, valueBoxOutput)
     )
-  )
 }
 
 
@@ -188,7 +185,7 @@ valueBoxServer <- function(id, x) {
                      value = if (x()$pval < 0.001) paste('< 0.001') else round(x()$pval, 3),
                      subtitle = '',
                      icon = icon('hat-wizard'),
-                     color = if(x()$pval < 0.05) 'success' else 'lightblue',
+                     color = if(x()$pval < x()$alpha) 'success' else 'lightblue',
                      footer = a('P value ', href = 'stats-definitions.html', target = 'blank')
                    )
                  })
@@ -211,7 +208,16 @@ valueBoxServer <- function(id, x) {
                    )
                  })
 
-                 output$dqfun <- renderValueBox({
+                 output$cdf <- renderValueBox({
+                   valueBox(
+                     value = round(x()$pval, 3),
+                     subtitle = "",
+                     icon = icon('info'),
+                     footer = a('Cumulative distribution ', href = 'stats-definitions.html', target = 'blank')
+                   )
+                 })
+
+                 output$dfun <- renderValueBox({
                    valueBox(
                      value = round(x()$dqfun, 3),
                      subtitle = "",
@@ -220,14 +226,6 @@ valueBoxServer <- function(id, x) {
                    )
                  })
 
-                 output$cdf <- renderValueBox({
-                   valueBox(
-                     value = round(x()$cdf, 3),
-                     subtitle = "",
-                     icon = icon('info'),
-                     footer = a('Cumulative distribution ', href = 'stats-definitions.html', target = 'blank')
-                   )
-                 })
                }
   )
 }

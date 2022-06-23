@@ -1,8 +1,6 @@
-# library(shiny)
-# library(bs4Dash)
-# source('global.R')
+source('global.R')
 
-ui <- dashboardPage(dark = NULL, title = 'Understanding Uncertainty',
+ui <- dashboardPage(dark = NULL, fullscreen = TRUE, title = 'Understanding Uncertainty',
 
   header = dashboardHeader(#disable = TRUE,
     title = dashboardBrand(
@@ -15,11 +13,16 @@ ui <- dashboardPage(dark = NULL, title = 'Understanding Uncertainty',
   dashboardSidebar(minified = FALSE, width = '200px',
     fluidRow(
       purrr::pmap(input_init, numericInput),
-      actionButton('update_btn', 'New sample', ),
-      checkboxInput('show_ci', 'Show error bars?'),
-      radioButtons('alpha', 'Set Confidence level',
+      actionButton('update_btn', 'New sample'),
+
+      checkboxGroupInput('show_stuff', 'Show...', choices = c('Points', 'CI')),
+      # checkboxInput('show_ci', 'Show error bars?'),
+      # checkboxInput('show_points', 'Show points?'),
+
+      radioButtons('alpha', 'Set confidence level',
                    choiceNames = paste(c(99, 95, 90), '%'),
-                   choiceValues = 1-c(0.01, 0.05, 0.1), selected = 1-0.05)
+                   choiceValues = 1-c(0.01, 0.05, 0.1), selected = 1-0.05),
+      # checkboxInput('debug', 'Debug?'),
     )
   ),
 
@@ -35,30 +38,60 @@ ui <- dashboardPage(dark = NULL, title = 'Understanding Uncertainty',
              # distrPlotUI('distr_plot')
       )
     ),
-    valueBoxUI('vb')
+    valueBoxUI('vb'),
+
+
+    fluidRow(
+
+      column(11,
+             accordion(
+               id = "accordion_data",
+               accordionItem(
+                 title = "Data",
+                 status = "lightblue",
+                 collapsed = TRUE,
+                 fluidRow(
+                   column(8,
+                          p(strong('Five number summary')),
+                          tableOutput('data_5num')
+                   ),
+                   column(3,
+                          p(strong('The data')),
+                          tableOutput('data_table'),
+                   )
+                 )
+               )
+             )
+      )
+    )
+
   )
 )
 
 server <- function(input, output, session) {
 
   test_data <- reactive({
-    rnorm(input$n_x, input$sample_mean, input$sample_sd)
-  }) %>%
+      rnorm(input$n_x, input$sample_mean, input$sample_sd)
+  }) |>
     bindEvent(input$update_btn, input$n_x, ignoreNULL = FALSE)
 
   x <- reactive({
     req(input$sample_mean, input$sample_sd >= 1, input$n_x >= 2)
 
-    res <- t.test(test_data(), mu = expected_mean, conf.level = as.numeric(input$alpha))
+    res <- t.test(test_data(),
+                  mu = expected_mean, conf.level = as.numeric(input$alpha))
 
+    p <- res$p.value / 2
     list(estimate = res$estimate,
-         tval     = res$statistic,
-         pval     = res$p.val,
-         ci_lwr   = res$conf.int[1],
-         ci_upr   = res$conf.int[2],
-         qfun     = qnorm(res$p.value),
-         cdf      = pnorm(res$p.value),
-         dqfun    = dnorm(qnorm(res$p.value)))
+         tval   = res$statistic,
+         pval   = res$p.val,
+         alpha  = 1 - attr(res$conf.int, 'conf.level'),
+         ci_lwr = res$conf.int[1],
+         ci_upr = res$conf.int[2],
+         dfun   = dnorm(p),
+         qfun   = qnorm(p),
+         dqfun  = dnorm(qnorm(p))
+         )
   })
 
   output$difference_plot <- renderPlot({
@@ -76,10 +109,13 @@ server <- function(input, output, session) {
     abline(h = expected_mean, col = pal['partners1'], lwd = 3)
     text(.7, y = expected_mean, labels = 'Expected', col = pal['partners1'],
          cex = 1.5, pos = 3)
-    text(1, y = x()$estimate, labels = 'Observed', col = pal['psd_blue'],
+    text(1, y = x()$estimate, labels = (paste('Observed:\n', round(x()$estimate, 2))), col = pal['psd_blue'],
          cex = 1.5, pos = 4, offset = 2)
-    if (input$show_ci) arrows(1, x()$ci_lwr, 1, x()$ci_upr, angle = 90, code = 3, lwd = 3)
+    if ('CI' %in% input$show_stuff) arrows(1, x()$ci_lwr, 1, x()$ci_upr, angle = 90, code = 3, lwd = 3)
     points(1, x()$estimate, pch = 21, col = pal['psd_blue1'], bg = pal['data1'], lwd = 4, cex = 3)
+
+    if ('Points' %in% input$show_stuff)
+      points(jitter(rep(.9, input$n_x)), test_data(), pch = 20, col = pal['data1'], cex = 1)
   })
 
   output$distr_plot <- renderPlot({
@@ -88,29 +124,36 @@ server <- function(input, output, session) {
     par(mar = c(3, 8, 1, 1), mfrow = c(2, 1),
         xpd = TRUE, bg = pal['students1'])
 
-    plot_base(distr_data$xs, distr_data$dfun, FALSE,
-              0:4/10, 'Probability\ndensity\n')
+    plot_base(distr_data$xs, distr_data$pfun, FALSE,
+              seq(0, 1, .25), 'Cumulative\ndistribution\n')
     abline(v = -4:4, col = 'grey90')
-    add_p_curve(distr_data, 'd')
+    add_p_curve(distr_data, 'p')
     abline(v = sig_threshold, col = pal['partners1'], lwd = 3)
-    add_prob_lines(x()$qfun, x()$dqfun, -10)
+    add_prob_lines(x()$qfun, x()$pval/2, -10)
 
     # --------------------------------------------- #
 
-    plot_base(distr_data$xs, distr_data$pfun, TRUE,
-              seq(0, 1, .25), 'Cumulative\ndistribution\n')
-    segments(-4:4, rep(-.05, 9), -4:4, rep(2, 9), col = 'grey90')
-    add_p_curve(distr_data, 'p')
-    segments(sig_threshold, -.1, sig_threshold, 1.2,
+    plot_base(distr_data$xs, distr_data$dfun, TRUE,
+              0:4/10, 'Probability\ndensity\n')
+    segments(-4:4, rep(-.01, 9), -4:4, rep(.5, 9), col = 'grey90')
+    add_p_curve(distr_data, 'd')
+    segments(sig_threshold, -.01, sig_threshold, .5,
              col = pal['partners1'], lwd = 3)
-    add_prob_lines(x()$qfun, x()$pval, 10)
+    add_prob_lines(x()$qfun, x()$dqfun, 10)
 
   })
   # distrPlotServer('distr_plot', x, distr_data, isolate(input$alpha), pal)
 
   valueBoxServer('vb', x)
+
+  output$data_5num <- renderTable({
+    s <- summary(test_data())
+    as.matrix(s)
+  }, rownames = TRUE, colnames = FALSE, digits = 2, hover = TRUE)
+
+  output$data_table <- renderTable({
+    sort(test_data())
+  }, colnames = FALSE, digits = 2, hover = TRUE)
 }
 
-shinyApp(ui, server, onStart = \() source('global.R'))
-
-
+shinyApp(ui, server, options = list(port = 3388))

@@ -111,3 +111,11 @@ div.callout-tip.callout-style-default > .callout-header {
 div.callout-tip.callout {
   border-left-color: #1b3445;
 }
+
+.ml-auto {
+  margin-left: revert;
+}
+
+.accordion {
+  margin-top: 80px;
+}

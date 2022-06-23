@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>stats-definitions</title>
+<title>Stats definitions</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -39,7 +39,21 @@ ul.task-list{list-style: none;}
 
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Stats definitions</h1>
+</div>
 
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
 
 <div class="quarto-figure quarto-figure-left">
 <figure class="figure">
@@ -47,7 +61,7 @@ ul.task-list{list-style: none;}
 </figure>
 </div>
 <div class="callout-tip callout callout-style-default no-icon callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -56,17 +70,33 @@ P value
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>When a change in what we do is followed by some change, it is tempting to believe that the change happened as a response to the change we implemented. For example, if after updating our website we receive a higher than usual income from sales, we might ascribe this increase to the new website.</p>
 <p>Week to week, income will usually be fairly typical, but not exactly the same. The exact income will swing higher and lower around some expected number It is even possible for these wobbles to be quite extreme, just from sheer randomness.</p>
 <p>The value in this box gives a way to assess how unusual the income is actually likely to be. The more extreme the swing the more unusual the result will be, and the lower this number will become. This number gives us a more objective idea of just how unusual a given sample is.</p>
-<p>The box will turn green whenever the value is considered “meaningful”.</p>
+<p>The box will turn green whenever the value is considered “meaningful”. It should also be noted that even the tiniest difference could be shown as meaningful if the sample size is large enough.</p>
+<div class="callout-warning callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+For the pendant
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Be aware that this is for illustration of concepts only. In reality, while the historic mean is a known quantity, it is also an estimation of what the <em>real mean</em> for the given situation might be - i.e.&nbsp;if history itself could be repeated an infinite number of times. In particular, the expeted value would be more correctly shown with some indication of its own inherent uncertainty. This might be shown through its own confidence interval (or its <strong>standard error</strong>).</p>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div class="callout-tip callout callout-style-default no-icon callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -75,7 +105,7 @@ Confidence interval
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Even if we believe the difference in income truly is because of our website intervention, there will still be some fluctuation around the <strong>new</strong> modified average. If we took the average every week, they would be slightly different. While we can compute the average for each week, the <strong>true, underlying</strong> average will always be an unknown. We can, however, construct a margin around each week’s average that will give a sense of the true average. The number shown here allows us to have some confidence that 95% of the margins we construct will cover the true, underlying average.</p>
 <ul>
@@ -86,11 +116,33 @@ Confidence interval
 <li><strong>green:</strong> the observed value is higher than expected and the expected value is not covered by the error bars.</li>
 </ul></li>
 </ul>
+<div class="callout-warning callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+For the pendant
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Although it is possible to show confidence intervals immediately this app initializes, be aware that it starts with sample of size 2. Confidence intervals for a sample of that size are pointless at best and misleading if used with nefarious intent!</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi0.wp.com%2Ftruepundit.com%2Fwp-content%2Fuploads%2F2019%2F09%2Fh2-trump-black-marker-sharpie-map-hurricane-dorian-alabama.jpg%3Ffit%3D960%252C540%26ssl%3D1&amp;f=1&amp;nofb=1" class="img-fluid figure-img" style="width:30.0%"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">Trump’s doctored hurricane map. Shows confidence interval for path of hurricane, plus… ??</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div class="callout-tip callout callout-style-default no-icon callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -99,7 +151,7 @@ Density function
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="quarto-figure quarto-figure-left">
 <figure class="figure">
@@ -114,7 +166,7 @@ Density function
 </div>
 </div>
 <div class="callout-tip callout callout-style-default no-icon callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -123,12 +175,28 @@ Cumulative distribution function
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><img src="cdf.png" class="img-fluid" data-fig-align="left" alt="S-shaped curve with threshhold at left tail" width="200"> The cumulative distribution curve is related to the density curve. In the density curve all possibilities are contained under the curve, such that the area adds up to one. The cumulative distribution instead adds up all the possibilities and plot them on a line. A given point on the line gives the probability of obtaining any value less than the chosen point</p>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="cdf.png" class="img-fluid figure-img" alt="S-shaped curve with threshhold at left tail" width="200"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">Probability density curve</figcaption><p></p>
+</figure>
+</div>
+<p>The cumulative distribution curve is related to the density curve. In the density curve all possibilities are contained under the curve, such that the area adds up to one. The cumulative distribution instead adds up all the possibilities and plot them on a line. A given point on the line gives the probability of obtaining any value less than the chosen point</p>
 </div>
 </div>
 </div>
+<p>==highlighted?==</p>
+<p>:joy:</p>
+<ul class="task-list">
+<li><input type="checkbox" disabled="" checked="">
+Write the press release</li>
+<li><input type="checkbox" disabled="">
+Update the website</li>
+<li><input type="checkbox" disabled="">
+Contact the media</li>
+</ul>
 
 </main>
 <!-- /main column -->
