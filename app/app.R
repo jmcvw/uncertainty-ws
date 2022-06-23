@@ -31,7 +31,8 @@ ui <- dashboardPage(dark = NULL, fullscreen = TRUE, title = 'Understanding Uncer
 
     fluidRow(
       column(6,
-             plotOutput('difference_plot')
+             # plotOutput('difference_plot')
+             diffPlotUI('diff_plot')
       ),
       column(6,
              plotOutput('distr_plot')
@@ -39,31 +40,7 @@ ui <- dashboardPage(dark = NULL, fullscreen = TRUE, title = 'Understanding Uncer
       )
     ),
     valueBoxUI('vb'),
-
-
-    fluidRow(
-
-      column(11,
-             accordion(
-               id = "accordion_data",
-               accordionItem(
-                 title = "Data",
-                 status = "lightblue",
-                 collapsed = TRUE,
-                 fluidRow(
-                   column(8,
-                          p(strong('Five number summary')),
-                          tableOutput('data_5num')
-                   ),
-                   column(3,
-                          p(strong('The data')),
-                          tableOutput('data_table'),
-                   )
-                 )
-               )
-             )
-      )
-    )
+    accordionUI('data_summary')
 
   )
 )
@@ -75,7 +52,7 @@ server <- function(input, output, session) {
   }) |>
     bindEvent(input$update_btn, input$n_x, ignoreNULL = FALSE)
 
-  x <- reactive({
+  test_res <- reactive({
     req(input$sample_mean, input$sample_sd >= 1, input$n_x >= 2)
 
     res <- t.test(test_data(),
@@ -94,29 +71,42 @@ server <- function(input, output, session) {
          )
   })
 
-  output$difference_plot <- renderPlot({
-    validate(
-      need(input$n_x >= 2, 'There must be at least 2 observations.'),
-      need(input$sample_mean, 'Enter a value for the average.'),
-      need(input$sample_sd >= 1, 'Enter a value greater than 1 for the spread.')
+  ri <- reactive({
+    list(nx = input$n_x,
+         smn = input$sample_mean,
+         ssd = input$sample_sd,
+         al = input$alpha,
+         ss = input$show_stuff
     )
-
-    par(mar = c(2,6,1,1), bg = pal['students1'])
-
-    plot(1, ylim = c(0, 150), axes = FALSE, type = 'n',
-         xlab = '', ylab = '')
-    axis(2, seq(0, 150, 50), las = 1, cex.axis = 2)
-    abline(h = expected_mean, col = pal['partners1'], lwd = 3)
-    text(.7, y = expected_mean, labels = 'Expected', col = pal['partners1'],
-         cex = 1.5, pos = 3)
-    text(1, y = x()$estimate, labels = (paste('Observed:\n', round(x()$estimate, 2))), col = pal['psd_blue'],
-         cex = 1.5, pos = 4, offset = 2)
-    if ('CI' %in% input$show_stuff) arrows(1, x()$ci_lwr, 1, x()$ci_upr, angle = 90, code = 3, lwd = 3)
-    points(1, x()$estimate, pch = 21, col = pal['psd_blue1'], bg = pal['data1'], lwd = 4, cex = 3)
-
-    if ('Points' %in% input$show_stuff)
-      points(jitter(rep(.9, input$n_x)), test_data(), pch = 20, col = pal['data1'], cex = 1)
   })
+
+
+  diffPlotServer('diff_plot', test_data, test_res,
+                 ri()$nx, ri()$smn, ri()$ssd, ri()$ss)
+
+  # output$difference_plot <- renderPlot({
+  #   validate(
+  #     need(input$n_x >= 2, 'There must be at least 2 observations.'),
+  #     need(input$sample_mean, 'Enter a value for the average.'),
+  #     need(input$sample_sd >= 1, 'Enter a value greater than 1 for the spread.')
+  #   )
+  #
+  #   par(mar = c(2,6,1,1), bg = pal['students1'])
+  #
+  #   plot(1, ylim = c(0, 150), axes = FALSE, type = 'n',
+  #        xlab = '', ylab = '')
+  #   axis(2, seq(0, 150, 50), las = 1, cex.axis = 2)
+  #   abline(h = expected_mean, col = pal['partners1'], lwd = 3)
+  #   text(.7, y = expected_mean, labels = 'Expected', col = pal['partners1'],
+  #        cex = 1.5, pos = 3)
+  #   text(1, y = test_res()$estimate, labels = (paste('Observed:\n', round(test_res()$estimate, 2))), col = pal['psd_blue'],
+  #        cex = 1.5, pos = 4, offset = 2)
+  #   if ('CI' %in% input$show_stuff) arrows(1, test_res()$ci_lwr, 1, test_res()$ci_upr, angle = 90, code = 3, lwd = 3)
+  #   points(1, test_res()$estimate, pch = 21, col = pal['psd_blue1'], bg = pal['data1'], lwd = 4, cex = 3)
+  #
+  #   if ('Points' %in% input$show_stuff)
+  #     points(jitter(rep(.9, input$n_x)), test_data(), pch = 20, col = pal['data1'], cex = 1)
+  # })
 
   output$distr_plot <- renderPlot({
     sig_threshold <- qnorm((1 - as.numeric(input$alpha)) / 2)
@@ -129,7 +119,7 @@ server <- function(input, output, session) {
     abline(v = -4:4, col = 'grey90')
     add_p_curve(distr_data, 'p')
     abline(v = sig_threshold, col = pal['partners1'], lwd = 3)
-    add_prob_lines(x()$qfun, x()$pval/2, -10)
+    add_prob_lines(test_res()$qfun, test_res()$pval/2, -10)
 
     # --------------------------------------------- #
 
@@ -139,21 +129,16 @@ server <- function(input, output, session) {
     add_p_curve(distr_data, 'd')
     segments(sig_threshold, -.01, sig_threshold, .5,
              col = pal['partners1'], lwd = 3)
-    add_prob_lines(x()$qfun, x()$dqfun, 10)
+    add_prob_lines(test_res()$qfun, test_res()$dqfun, 10)
 
   })
   # distrPlotServer('distr_plot', x, distr_data, isolate(input$alpha), pal)
 
-  valueBoxServer('vb', x)
+  valueBoxServer('vb', test_res)
 
-  output$data_5num <- renderTable({
-    s <- summary(test_data())
-    as.matrix(s)
-  }, rownames = TRUE, colnames = FALSE, digits = 2, hover = TRUE)
 
-  output$data_table <- renderTable({
-    sort(test_data())
-  }, colnames = FALSE, digits = 2, hover = TRUE)
+  accordionServer('data_summary', test_data, ri()$smn, ri()$ssd)
+
 }
 
 shinyApp(ui, server, options = list(port = 3388))
