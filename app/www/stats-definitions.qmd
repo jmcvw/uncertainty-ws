@@ -2,11 +2,12 @@
 title: 'Stats definitions'
 format:
   html:
-    self-contained: false
+    self-contained: true
+    include-before-body: cc-data-banner.html
     css: cc-style-bs4.css
 ---
 
-![](codeclan-logo-blue.png){width=200 fig-align='left' fig-alt='CodeClan logo'}
+<!-- ![](codeclan-logo-blue.png){width=200 fig-align='left' fig-alt='CodeClan logo'} -->
 
 :::{.callout-tip collapse=true icon=false}
 ## P value
