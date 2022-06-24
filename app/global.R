@@ -1,27 +1,23 @@
 library(shiny)
 library(bs4Dash)
 
-# Values / data -----------------------------------------------------------
+# Init Values / data -----------------------------------------------------------
 
 ccpal <- c(students1  = "#38b0e3",
-         students2  = "#50a3cd",
-         students3  = "#e8f3f9",
-         partners1  = "#fad350",
-         data1      = "#e9415e",
-         psd_blue1  = "#1b3445",
-         partners2  = "#e3c375",
-         data2      = "#fef0f2",
-         psd_blue2  = "#0f252f")
+           students2  = "#50a3cd",
+           students3  = "#e8f3f9",
+           partners1  = "#fad350",
+           data1      = "#e9415e",
+           psd_blue1  = "#1b3445",
+           partners2  = "#e3c375",
+           data2      = "#fef0f2",
+           psd_blue2  = "#0f252f")
 
-# Init --------------------------------------------------------------------
-
-expected_mean <- 100
 mean_init <- 100#sample(seq(90, 120, 5), 1)
 
 res <- t.test(rnorm(100))
 p <- res$p.value
 alpha <- 0.05 / 2
-
 
 xs <- seq(-4, 4, l = 100)
 distr_data <- list(
@@ -31,33 +27,9 @@ distr_data <- list(
 input_init <- list(inputId = c('sample_mean', 'n_x', 'sample_sd'),
                    label   = c('Average value', 'Number of observations', 'Spread of values'),
                    value   = c(mean_init, 5, 20),
-                   min     = c(10, 2, 10),
-                   max     = c(120, 1e6, 20))
+                   min     = c(10, 5, 10),
+                   max     = c(120, 1e6, 50))
 
-
-# Carousel ----------------------------------------------------------------
-
-# carousel(indicators = FALSE,
-#          id = "logoCarousel",
-#          carouselItem(
-#            img(src = 'freeagent-brand-assets__logo--white/freeagent-logo-white.png', width = 180)),
-#          carouselItem(
-#            p('Logos of other partners that we deliver this to?')
-#          ),
-#          carouselItem(
-#            img(src = 'codeclan-logo-white.png',
-#                href = 'https://codeclan.com/courses/data-courses/', width = 180))
-# )
-carouselUI <- function() {
-  logo_paths <- dir('www', patt = 'png$')
-# tagList(
-  carousel(indicators = FALSE,
-           id = "logoCarousel",
-           # lapply(c(logo_paths[3:2]), \(.) carouselItem(img(src = ., width = 180)))
-           # purrr::map(c(logo_paths[3:2]), ~carouselItem(img(src = ., width = 180)))
-  )
-  # )
-}
 
 # Modules -----------------------------------------------------------------
 
@@ -72,15 +44,15 @@ diffPlotUI <- function(id) {
   )
 }
 
-diffPlotServer <- function(id, sdata, res,
-                           nx, smn, ssd, ss) {
+diffPlotServer <- function(id, sdata, res, i) {
   moduleServer(
     id, function(input, output, session) {
       output$difference_plot <- renderPlot({
         validate(
-          need(nx >= 2, 'There must be at least 2 observations.'),
-          need(smn, 'Enter a value for the average.'),
-          need(ssd >= 1, 'Enter a value greater than 1 for the spread.')
+
+          need(i()$nx >= 2, 'There must be at least 2 observations.'),
+          need(i()$smn, 'Enter a value for the average.'),
+          need(i()$ssd >= 1, 'Enter a value greater than 1 for the spread.')
         )
 
         par(mar = c(2,6,1,1), bg = ccpal['students1'])
@@ -88,21 +60,20 @@ diffPlotServer <- function(id, sdata, res,
         plot(1, ylim = c(0, 150), axes = FALSE, type = 'n',
              xlab = '', ylab = '')
         axis(2, seq(0, 150, 50), las = 1, cex.axis = 2)
-        abline(h = expected_mean, col = ccpal['partners1'], lwd = 3)
-        text(.7, y = expected_mean, labels = 'Expected', col = ccpal['partners1'],
+
+        abline(h = mean_init, col = ccpal['partners1'], lwd = 3)
+        text(.7, y = mean_init, labels = 'Expected', col = ccpal['partners1'],
              cex = 1.5, pos = 3)
         text(1, y = res()$estimate,
              labels = (paste('Observed:\n', round(res()$estimate, 2))),
              col = ccpal['psd_blue'], cex = 1.5,
              pos = 4, offset = 2)
 
-        # if (!'CI' %in% ss)   browser()
-
-        if ('CI' %in% ss)
+        if ('CI' %in% i()$ss)
           arrows(1, res()$ci_lwr, 1, res()$ci_upr, angle = 90, code = 3, lwd = 3)
 
-        if ('Points' %in% ss)
-          points(jitter(rep(.9, nx)), test_data(), pch = 20, col = ccpal['data1'], cex = 1)
+        if ('Points' %in% i()$ss)
+          points(jitter(rep(.9, i()$nx)), sdata(), pch = 20, col = ccpal['data1'], cex = 1)
 
         points(1, res()$estimate, pch = 21, col = ccpal['psd_blue1'], bg = ccpal['data1'], lwd = 4, cex = 3)
 
@@ -110,7 +81,7 @@ diffPlotServer <- function(id, sdata, res,
     })
 }
 
-# Distribution plot ------------------------------------------------------
+# Distribution plots ------------------------------------------------------
 
 distrPlotUI <- function(id) {
   ns <- NS(id)
@@ -119,11 +90,13 @@ distrPlotUI <- function(id) {
   )
 }
 
-distrPlotServer <- function(id, distr_data, res, al) {
+
+distrPlotServer <- function(id, distr_data, res, ri) {
   moduleServer(
     id, function(input, output, session) {
       output$distr_plot <- renderPlot({
-        sig_threshold <- qnorm((1 - as.numeric(al)) / 2)
+
+        sig_threshold <- qnorm((1 - as.numeric(ri()$al)) / 2)
 
         par(mar = c(3, 8, 1, 1), mfrow = c(2, 1),
             xpd = TRUE, bg = ccpal['students1'])
@@ -142,20 +115,20 @@ distrPlotServer <- function(id, distr_data, res, al) {
         segments(-4:4, rep(-.01, 9), -4:4, rep(.5, 9), col = 'grey90')
         add_p_curve(distr_data, 'd')
         segments(sig_threshold, -.01, sig_threshold, .5,
-                 col = ccpal['partners1'], lwd = 3)
+                 col = pal['partners1'], lwd = 3)
         add_prob_lines(res()$qfun, res()$dqfun, 10)
 
       })
-})
+    })
 }
 
 
-# Valueboxes --------------------------------------------------------------
+# Valueboxes module --------------------------------------------------------------
 
 valueBoxUI <- function(id) {
-    fluidRow(
-      purrr::map(NS(id, c('pval', 'ci', 'cdf', 'dfun')), width = 3, valueBoxOutput)
-    )
+  fluidRow(
+    purrr::map(NS(id, c('pval', 'ci', 'cdf', 'dfun')), width = 3, valueBoxOutput)
+  )
 }
 
 
@@ -173,9 +146,9 @@ valueBoxServer <- function(id, x) {
                  })
 
                  output$ci <- renderValueBox({
-                   footer_colour <- if (x()$ci_lwr > expected_mean) {
+                   footer_colour <- if (x()$ci_lwr > mean_init) {
                      'success'
-                   } else if (x()$ci_upr < expected_mean) {
+                   } else if (x()$ci_upr < mean_init) {
                      'danger'
                    } else {
                      'warning'
@@ -256,6 +229,7 @@ add_prob_lines <- function(x, y, y2) {
 }
 
 
+# Accordion module -------------------------------------------------------
 
 accordionUI <- function(id) {
   ns <- NS(id)
@@ -291,31 +265,31 @@ accordionUI <- function(id) {
 accordionServer <- function(id, sample_data, smn, ssd) {
 
   moduleServer(id,
-    function(input, output, session) {
+               function(input, output, session) {
 
-      output$data_5num <- renderTable({
-        s <- summary(sample_data())
-        as.matrix(s)
-      }, rownames = TRUE, colnames = FALSE, digits = 2, hover = TRUE)
+                 output$data_5num <- renderTable({
+                   s <- summary(sample_data())
+                   as.matrix(s)
+                 }, rownames = TRUE, colnames = FALSE, digits = 2, hover = TRUE)
 
-      output$data_hist <- renderPlot({
+                 output$data_hist <- renderPlot({
 
-        par(mar = c(5, 4, 1, 1))
+                   par(mar = c(5, 4, 1, 1))
 
-        x <- seq(min(sample_data()), max(sample_data()), l = 100)
+                   x <- seq(min(sample_data()), max(sample_data()), l = 100)
 
-        hist(sample_data(), freq = FALSE,
-             main = '', xlab = 'Sample values')
-        mtext(c('Theoretical distribution', 'Empirical distribution'), 1, 2:3, adj = 1, col = c(4, 2))
-        lines(density(sample_data()), col = 2)
+                   hist(sample_data(), freq = FALSE,
+                        main = '', xlab = 'Sample values')
+                   mtext(c('Theoretical distribution', 'Empirical distribution'), 1, 2:3, adj = 1, col = c(4, 2))
+                   lines(density(sample_data()), col = 2)
 
-        curve(dnorm(x, smn, ssd), col = 4, type = 'l', add = TRUE)
+                   curve(dnorm(x, smn, ssd), col = 4, type = 'l', add = TRUE)
 
-      })
+                 })
 
-      output$data_table <- renderTable({
-        sort(sample_data())[seq_len(min(length(sample_data()), 100))]
-      }, colnames = FALSE, digits = 2, hover = TRUE)
+                 output$data_table <- renderTable({
+                   sort(sample_data())[seq_len(min(length(sample_data()), 100))]
+                 }, colnames = FALSE, digits = 2, hover = TRUE)
 
-    })
+               })
 }
