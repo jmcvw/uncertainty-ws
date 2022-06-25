@@ -52,7 +52,7 @@ server <- function(input, output, session) {
   })
 
   test_data <- reactive({
-      rnorm(input$n_x, input$sample_mean, input$sample_sd)
+    rnorm(input$n_x, input$sample_mean, input$sample_sd)
   }) |>
     bindEvent(input$update_btn, input$n_x,
               input$sample_mean, input$sample_sd,
@@ -61,7 +61,7 @@ server <- function(input, output, session) {
   test_res <- reactive({
     req(input$sample_mean, input$sample_sd >= 1, input$n_x >= 2)
 
-    res <- t.test(test_data(), mu = expected_mean,
+    res <- t.test(test_data(), mu = mean_init,
                   conf.level = as.numeric(input$alpha))
 
     p <- res$p.value / 2
@@ -74,7 +74,7 @@ server <- function(input, output, session) {
          dfun     = dnorm(p),
          qfun     = qnorm(p),
          dqfun    = dnorm(qnorm(p))
-         )
+    )
   })
 
   diffPlotServer('diff_plot', test_data, test_res, ri)

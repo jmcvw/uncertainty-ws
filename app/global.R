@@ -72,8 +72,14 @@ diffPlotServer <- function(id, sdata, res, i) {
         if ('CI' %in% i()$ss)
           arrows(1, res()$ci_lwr, 1, res()$ci_upr, angle = 90, code = 3, lwd = 3)
 
-        if ('Points' %in% i()$ss)
-          points(jitter(rep(.9, i()$nx)), sdata(), pch = 20, col = ccpal['data1'], cex = 1)
+        if ('Points' %in% i()$ss) {
+
+          set.seed(Sys.Date())
+          j <- jitter(rep(.9, i()$nx))
+          set.seed(NULL)
+
+          points(j, sdata(), pch = 20, col = ccpal['data1'], cex = 1)
+        }
 
         points(1, res()$estimate, pch = 21, col = ccpal['psd_blue1'], bg = ccpal['data1'], lwd = 4, cex = 3)
 
@@ -115,7 +121,7 @@ distrPlotServer <- function(id, distr_data, res, ri) {
         segments(-4:4, rep(-.01, 9), -4:4, rep(.5, 9), col = 'grey90')
         add_p_curve(distr_data, 'd')
         segments(sig_threshold, -.01, sig_threshold, .5,
-                 col = pal['partners1'], lwd = 3)
+                 col = ccpal['partners1'], lwd = 3)
         add_prob_lines(res()$qfun, res()$dqfun, 10)
 
       })
