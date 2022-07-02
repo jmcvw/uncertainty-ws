@@ -61,8 +61,16 @@ server <- function(input, output, session) {
   test_res <- reactive({
     req(input$sample_mean, input$sample_sd >= 1, input$n_x >= 2)
 
-    res <- t.test(test_data(), mu = mean_init,
-                  conf.level = as.numeric(input$alpha))
+    again <- TRUE
+    while(again) {
+    d <- rnorm(input$n_x, input$sample_mean, input$sample_sd)
+      res <- t.test(d, mu = mean_init,
+                    conf.level = as.numeric(input$alpha))
+      if (res$p.value < .05) again <- FALSE
+    }
+
+# remembder stats-defs stash
+
 
     p <- res$p.value / 2
     list(estimate = res$estimate,

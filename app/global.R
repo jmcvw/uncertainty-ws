@@ -111,8 +111,8 @@ distrPlotServer <- function(id, distr_data, res, ri) {
                   seq(0, 1, .25), 'Cumulative\ndistribution\n')
         abline(v = -4:4, col = 'grey90')
         add_p_curve(distr_data, 'p')
-        abline(v = sig_threshold, col = ccpal['partners1'], lwd = 3)
-        add_prob_lines(res()$qfun, res()$pval/2, -10)
+        abline(v = c(sig_threshold, 1 - sig_threshold), col = ccpal['partners1'], lwd = 3)
+        add_prob_lines(qnorm(res()$pval), res()$pval, -10)
 
         # --------------------------------------------- #
 
@@ -120,9 +120,9 @@ distrPlotServer <- function(id, distr_data, res, ri) {
                   0:4/10, 'Probability\ndensity\n')
         segments(-4:4, rep(-.01, 9), -4:4, rep(.5, 9), col = 'grey90')
         add_p_curve(distr_data, 'd')
-        segments(sig_threshold, -.01, sig_threshold, .5,
+        segments(c(sig_threshold, 1 - sig_threshold), -.01, c(sig_threshold, 1 - sig_threshold), .5,
                  col = ccpal['partners1'], lwd = 3)
-        add_prob_lines(res()$qfun, res()$dqfun, 10)
+        add_prob_lines(qnorm(res()$pval), dnorm(qnorm(res()$pval)), 10)
 
       })
     })
