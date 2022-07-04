@@ -29,39 +29,45 @@ ui <- dashboardPage(dark = NULL, fullscreen = TRUE, title = 'Understanding Uncer
 server <- function(input, output, session) {
 
   test_data <- reactive({
+    req(ri$smn(), ri$ssd() >= 1, ri$nx() >= 2)
     rnorm(ri$nx(), ri$smn(), ri$ssd())
   }) |>
     bindEvent(ri$btn(), ri$nx(), ri$smn(), ri$ssd(),
               ignoreNULL = FALSE)
 
   test_res <- reactive({
-    req(ri$smn(), ri$ssd() >= 1, ri$nx() >= 2)
-
     res <- t.test(test_data(), mu = mean_init,
                   conf.level = as.numeric(ri$al()))
 
-    p <- res$p.value / 2
+    p  <- res$p.value
+    df <- res$parameter
     list(estimate = res$estimate,
          tval     = res$statistic,
-         tval     = res$parameter,
+         df       = df,
          pval     = res$p.val,
          alpha    = 1 - attr(res$conf.int, 'conf.level'),
          ci_lwr   = res$conf.int[1],
          ci_upr   = res$conf.int[2],
-         dfun     = dnorm(p),
-         qfun     = qnorm(p),
-         dqfun    = dnorm(qnorm(p))
+         pfun     = pt(res$statistic, df),
+         dfun     = dt(res$statistic, df),
+         qfun     = qt(p, df)
     )
   })
 
+  distr_data <- reactive({
+
+    xs <- seq(-4, 4, l = 100)
+
+    list(
+      xs = xs, dfun = dt(xs, test_res()$df), pfun = pt(xs, test_res()$df)
+    )
+
+  })
+
   ri <- inputServer('ui_mod')
-
   diffPlotServer('diff_plot', test_data, test_res, ri)
-
   distrPlotServer('distr_plot', distr_data, test_res, ri)
-
   valueBoxServer('vb', test_res)
-
   accordionServer('data_summary', test_data, ri$smn(), ri$ssd())
 
 }

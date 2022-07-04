@@ -15,15 +15,6 @@ ccpal <- c(students1  = "#38b0e3",
 
 mean_init <- 100#sample(seq(90, 120, 5), 1)
 
-res <- t.test(rnorm(100))
-p <- res$p.value
-alpha <- 0.05 / 2
-
-xs <- seq(-4, 4, l = 100)
-distr_data <- list(
-  xs = xs, dfun = dnorm(xs), pfun = pnorm(xs)
-)
-
 input_init <- list(inputId = c('sample_mean', 'n_x', 'sample_sd'),
                    label   = c('Average value', 'Number of observations', 'Spread of values'),
                    value   = c(mean_init, 5, 20),
@@ -89,6 +80,49 @@ diffPlotServer <- function(id, sdata, res, i) {
 
 # Distribution plots ------------------------------------------------------
 
+plot_base <- function(xs, ys, xax = FALSE, yax, ylab) {
+  plot(xs, ys, cex.axis = 2, axes = FALSE,
+       las = 1, type = 'n', bty = 'n',
+       xlab = '', ylab = '')
+
+  if (xax) {
+    xlabs <- seq(min(xs), max(xs), 1)
+    axis(1, xlabs, cex.axis = 2)
+  }
+
+  axis(2, yax, las = 1, cex.axis = 2)
+
+  mtext(ylab, side = 2, line = 3,
+        cex = 1.8, col = ccpal['psd_blue1'], outer = FALSE)
+
+}
+
+add_p_curve <- function(d, type = c('d', 'p'), df) {
+  type <- match.arg(type)
+
+  if (type == 'd') {
+    y <- dt(0, df)
+    ys <- d$dfun
+  } else {
+    y <- 0.5
+    ys <- d$pfun
+  }
+  lines(d$xs, ys, lwd = 6, col = ccpal['psd_blue1'])
+  points(0, y, pch = '|', cex = 2, col = ccpal['psd_blue1'])
+}
+
+add_prob_lines <- function(x, y, y2) {
+  # if (x > -4) {
+  points(x, y,
+         pch = 21, col = ccpal['psd_blue1'], bg = ccpal['data1'],
+         lwd = 4, cex = 3)
+  segments(x, y,
+           x, y2, col = ccpal['data1'], lwd = 2.5)
+  # }
+}
+
+
+
 distrPlotUI <- function(id) {
   ns <- NS(id)
   tagList(
@@ -102,27 +136,28 @@ distrPlotServer <- function(id, distr_data, res, ri) {
     id, function(input, output, session) {
       output$distr_plot <- renderPlot({
 
-        sig_threshold <- qnorm((1 - as.numeric(ri$al())) / 2)
+        sig_threshold <- qt(res()$alpha / 2, res()$df)
+        sig_threshold <- c(sig_threshold, -sig_threshold)
 
         par(mar = c(3, 8, 1, 1), mfrow = c(2, 1),
             xpd = TRUE, bg = ccpal['students1'])
 
-        plot_base(distr_data$xs, distr_data$pfun, FALSE,
+        plot_base(distr_data()$xs, distr_data()$pfun, FALSE,
                   seq(0, 1, .25), 'Cumulative\ndistribution\n')
         abline(v = -4:4, col = 'grey90')
-        add_p_curve(distr_data, 'p')
-        abline(v = c(sig_threshold, 1 - sig_threshold), col = ccpal['partners1'], lwd = 3)
-        add_prob_lines(qnorm(res()$pval), res()$pval, -10)
+        add_p_curve(distr_data(), 'p', res()$df)
+        abline(v = sig_threshold, col = ccpal['partners1'], lwd = 3)
+        add_prob_lines(res()$tval, res()$pfun, -10)
 
         # --------------------------------------------- #
 
-        plot_base(distr_data$xs, distr_data$dfun, TRUE,
+        plot_base(distr_data()$xs, distr_data()$dfun, TRUE,
                   0:4/10, 'Probability\ndensity\n')
         segments(-4:4, rep(-.01, 9), -4:4, rep(.5, 9), col = 'grey90')
-        add_p_curve(distr_data, 'd')
-        segments(c(sig_threshold, 1 - sig_threshold), -.01, c(sig_threshold, 1 - sig_threshold), .5,
+        add_p_curve(distr_data(), 'd', res()$df)
+        segments(sig_threshold, -.01, sig_threshold, .5,
                  col = ccpal['partners1'], lwd = 3)
-        add_prob_lines(qnorm(res()$pval), dnorm(qnorm(res()$pval)), 10)
+        add_prob_lines(res()$tval, res()$dfun, 10)
 
       })
     })
@@ -171,7 +206,9 @@ valueBoxServer <- function(id, x) {
 
                  output$cdf <- renderValueBox({
                    valueBox(
-                     value = if (x()$pval < 0.001) 'Close to zero' else round(x()$pval, 3),
+                     value = if (x()$tval < -4) 'Close to 0' else
+                       if (x()$tval > 4) 'Close to 1' else
+                         round(x()$pfun, 3),
                      subtitle = "",
                      icon = icon('info'),
                      footer = a('Cumulative distribution ', href = 'stats-definitions.html', target = 'blank')
@@ -180,7 +217,9 @@ valueBoxServer <- function(id, x) {
 
                  output$dfun <- renderValueBox({
                    valueBox(
-                     value = if (x()$dqfun < 0.001) 'Close to zero' else round(x()$dqfun, 3),
+                     value = if (x()$tval < -4) 'Close to 0' else
+                       if (x()$tval > 4) 'Close to 1' else
+                         round(x()$dfun, 3),
                      subtitle = "",
                      icon = icon('info'),
                      footer = a('Probability density ', href = 'stats-definitions.html', target = 'blank')
@@ -189,49 +228,6 @@ valueBoxServer <- function(id, x) {
 
                }
   )
-}
-
-
-plot_base <- function(xs, ys, xax = FALSE, yax, ylab) {
-  plot(xs, ys, cex.axis = 2, axes = FALSE,
-       las = 1, type = 'n', bty = 'n',
-       xlab = '', ylab = '')
-
-  if (xax) {
-    xlabs <- seq(min(xs), max(xs), 1)
-    axis(1, xlabs, cex.axis = 2)
-  }
-
-  axis(2, yax, las = 1, cex.axis = 2)
-
-  mtext(ylab, side = 2, line = 3,
-        cex = 1.8, col = ccpal['psd_blue1'], outer = FALSE)
-
-}
-
-
-add_p_curve <- function(d, type = c('d', 'p')) {
-  type <- match.arg(type)
-
-  if (type == 'd') {
-    y <- dnorm(0)
-    ys <- d$dfun
-  } else {
-    y <- 0.5
-    ys <- d$pfun
-  }
-  lines(d$xs, ys, lwd = 6, col = ccpal['psd_blue1'])
-  points(0, y, pch = '|', cex = 2, col = ccpal['psd_blue1'])
-}
-
-add_prob_lines <- function(x, y, y2) {
-  if (x > -4) {
-    points(x, y,
-           pch = 21, col = ccpal['psd_blue1'], bg = ccpal['data1'],
-           lwd = 4, cex = 3)
-    segments(x, y,
-             x, y2, col = ccpal['data1'], lwd = 2.5)
-  }
 }
 
 
@@ -278,6 +274,7 @@ accordionServer <- function(id, sample_data, smn, ssd) {
                    as.matrix(s)
                  }, rownames = TRUE, colnames = FALSE, digits = 2, hover = TRUE)
 
+
                  output$data_hist <- renderPlot({
 
                    par(mar = c(5, 4, 1, 1))
@@ -290,10 +287,13 @@ accordionServer <- function(id, sample_data, smn, ssd) {
                    lines(density(sample_data()), col = 2)
 
                    curve(dnorm(x, smn, ssd), col = 4, type = 'l', add = TRUE)
+                   # curve(dt(x, length(sample_data()) - 1),
+                   #       col = 3, type = 'l', add = TRUE)
 
                  })
 
                  output$data_table <- renderTable({
+
                    sort(sample_data())[seq_len(min(length(sample_data()), 100))]
                  }, colnames = FALSE, digits = 2, hover = TRUE)
 
@@ -334,5 +334,27 @@ inputServer <- function(id) {
         ss  = reactive({ input$show_data }),
         btn = reactive({ input$update_btn })
       )
+})
+}
+
+
+# Test Summary ------------------------------------------------------------
+
+# testSummaryUI('test_summary')
+# testSummaryServer('test_summary', test_res)
+
+testSummaryUI <- function(id) {
+  ns <- NS(id)
+    fluidRow(
+      box(
+        tableOutput(ns('test_summary'))
+      )
+    )
+}
+
+testSummaryServer <- function(id, res) {
+  moduleServer(
+    id, function(input, output, session) {
+    output$test_summary <- renderTable(as.data.frame(stack(res()))[, 2:1])
 })
 }
