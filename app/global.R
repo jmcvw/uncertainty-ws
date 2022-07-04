@@ -50,9 +50,9 @@ diffPlotServer <- function(id, sdata, res, i) {
       output$difference_plot <- renderPlot({
         validate(
 
-          need(i()$nx >= 2, 'There must be at least 2 observations.'),
-          need(i()$smn, 'Enter a value for the average.'),
-          need(i()$ssd >= 1, 'Enter a value greater than 1 for the spread.')
+          need(i$nx() >= 2, 'There must be at least 2 observations.'),
+          need(i$smn(), 'Enter a value for the average.'),
+          need(i$ssd() >= 1, 'Enter a value greater than 1 for the spread.')
         )
 
         par(mar = c(2,6,1,1), bg = ccpal['students1'])
@@ -69,13 +69,13 @@ diffPlotServer <- function(id, sdata, res, i) {
              col = ccpal['psd_blue'], cex = 1.5,
              pos = 4, offset = 2)
 
-        if ('CI' %in% i()$ss)
+        if ('CI' %in% i$ss())
           arrows(1, res()$ci_lwr, 1, res()$ci_upr, angle = 90, code = 3, lwd = 3)
 
-        if ('Points' %in% i()$ss) {
+        if ('Points' %in% i$ss()) {
 
           set.seed(Sys.Date())
-          j <- jitter(rep(.9, i()$nx))
+          j <- jitter(rep(.9, i$nx()))
           set.seed(NULL)
 
           points(j, sdata(), pch = 20, col = ccpal['data1'], cex = 1)
@@ -102,7 +102,7 @@ distrPlotServer <- function(id, distr_data, res, ri) {
     id, function(input, output, session) {
       output$distr_plot <- renderPlot({
 
-        sig_threshold <- qnorm((1 - as.numeric(ri()$al)) / 2)
+        sig_threshold <- qnorm((1 - as.numeric(ri$al())) / 2)
 
         par(mar = c(3, 8, 1, 1), mfrow = c(2, 1),
             xpd = TRUE, bg = ccpal['students1'])
@@ -171,7 +171,7 @@ valueBoxServer <- function(id, x) {
 
                  output$cdf <- renderValueBox({
                    valueBox(
-                     value = round(x()$pval, 3),
+                     value = if (x()$pval < 0.001) 'Close to zero' else round(x()$pval, 3),
                      subtitle = "",
                      icon = icon('info'),
                      footer = a('Cumulative distribution ', href = 'stats-definitions.html', target = 'blank')
@@ -180,7 +180,7 @@ valueBoxServer <- function(id, x) {
 
                  output$dfun <- renderValueBox({
                    valueBox(
-                     value = round(x()$dqfun, 3),
+                     value = if (x()$dqfun < 0.001) 'Close to zero' else round(x()$dqfun, 3),
                      subtitle = "",
                      icon = icon('info'),
                      footer = a('Probability density ', href = 'stats-definitions.html', target = 'blank')
@@ -298,4 +298,41 @@ accordionServer <- function(id, sample_data, smn, ssd) {
                  }, colnames = FALSE, digits = 2, hover = TRUE)
 
                })
+}
+
+
+
+# UI module ---------------------------------------------------------------
+
+inputUI <- function(id) {
+  ns <- NS(id)
+  input_init$inputId <- ns(input_init$inputId)
+
+  tagList(
+    fluidRow(
+      purrr::pmap(input_init, numericInput),
+      actionButton(ns('update_btn'), 'New sample'),
+
+      checkboxGroupInput(ns('show_data'), 'Show...', choices = c('Points', 'CI')),
+
+      radioButtons(ns('alpha'), 'Set confidence level',
+                   choiceNames = paste(c(99, 95, 90), '%'),
+                   choiceValues = 1-c(0.01, 0.05, 0.1), selected = 1-0.05),
+    )
+
+  )
+}
+
+inputServer <- function(id) {
+  moduleServer(
+    id, function(input, output, session) {
+      list(
+        nx  = reactive({ input$n_x }),
+        smn = reactive({ input$sample_mean }),
+        ssd = reactive({ input$sample_sd }),
+        al  = reactive({ input$alpha }),
+        ss  = reactive({ input$show_data }),
+        btn = reactive({ input$update_btn })
+      )
+})
 }
