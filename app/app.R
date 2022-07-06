@@ -11,29 +11,15 @@ ui <- dashboardPage(dark = NULL, fullscreen = TRUE, title = 'Understanding Uncer
   ),
 
   dashboardSidebar(minified = FALSE, width = '200px',
-    fluidRow(
-      purrr::pmap(input_init, numericInput),
-      actionButton('update_btn', 'New sample'),
-
-      checkboxGroupInput('show_data', 'Show...', choices = c('Points', 'CI')),
-
-      radioButtons('alpha', 'Set confidence level',
-                   choiceNames = paste(c(99, 95, 90), '%'),
-                   choiceValues = 1-c(0.01, 0.05, 0.1), selected = 1-0.05),
-    )
+    inputUI('ui_mod')
   ),
 
   dashboardBody(
     tags$head(tags$link(rel = "stylesheet", type = "text/css", href = 'cc-style-bs4.css')),
 
     fluidRow(
-      column(6,
-             diffPlotUI('diff_plot')
-      ),
-      column(6,
-             # plotOutput('distr_plot')
-             distrPlotUI('distr_plot')
-      )
+      column(6, diffPlotUI('diff_plot')),
+      column(6, distrPlotUI('distr_plot'))
     ),
     valueBoxUI('vb'),
     accordionUI('data_summary')
@@ -42,48 +28,45 @@ ui <- dashboardPage(dark = NULL, fullscreen = TRUE, title = 'Understanding Uncer
 
 server <- function(input, output, session) {
 
-  ri <- reactive({
-    list(nx  = input$n_x,
-         smn = input$sample_mean,
-         ssd = input$sample_sd,
-         al  = input$alpha,
-         ss  = input$show_data
-    )
-  })
-
   test_data <- reactive({
-    rnorm(input$n_x, input$sample_mean, input$sample_sd)
+    rnorm(ri$nx(), ri$smn(), ri$ssd())
   }) |>
-    bindEvent(input$update_btn, input$n_x,
-              input$sample_mean, input$sample_sd,
+    bindEvent(ri$btn(), ri$nx(), ri$smn(), ri$ssd(),
               ignoreNULL = FALSE)
 
   test_res <- reactive({
-    req(input$sample_mean, input$sample_sd >= 1, input$n_x >= 2)
+    req(ri$smn(), ri$ssd() >= 1, ri$nx() >= 2)
 
     res <- t.test(test_data(), mu = mean_init,
-                  conf.level = as.numeric(input$alpha))
+                  conf.level = as.numeric(ri$al()))
 
-    p <- res$p.value / 2
+    p  <- res$p.value
+    df <- res$parameter
     list(estimate = res$estimate,
          tval     = res$statistic,
+         df       = df,
          pval     = res$p.val,
          alpha    = 1 - attr(res$conf.int, 'conf.level'),
          ci_lwr   = res$conf.int[1],
          ci_upr   = res$conf.int[2],
-         dfun     = dnorm(p),
-         qfun     = qnorm(p),
-         dqfun    = dnorm(qnorm(p))
+         pfun     = pt(res$statistic, df),
+         dfun     = dt(res$statistic, df),
+         qfun     = qt(p, df)
     )
   })
 
+  distr_data <- reactive({
+    xs <- seq(-4, 4, l = 100)
+    list(
+      xs = xs, dfun = dt(xs, test_res()$df), pfun = pt(xs, test_res()$df)
+    )
+  })
+
+  ri <- inputServer('ui_mod')
   diffPlotServer('diff_plot', test_data, test_res, ri)
-
   distrPlotServer('distr_plot', distr_data, test_res, ri)
-
   valueBoxServer('vb', test_res)
-
-  accordionServer('data_summary', test_data, ri()$smn, ri()$ssd)
+  accordionServer('data_summary', test_data, ri$smn(), ri$ssd())
 
 }
 
