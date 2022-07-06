@@ -1,7 +1,66 @@
 ---
 title: "Uncertainty lab"
-format: html
+format:
+  html:
+    toc: true
+    self-contained: true
 ---
+
+## OUTLINE
+
+### Sampling
+
+- Hit `New sample` repeatedly
+- Notice that each time the `observed` value changes
+    - sometimes higher than expected, sometimes lower
+- Increase the `Average value` input to 120
+    - Hit `New sample` a few more times
+    - Notice now that the value still changes every time, but is below the expected value less often
+- Return `Average value` to 100
+- Increase `Sample size` to 100
+    - Hit `New sample` a few more times
+    - Notice notice that while the observed value still fluctuates both above and below the expected line, it is far closer to the expected line
+- Ensure `Average value` is set to 100
+- Return `Sample size` to 5
+- Check the `Show points` box
+- Repeat the above
+- Examine the effect of `spread`
+    - If sales (or whatever) are fairly homogeneous, spread is small averages are more consistent
+    - If `spread` is large, averages are swingier, and so a larger sample is more important
+
+### P-value
+
+- How do we know if the difference is meaningful?
+- Always a chance it is not
+- Some samples will be less consistent with meanigfulness than others
+- P value gives a way to judge
+- Insert questions to exampne how parameters `n` and `spread` affect `P`
+
+### Confidence interval
+
+- However a p value has several shortcomings
+- A confidence interval can be used to temper soe of the excitment of reaching significance
+    - But is subject to kind of the same shortcomings
+
+### Distribution function
+
+- To help give context to p vaule
+- who says a p value is significant
+- Illustrate CDF
+    - $P = 50 / 50$ for whether an observed value is higher or lower than expected (when x axis = 0)
+    - The CDF is the sum of all probs under a given value.
+        - So the further the observed gets in the negative direction the closer P gets to 0
+        - and the further the observed gets in the positive direction the closer P gets to 1
+            - When P is close to 1 we are interested in the probability of being even higher than the given value.
+- Illustrate PDF
+    - First just gives a clearer image of how the tails are equally sized at each end of the distribution
+    - Secondly, we can see how even the shape of the curve is different for very small `n` 
+    - Thirdly, how the significance thresholds depend on `n` - i.e. it is harder to cross the threshold when `n` is small
+    
+### Accidental extra
+
+- Opening the `Data summary` section, we can see how a small sample leads to an empirical distribution that is very different from the theoretical distribution.
+
 
 ## Scenario
 
@@ -52,37 +111,6 @@ If our data are based on inly 2 customers how likely is it that they reprsent ou
 
 
 
-```{r}
-LoadPackages(tidyr, purrr, dplyr, ggplot2, CodeClanData)
-
-mutate(all_deaths, empty_book_intro_chapter = is_empty(book_intro_chapter) | is.na(book_intro_chapter))
-
-filter(all_deaths, is_empty(book_intro_chapter))
-
-
-
-```
 
 *********************
-
-## OUTLINE
-
-### Sampling
-
-- Hit `New sample` repeatedly
-- Notice that each time the `observed` value changes
-    - sometimes higher than expected, sometimes lower
-- Increase the `Average value` input to 120
-    - Hit `New sample` a few more times
-    - Notice now that the value still changes every time, but is below the expected value less often
-    
-- Return `Average value` to 100
-- Increase `Sample size` to 100
-    - Hit `New sample` a few more times
-    - Notice notice that while the observed value still fluctuates both above and below the expected line, it is far closer to the expected line
-
-- Ensure `Average value` is set to 100
-- Return `Sample size` to 5
-- Check the `Show points` box
-- Repeat the above
 
