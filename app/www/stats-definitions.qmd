@@ -59,7 +59,7 @@ Confidence intervals for a sample of that size are pointless at best and mislead
 :::{.callout-tip collapse=true icon=false}
 ## Cumulative distribution function
 
-![Probability density curve](distr_plot_cdf.png){width=200 fig-align='left' fig-alt='S-shaped curve with threshhold at left tail'}
+![Cumulative probability curve](distr_plot_cdf.png){width=200 fig-align='left' fig-alt='S-shaped curve with threshhold at left tail'}
 
 The cumulative distribution curve is related to the density curve.
 In the density curve all possibilities are contained under the curve, such that the area adds up to one.
