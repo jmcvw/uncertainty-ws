@@ -112,13 +112,13 @@ add_p_curve <- function(d, type = c('d', 'p'), df) {
 }
 
 add_prob_lines <- function(x, y, y2) {
-  # if (x > -4) {
-  points(x, y,
-         pch = 21, col = ccpal['psd_blue1'], bg = ccpal['data1'],
-         lwd = 4, cex = 3)
-  segments(x, y,
-           x, y2, col = ccpal['data1'], lwd = 2.5)
-  # }
+  if (x > -4) {
+    points(x, y,
+           pch = 21, col = ccpal['psd_blue1'], bg = ccpal['data1'],
+           lwd = 4, cex = 3)
+    segments(x, y,
+             x, y2, col = ccpal['data1'], lwd = 2.5)
+  }
 }
 
 
@@ -285,7 +285,7 @@ accordionServer <- function(id, sample_data, smn, ssd) {
                    mtext(c('Theoretical distribution', 'Empirical distribution'), 1, 2:3, adj = 1, col = c(4, 2))
                    lines(density(sample_data()), col = 2)
 
-                   curve(dt(x, res()$df), col = 4, type = 'l', add = TRUE)
+                   curve(dnorm(x, smn, ssd), col = 4, type = 'l', add = TRUE)
 
                  })
 
