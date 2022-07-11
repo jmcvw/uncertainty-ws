@@ -24,9 +24,42 @@ input_init <- list(inputId = c('sample_mean', 'n_x', 'sample_sd'),
 
 # Modules -----------------------------------------------------------------
 
+# UI module ---------------------------------------------------------------
+
+inputUI <- function(id) {
+  ns <- NS(id)
+  input_init$inputId <- ns(input_init$inputId)
+
+  tagList(
+    fluidRow(
+      purrr::pmap(input_init, numericInput),
+      actionButton(ns('update_btn'), 'New sample'),
+
+      checkboxGroupInput(ns('show_data'), 'Show...', choices = c('Points', 'CI')),
+
+      radioButtons(ns('alpha'), 'Set confidence level',
+                   choiceNames = paste(c(99, 95, 90), '%'),
+                   choiceValues = 1-c(0.01, 0.05, 0.1), selected = 1-0.05),
+    )
+
+  )
+}
+
+inputServer <- function(id) {
+  moduleServer(
+    id, function(input, output, session) {
+      list(
+        nx  = reactive({ input$n_x }),
+        smn = reactive({ input$sample_mean }),
+        ssd = reactive({ input$sample_sd }),
+        al  = reactive({ input$alpha }),
+        ss  = reactive({ input$show_data }),
+        btn = reactive({ input$update_btn })
+      )
+    })
+}
 
 # Diff plot ------------------------------------------------------
-
 
 diffPlotUI <- function(id) {
   ns <- NS(id)
@@ -294,65 +327,4 @@ accordionServer <- function(id, sample_data, smn, ssd) {
                  }, colnames = FALSE, digits = 2, hover = TRUE)
 
                })
-}
-
-
-
-# UI module ---------------------------------------------------------------
-
-inputUI <- function(id) {
-  ns <- NS(id)
-  input_init$inputId <- ns(input_init$inputId)
-
-  tagList(
-    fluidRow(
-      purrr::pmap(input_init, numericInput),
-      actionButton(ns('update_btn'), 'New sample'),
-
-      checkboxGroupInput(ns('show_data'), 'Show...', choices = c('Points', 'CI')),
-
-      radioButtons(ns('alpha'), 'Set confidence level',
-                   choiceNames = paste(c(99, 95, 90), '%'),
-                   choiceValues = 1-c(0.01, 0.05, 0.1), selected = 1-0.05),
-    )
-
-  )
-}
-
-inputServer <- function(id) {
-  moduleServer(
-    id, function(input, output, session) {
-      list(
-        nx  = reactive({ input$n_x }),
-        smn = reactive({ input$sample_mean }),
-        ssd = reactive({ input$sample_sd }),
-        al  = reactive({ input$alpha }),
-        ss  = reactive({ input$show_data }),
-        btn = reactive({ input$update_btn })
-      )
-})
-}
-
-
-# Test Summary ------------------------------------------------------------
-
-# testSummaryUI('test_summary')
-# testSummaryServer('test_summary', test_res)
-
-testSummaryUI <- function(id) {
-  ns <- NS(id)
-  # tagList(
-    fluidRow(
-      box(
-        tableOutput(ns('test_summary'))
-      )
-    )
-  # )
-}
-
-testSummaryServer <- function(id, res) {
-  moduleServer(
-    id, function(input, output, session) {
-    output$test_summary <- renderTable(as.data.frame(stack(res()))[, 2:1])
-})
 }
