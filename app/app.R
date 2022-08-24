@@ -55,13 +55,10 @@ server <- function(input, output, session) {
   })
 
   distr_data <- reactive({
-
     xs <- seq(-4, 4, l = 100)
-
     list(
-      xs = xs, pfun = pt(xs, test_res()$df), dfun = dt(xs, test_res()$df)
+      xs = xs, dfun = dt(xs, test_res()$df), pfun = pt(xs, test_res()$df)
     )
-
   })
 
   ri <- inputServer('ui_mod')
