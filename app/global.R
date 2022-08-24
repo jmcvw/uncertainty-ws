@@ -20,7 +20,7 @@ input_init <- list(inputId = c('sample_mean', 'n_x', 'sample_sd'),
                    value   = c(mean_init, 5, 20),
                    min     = c(10, 5, 10),
                    max     = c(120, 1e6, 50))
-
+code <- setNames(c("c573", "c6df", "b67b", "f120", "a3d2", "cd5b", "9f3a", "bd15"), c(96:99, 101:104))
 
 # Modules -----------------------------------------------------------------
 
@@ -32,7 +32,8 @@ inputUI <- function(id) {
 
   tagList(
     fluidRow(
-      purrr::pmap(input_init, numericInput),
+      actionButton(ns('sample_mean_btn'), 'Change client group'),
+      purrr::pmap(input_init, numericInput)[-1],
       actionButton(ns('update_btn'), 'New sample'),
 
       checkboxGroupInput(ns('show_data'), 'Show...', choices = c('Points', 'CI')),
@@ -49,6 +50,7 @@ inputServer <- function(id) {
   moduleServer(
     id, function(input, output, session) {
       list(
+        cg  = reactive({ input$sample_mean_btn }),
         nx  = reactive({ input$n_x }),
         smn = reactive({ input$sample_mean }),
         ssd = reactive({ input$sample_sd }),
@@ -73,7 +75,7 @@ diffPlotServer <- function(id, sdata, res, i) {
         validate(
 
           need(i$nx() >= 2, 'There must be at least 2 observations.'),
-          need(i$smn(), 'Enter a value for the average.'),
+          # need(i$smn(), 'Enter a value for the average.'),
           need(i$ssd() >= 1, 'Enter a value greater than 1 for the spread.')
         )
 
@@ -275,7 +277,8 @@ accordionUI <- function(id) {
              fluidRow(
                column(6,
                       p(strong('Data distribution')),
-                      plotOutput(ns('data_hist'))
+                      plotOutput(ns('data_hist')),
+                      textOutput(ns('truth'))
                ),
                column(2, offset = 1,
                       p(strong('Five number summary')),
@@ -292,7 +295,7 @@ accordionUI <- function(id) {
 
 }
 
-accordionServer <- function(id, sample_data, smn, ssd) {
+accordionServer <- function(id, sample_data, smn, ssd, truth) {
 
   moduleServer(id,
                function(input, output, session) {
@@ -316,9 +319,15 @@ accordionServer <- function(id, sample_data, smn, ssd) {
                    lines(density(sample_data()), col = 2)
 
                    curve(dnorm(x, smn, ssd), col = 4, type = 'l', add = TRUE)
-                   # curve(dt(x, length(sample_data()) - 1),
-                   #       col = 3, type = 'l', add = TRUE)
+                   curve(dt(x, length(sample_data()) - 1),
+                         col = 3, type = 'l', add = TRUE)
 
+                 })
+
+                 output$truth <- renderText({
+
+                   ans <- code[as.character(truth())]
+                   paste('Actual sample mean: ', ans)
                  })
 
                  output$data_table <- renderTable({
