@@ -3,24 +3,26 @@ library(bs4Dash)
 
 # Init Values / data -----------------------------------------------------------
 
-ccpal <- c(students1  = "#38b0e3",
-           students2  = "#50a3cd",
-           students3  = "#e8f3f9",
-           partners1  = "#fad350",
-           data1      = "#e9415e",
-           psd_blue1  = "#1b3445",
-           partners2  = "#e3c375",
-           data2      = "#fef0f2",
-           psd_blue2  = "#0f252f")
+ccpal <- c(students1  = '#38b0e3',
+           students2  = '#50a3cd',
+           students3  = '#e8f3f9',
+           partners1  = '#fad350',
+           data1      = '#e9415e',
+           psd_blue1  = '#1b3445',
+           partners2  = '#e3c375',
+           data2      = '#fef0f2',
+           psd_blue2  = '#0f252f')
 
 mean_init <- 100#sample(seq(90, 120, 5), 1)
 
 input_init <- list(inputId = c('sample_mean', 'n_x', 'sample_sd'),
-                   label   = c('Average value', 'Number of observations', 'Spread of values'),
+                   label   = c('Average value', 'Number of sales', 'Spread of values'),
                    value   = c(mean_init, 5, 20),
                    min     = c(10, 5, 10),
-                   max     = c(120, 1e6, 50))
-code <- setNames(c("c573", "c6df", "b67b", "f120", "a3d2", "cd5b", "9f3a", "bd15"), c(96:99, 101:104))
+                   max     = c(120, 1000, 50))
+code <- setNames(c('c573', 'c6df', 'b67b', 'f120',
+                   'd344','a3d2', 'cd5b', '9f3a', 'bd15'),
+                 c(96:104)) # just md5 hash of value
 
 # Modules -----------------------------------------------------------------
 
@@ -32,13 +34,13 @@ inputUI <- function(id) {
 
   tagList(
     fluidRow(
-      actionButton(ns('sample_mean_btn'), 'Change client group'),
+      actionButton(ns('sample_mean_btn'), 'Change customer base'),
       purrr::pmap(input_init, numericInput)[-1],
       actionButton(ns('update_btn'), 'New sample'),
 
-      checkboxGroupInput(ns('show_data'), 'Show...', choices = c('Points', 'CI')),
+      checkboxGroupInput(ns('show_data'), 'Show...', choices = c('Margin of error', 'Sales')),
 
-      radioButtons(ns('alpha'), 'Set confidence level',
+      radioButtons(ns('alpha'), 'Set margin of error',
                    choiceNames = paste(c(99, 95, 90), '%'),
                    choiceValues = 1-c(0.01, 0.05, 0.1), selected = 1-0.05),
     )
@@ -94,11 +96,11 @@ diffPlotServer <- function(id, sdata, res, i) {
              col = ccpal['psd_blue'], cex = 1.5,
              pos = 4, offset = 2)
 
-        if ('CI' %in% i$ss())
+        if ('Margin of error' %in% i$ss())
           arrows(1, res()$ci_lwr, 1, res()$ci_upr, angle = 90,
                  code = 3, lwd = 3)
 
-        if ('Points' %in% i$ss()) {
+        if ('Sales' %in% i$ss()) {
           set.seed(Sys.Date())
           j <- jitter(rep(.9, i$nx()))
           set.seed(NULL)
@@ -163,7 +165,7 @@ distrPlotUI <- function(id) {
 }
 
 
-distrPlotServer <- function(id, distr_data, res, ri) {
+distrPlotServer <- function(id, distr_data, res) {
   moduleServer(
     id, function(input, output, session) {
       output$distr_plot <- renderPlot({
@@ -205,55 +207,66 @@ valueBoxUI <- function(id) {
 }
 
 
-valueBoxServer <- function(id, x) {
+valueBoxServer <- function(id, x, ci_is_ticked) {
   moduleServer(id,
                function(input, output, session) {
                  output$pval <- renderValueBox({
                    valueBox(
                      value = if (x()$pval < 0.001) paste('< 0.001') else round(x()$pval, 3),
                      subtitle = '',
-                     icon = icon('hat-wizard'),
+                     icon = icon('hat-wizard', verify_fa = FALSE),
                      color = if(x()$pval < x()$alpha) 'success' else 'lightblue',
                      footer = a('P value ', href = 'stats-definitions.html', target = 'blank')
                    )
                  })
 
                  output$ci <- renderValueBox({
-                   footer_colour <- if (x()$ci_lwr > mean_init) {
-                     'success'
-                   } else if (x()$ci_upr < mean_init) {
-                     'danger'
+
+                   val <- if ('Margin of error' %in% ci_is_ticked$ss()) {
+                     value <- paste(round(c(x()$ci_lwr, x()$ci_upr), 1), collapse = ' - ')
+                     footer_colour <- if (x()$ci_lwr > mean_init) {
+                       'success'
+                     } else if (x()$ci_upr < mean_init) {
+                       'danger'
+                     } else {
+                       'warning'
+                     }
+                     list(value = value, footer_colour = footer_colour)
                    } else {
-                     'warning'
+                     value <- '???'
+                     list(value = value, footer_colour = 'warning')
+
                    }
+
+
 
                    valueBox(
                      subtitle = '',
-                     value = paste(round(c(x()$ci_lwr, x()$ci_upr), 1), collapse = ' - '),
-                     icon = icon('arrows-alt-v'),
-                     color = footer_colour,
+                     value = val$value,
+                     icon = icon('arrows-alt-v', verify_fa = FALSE),
+                     color = val$footer_colour,
                      footer = a('Confidence interval ', href = 'stats-definitions.html', target = 'blank')
                    )
                  })
 
                  output$cdf <- renderValueBox({
                    valueBox(
-                     value = if (x()$tval < -4) 'Close to 0' else
-                       if (x()$tval > 4) 'Close to 1' else
+                     value = if (x()$pfun < 0.001) '< 0.001' else
+                       if (x()$pfun > .999) '> 0.999' else
                          round(x()$pfun, 3),
                      subtitle = "",
-                     icon = icon('info'),
+                     icon = icon('info', verify_fa = FALSE),
                      footer = a('Cumulative distribution ', href = 'stats-definitions.html', target = 'blank')
                    )
                  })
 
                  output$dfun <- renderValueBox({
                    valueBox(
-                     value = if (x()$tval < -4) 'Close to 0' else
-                       if (x()$tval > 4) 'Close to 1' else
+                     value = if (x()$dfun < 0.001) '< 0.001' else
+                       if (x()$dfun > 0.999) '> 0.999' else
                          round(x()$dfun, 3),
                      subtitle = "",
-                     icon = icon('info'),
+                     icon = icon('info', verify_fa = FALSE),
                      footer = a('Probability density ', href = 'stats-definitions.html', target = 'blank')
                    )
                  })
@@ -295,7 +308,7 @@ accordionUI <- function(id) {
 
 }
 
-accordionServer <- function(id, sample_data, smn, ssd, truth) {
+accordionServer <- function(id, sample_data, ri, truth) {
 
   moduleServer(id,
                function(input, output, session) {
@@ -317,8 +330,7 @@ accordionServer <- function(id, sample_data, smn, ssd, truth) {
                    mtext(c('Theoretical distribution', 'Empirical distribution'),
                          1, 2:3, adj = 1, col = c(4, 2))
                    lines(density(sample_data()), col = 2)
-
-                   curve(dnorm(x, smn, ssd), col = 4, type = 'l', add = TRUE)
+                   curve(dnorm(x, truth(), ri$ssd()), col = 4, type = 'l', add = TRUE)
                    curve(dt(x, length(sample_data()) - 1),
                          col = 3, type = 'l', add = TRUE)
 
