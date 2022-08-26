@@ -66,7 +66,7 @@ server <- function(input, output, session) {
 
   ri <- inputServer('ui_mod')
   diffPlotServer('diff_plot', test_data, test_res, ri)
-  distrPlotServer('distr_plot', distr_data, test_res)
+  distrPlotServer('distr_plot', distr_data, test_res, ri)
   valueBoxServer('vb', test_res, ri)
   accordionServer('data_summary', test_data, ri, truth = sample_mean)
 

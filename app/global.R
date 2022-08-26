@@ -165,7 +165,7 @@ distrPlotUI <- function(id) {
 }
 
 
-distrPlotServer <- function(id, distr_data, res) {
+distrPlotServer <- function(id, distr_data, res, ci_is_ticked) {
   moduleServer(
     id, function(input, output, session) {
       output$distr_plot <- renderPlot({
@@ -180,7 +180,8 @@ distrPlotServer <- function(id, distr_data, res) {
                   seq(0, 1, .25), 'Cumulative\ndistribution\n')
         abline(v = -4:4, col = 'grey90')
         add_p_curve(distr_data(), 'p', res()$df)
-        abline(v = sig_threshold, col = ccpal['partners1'], lwd = 3)
+        if ('Margin of error' %in% ci_is_ticked$ss())
+          abline(v = sig_threshold, col = ccpal['partners1'], lwd = 3)
         add_prob_lines(res()$tval, res()$pfun, -10)
 
         # --------------------------------------------- #
@@ -189,8 +190,9 @@ distrPlotServer <- function(id, distr_data, res) {
                   0:4/10, 'Probability\ndensity\n')
         segments(-4:4, rep(-.01, 9), -4:4, rep(.5, 9), col = 'grey90')
         add_p_curve(distr_data(), 'd', res()$df)
-        segments(sig_threshold, -.01, sig_threshold, .5,
-                 col = ccpal['partners1'], lwd = 3)
+        if ('Margin of error' %in% ci_is_ticked$ss())
+          segments(sig_threshold, -.01, sig_threshold, .5,
+                   col = ccpal['partners1'], lwd = 3)
         add_prob_lines(res()$tval, res()$dfun, 10)
 
       })
