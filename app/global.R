@@ -222,29 +222,25 @@ valueBoxServer <- function(id, x, ci_is_ticked) {
 
                  output$ci <- renderValueBox({
 
-                   val <- if ('Margin of error' %in% ci_is_ticked$ss()) {
-                     value <- paste(round(c(x()$ci_lwr, x()$ci_upr), 1), collapse = ' - ')
-                     footer_colour <- if (x()$ci_lwr > mean_init) {
-                       'success'
-                     } else if (x()$ci_upr < mean_init) {
-                       'danger'
-                     } else {
-                       'warning'
-                     }
-                     list(value = value, footer_colour = footer_colour)
+                   if ('Margin of error' %in% ci_is_ticked$ss()) {
+                     ci_value <- paste(round(c(x()$ci_lwr, x()$ci_upr), 1), collapse = ' - ')
+                     ci_footer_colour <- if (x()$ci_lwr > mean_init) {
+                                             'success'
+                                         } else if (x()$ci_upr < mean_init) {
+                                             'danger'
+                                         } else {
+                                             'warning'
+                                         }
                    } else {
-                     value <- '???'
-                     list(value = value, footer_colour = 'warning')
-
+                     ci_value <- '???'
+                     ci_footer_colour <-  'warning'
                    }
-
-
 
                    valueBox(
                      subtitle = '',
-                     value = val$value,
+                     value = ci_value,
                      icon = icon('arrows-alt-v', verify_fa = FALSE),
-                     color = val$footer_colour,
+                     color = ci_footer_colour,
                      footer = a('Confidence interval ', href = 'stats-definitions.html', target = 'blank')
                    )
                  })
@@ -331,9 +327,6 @@ accordionServer <- function(id, sample_data, ri, truth) {
                          1, 2:3, adj = 1, col = c(4, 2))
                    lines(density(sample_data()), col = 2)
                    curve(dnorm(x, truth(), ri$ssd()), col = 4, type = 'l', add = TRUE)
-                   curve(dt(x, length(sample_data()) - 1),
-                         col = 3, type = 'l', add = TRUE)
-
                  })
 
                  output$truth <- renderText({
