@@ -28,15 +28,17 @@ ui <- dashboardPage(dark = NULL, fullscreen = TRUE, title = 'Understanding Uncer
 
 server <- function(input, output, session) {
 
+  sample_mean <- reactive({ sample(c(96:99,101:104), 1) }) |>
+    bindEvent(ri$cg(), ignoreNULL = FALSE)
+
   test_data <- reactive({
-    rnorm(ri$nx(), ri$smn(), ri$ssd())
+    req(ri$ssd() >= 1, ri$nx() >= 2)
+    rnorm(ri$nx(), sample_mean(), ri$ssd())
   }) |>
-    bindEvent(ri$btn(), ri$nx(), ri$smn(), ri$ssd(),
+    bindEvent(ri$btn(), ri$nx(), ri$ssd(), ri$cg(),
               ignoreNULL = FALSE)
 
   test_res <- reactive({
-    req(ri$smn(), ri$ssd() >= 1, ri$nx() >= 2)
-
     res <- t.test(test_data(), mu = mean_init,
                   conf.level = as.numeric(ri$al()))
 
@@ -64,9 +66,9 @@ server <- function(input, output, session) {
 
   ri <- inputServer('ui_mod')
   diffPlotServer('diff_plot', test_data, test_res, ri)
-  distrPlotServer('distr_plot', distr_data, test_res, ri)
-  valueBoxServer('vb', test_res)
-  accordionServer('data_summary', test_data, ri$smn(), ri$ssd())
+  distrPlotServer('distr_plot', distr_data, test_res)
+  valueBoxServer('vb', test_res, ri)
+  accordionServer('data_summary', test_data, ri, truth = sample_mean)
 
 }
 

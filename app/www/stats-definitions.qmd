@@ -56,9 +56,30 @@ Confidence intervals for a sample of that size are pointless at best and mislead
 :::
 :::
 
+:::{.callout-tip collapse=true icon=false}
+## Cumulative distribution function
+
+![Cumulative probability curve](distr_plot_cdf.png){width=200 fig-align='left' fig-alt='S-shaped curve with threshhold at left tail'}
+
+The cumulative distribution curve is related to the density curve.
+In the density curve all possibilities are contained under the curve, such that the area adds up to one.
+The cumulative distribution instead adds up all the possibilities and plot them on a line.
+A given point on the line gives the probability of obtaining any value less than the chosen point
+:::
 
 :::{.callout-tip collapse=true icon=false}
 ## Density function
+
+## Cumulative distribution function
+
+![Cumulative distribution curve](distr_plot_cdf.png){width=200 fig-align='left' fig-alt='S-shaped curve with threshhold at left tail'}
+
+The cumulative distribution curve is related to the density curve.
+In the density curve all possibilities are contained under the curve, such that the area adds up to one.
+The cumulative distribution instead adds up all the possibilities and plot them on a line.
+A given point on the line gives the probability of obtaining any value less than the chosen point
+:::
+
 
 ![Probability density curve](distr_plot_pdf.png){width=200 fig-align='left' fig-alt='Bell curve with threshhold at left tail'}
 
@@ -75,13 +96,3 @@ However, if we set the value too high, we increase the risk of wrongfully declar
 This curve is also useful for computing the probability of obtaining a value within a given range: perhaps between 0.05 and 0.1.
 :::
 
-:::{.callout-tip collapse=true icon=false}
-## Cumulative distribution function
-
-![Probability density curve](distr_plot_cdf.png){width=200 fig-align='left' fig-alt='S-shaped curve with threshhold at left tail'}
-
-The cumulative distribution curve is related to the density curve.
-In the density curve all possibilities are contained under the curve, such that the area adds up to one.
-The cumulative distribution instead adds up all the possibilities and plot them on a line.
-A given point on the line gives the probability of obtaining any value less than the chosen point
-:::

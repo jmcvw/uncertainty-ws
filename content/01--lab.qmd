@@ -61,20 +61,66 @@ format:
 
 - Opening the `Data summary` section, we can see how a small sample leads to an empirical distribution that is very different from the theoretical distribution.
 
+****************************
 
 ## Scenario
 
 Consider a situation where a business has an average weekly profit of exactly £100.
-Each week there is a new average profit that can be compared to the overall, historic, weekly average profit.
-The business wants to increase its average weekly profit, so decides to change its website to more effectively target a different subset of its customers.
-In the first week following changes to the website they find there profit is indeed higher than the expected average...
+This figure is the average over the entire history of the business, and is know to be exactly correct.
 
+The boss of this business wants to increase its average weekly profit, so decides to change its website to more effectively target a different subset of its customers.
+
+In the first week following changes to the website they find they made a profit of £109.66.
+Higher indeed than the expected average of £100.
+
+<!-- ![Profit for the week following website changes](improved-sales.png){#fig-improved-profit fig-align='left' width=30% alt='The profit observed in the week following improvements to the website was £109.66'} -->
+
+The CEO congratulates the team, and declares their new website a success.
+
+Was the CEO right to do so?
+
+
+:::{.callout-tip icon=false}
+## Task -- 10mins
+
+With the rest of your group discuss what more information you would like to know before agreeing or disagreeing with the boss.
+
+Create a list of as many important questions you can think of, that you would like answered.
+
+:::{.callout collapse='true' appearance='minimal'}
+## Suggestions
+
+Some possible questions we would like to have answered:
+
+- How big would we like the increase to be before declaring it a success?
+- How big was the increase in profit?
+    - A particularly large deviation from expected may be less likely to be within normal range of fluctuations.
+- How many sales were made?
+    - A single large (or small) sale could have an over-sized influence on the average: consider the extreme case where only one sale of £1000 was made.
+- How similar in size were the individual sales?
+    - Did all the sales occur around the same value, or were they spread out across a wide range.
+    - How typical such a range of values is would be an important consideration.
+- How likely is it that we just got lucky this week?
+    - Again consider a single rare, but high value, sale.
+
+:::
+
+:::
+
+We are going to explore how different possible answers to those questions might affect how we come to a decision.
 
 ## Average expectation
 
-![Sample average (observed) vs expected average](01--data-literacy-lab--sample-size.png){#fig-exp-vs-sample width=30% alt='Plot showing a horizontal line labelled "Expected" at y = 100 and a point slightly above the expected line indicating the average observed from a sample.' fig-align='left'}
+![Sample average (observed) vs expected average](01--data-literacy-lab--sample-size.png){#fig-exp-vs-sample fig-align='left' width=30% alt='Plot showing a horizontal line labelled "Expected" at y = 100 and a point slightly above the expected line indicating the average observed from a sample.'}
 
-Looking at @fig-exp-vs-sample we see that the recent sample yielded an average profit higher than the historic average.
+@fig-exp-vs-sample above shows a horizontal gold line at £100.
+This indicates the all-time historic average for our company.
+For the purposes of this exercise, we shall consider this a our unambiguous "truth" of what our business has made in an average week.
+It is therefore not a statistic, since statistics are values that are used to __estimate__ "true" parameters.
+
+Looking at  we see that the recent sample yielded an average profit higher than the historic average.
+
+
 
 :::{.callout-tip icon=false}
 ### __Questions__
@@ -113,4 +159,10 @@ If our data are based on inly 2 customers how likely is it that they reprsent ou
 
 
 *********************
+
+
+
+## Links
+
+
 
