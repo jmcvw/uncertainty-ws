@@ -1,0 +1,121 @@
+/* see apps/style.scss */
+body, div.content-wrapper {
+  background-color: #ffffff !important;
+}
+
+div.row:nth-child(2) {
+  margin-top: 25px;
+}
+
+.navbar {
+  background-color: #ffffff;
+  border-bottom: none;
+}
+
+.brand-link {
+  padding: 8px;
+  border-bottom: solid 2px #e9415e !important;
+}
+
+.brand-link:hover {
+  background-color: #e9415e;
+  border-radius: 50px;
+}
+
+.brand-link .brand-image {
+  float: none;
+  border-radius: 0;
+  max-height: 43px;
+  box-shadow: none !important;
+}
+
+button {
+  color: #1b3445;
+  background-color: #38b0e3;
+}
+
+.main-sidebar {
+  background-color: #1b3445 !important;
+  color: white;
+  box-shadow: none;
+}
+
+.small-box > .inner {
+  color: #e9415e;
+  background-color: #1b3445 !important;
+  font-size: 1.8rem;
+}
+
+.small-box .icon {
+  color: #fad350;
+}
+
+.small-box .small-box-footer {
+  text-align: left;
+  color: #e9415e;
+  font-size: 1.4rem;
+  padding: 0.2rem;
+}
+
+.small-box > .small-box-footer:hover {
+  color: #e9415e;
+}
+
+.info-box {
+  color: #e9415e;
+  background-color: #1b3445 !important;
+}
+
+.small-box-footer, .small-box-footer a {
+  color: #1b3445 !important;
+}
+
+.small-box-footer a::after {
+  content: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAQElEQVR42qXKwQkAIAxDUUdxtO6/RBQkQZvSi8I/pL4BoGw/XPkh4XigPmsUgh0626AjRsgxHTkUThsG2T/sIlzdTsp52kSS1wAAAABJRU5ErkJggg==);
+}
+
+.shiny-output-error-validation {
+  font-size: 1.5rem;
+  color: #1b3445;
+}
+
+input[type=radio] {
+  transform: scale(2);
+  margin-right: 1rem;
+}
+
+input[type=checkbox] {
+  transform: scale(2);
+}
+
+.checkbox span {
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.carousel-indicators {
+  display: none;
+}
+
+div.col-sm-12:last-child {
+  position: absolute;
+  bottom: 40px;
+  height: 40px;
+}
+
+div.callout-tip.callout-style-default > .callout-header {
+  color: #1b3445;
+  background-color: #38b0e3;
+}
+
+div.callout-tip.callout {
+  border-left-color: #1b3445;
+}
+
+.ml-auto {
+  margin-left: revert;
+}
+
+.accordion {
+  margin-top: 80px;
+}
