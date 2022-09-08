@@ -34,7 +34,7 @@ inputUI <- function(id) {
 
   tagList(
     fluidRow(
-      actionButton(ns('sample_mean_btn'), 'Change customer base'),
+      actionButton(ns('sample_mean_btn'), 'New campaign'),
       purrr::pmap(input_init, numericInput)[-1],
       actionButton(ns('update_btn'), 'New sample'),
 
@@ -178,7 +178,7 @@ distrPlotServer <- function(id, distr_data, res, ci_is_ticked) {
 
         plot_base(distr_data()$xs, distr_data()$pfun, FALSE,
                   seq(0, 1, .25), 'Cumulative\ndistribution\n')
-        abline(v = -4:4, col = 'grey90')
+        abline(v = -4:4, col = 'grey70')
         add_p_curve(distr_data(), 'p', res()$df)
         if ('Margin of error' %in% ci_is_ticked$ss())
           abline(v = sig_threshold, col = ccpal['partners1'], lwd = 3)
@@ -188,7 +188,7 @@ distrPlotServer <- function(id, distr_data, res, ci_is_ticked) {
 
         plot_base(distr_data()$xs, distr_data()$dfun, TRUE,
                   0:4/10, 'Probability\ndensity\n')
-        segments(-4:4, rep(-.01, 9), -4:4, rep(.5, 9), col = 'grey90')
+        segments(-4:4, rep(-.01, 9), -4:4, rep(.5, 9), col = 'grey70')
         add_p_curve(distr_data(), 'd', res()$df)
         if ('Margin of error' %in% ci_is_ticked$ss())
           segments(sig_threshold, -.01, sig_threshold, .5,
@@ -317,7 +317,6 @@ accordionServer <- function(id, sample_data, ri, truth) {
                    s <- summary(sample_data())
                    as.matrix(s)
                  }, rownames = TRUE, colnames = FALSE, digits = 2, hover = TRUE)
-
 
                  output$data_hist <- renderPlot({
 
