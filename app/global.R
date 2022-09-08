@@ -100,6 +100,10 @@ diffPlotServer <- function(id, sdata, res, i) {
           arrows(1, res()$ci_lwr, 1, res()$ci_upr, angle = 90,
                  code = 3, lwd = 3)
 
+        points(1, res()$estimate, pch = 21,
+               col = ccpal['psd_blue1'], bg = ccpal['data1'],
+               lwd = 4, cex = 3)
+
         if ('Sales' %in% i$ss()) {
           set.seed(Sys.Date())
           j <- jitter(rep(.9, i$nx()))
@@ -107,11 +111,6 @@ diffPlotServer <- function(id, sdata, res, i) {
 
           points(j, sdata(), pch = 20, col = ccpal['data1'], cex = 1)
         }
-
-        points(1, res()$estimate, pch = 21,
-               col = ccpal['psd_blue1'], bg = ccpal['data1'],
-               lwd = 4, cex = 3)
-
       })
     })
 }
@@ -218,6 +217,7 @@ valueBoxServer <- function(id, x, ci_is_ticked) {
                      subtitle = '',
                      icon = icon('hat-wizard', verify_fa = FALSE),
                      color = if(x()$pval < x()$alpha) 'success' else 'lightblue',
+                     # footer = 'P value'
                      footer = a('P value ', href = '', target = 'blank')
                    )
                  })
@@ -243,7 +243,8 @@ valueBoxServer <- function(id, x, ci_is_ticked) {
                      value = ci_value,
                      icon = icon('arrows-alt-v', verify_fa = FALSE),
                      color = ci_footer_colour,
-                     footer = a('Confidence interval ', href = 'stats-definitions.html', target = 'blank')
+                     footer = 'Confidence interval'
+                     # footer = a('Confidence interval ', href = 'stats-definitions.html', target = 'blank')
                    )
                  })
 
@@ -254,7 +255,8 @@ valueBoxServer <- function(id, x, ci_is_ticked) {
                          round(x()$pfun, 3),
                      subtitle = "",
                      icon = icon('info', verify_fa = FALSE),
-                     footer = a('Cumulative distribution ', href = 'stats-definitions.html', target = 'blank')
+                     footer = 'Cumulative distribution'
+                     # footer = a('Cumulative distribution ', href = 'stats-definitions.html', target = 'blank')
 
                    )
                  })
@@ -266,7 +268,8 @@ valueBoxServer <- function(id, x, ci_is_ticked) {
                          round(x()$dfun, 3),
                      subtitle = "",
                      icon = icon('info', verify_fa = FALSE),
-                     footer = a('Probability density ', href = 'stats-definitions.html', target = 'blank')
+                     footer = 'Probability density'
+                     # footer = a('Probability density ', href = 'stats-definitions.html', target = 'blank')
 
                    )
                  })
