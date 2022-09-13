@@ -2,8 +2,12 @@
 title: "Engaging With Uncertainty"
 format:
   html:
+    include-before-body: images/cc-data-banner.html
     toc: true
     standalone: true
+    theme: cerulean
+    mainfont: Gilroy
+    css: style.css
 execute: 
   eval: true
   cache: true
@@ -16,8 +20,33 @@ knitr::opts_chunk$set(echo=FALSE, eval=FALSE)
 
 LoadPackages(tidyr, dplyr, purrr, ggplot2, gt)
 
-load('lab_objs.Rdata')
+load('data/lab_objs.Rdata')
 ```
+
+## Introduction
+
+Often when faced with a decision the best choice is unclear.
+Nowadays it is *de rigueur* to claim that all decisions are evidence-based, or data-driven.
+But even when this is as true as it can possibly be, it is often still uncertain what the best course of action will be.
+Using a simplistic scenario based approach this activity is intended to bring to the surface the types of issues that arise in an uncertain system.
+Using an interactive simulation we can get an idea of how data can vary, and how we can learn to be comfortable with uncertainty by reframing problems and recognizing that our data allow us to moderate our expectations.
+
+The activity is split into two parts.
+The first part focuses on developing an understanding of how data quality affects our understanding of our system.
+
+::: {.callout-important icon="false"}
+#### TODO:
+
+In the second part....
+
+( things take a bit more of a technical / statsy / jargony twist --- maybe )
+:::
+
+By the end of the activity we should start to see the importance of engaging with uncertainty, through our discussions, begin to see possibilities for going beyond just engaging, to actively embracing uncertainty.
+
+At several points during the activity you will be asked to take a record of thoughts, ideas and questions surfaced by your group, as well as some of the values output by the app.
+Please write anything that occurs down because some of these will be referred to at later points int the activity.
+You can choose whether to keep your own notes or to nominate a scribe for the group.
 
 ## Scenario
 
@@ -29,7 +58,7 @@ The Boss of this business wants to increase the average sale, so decides to impl
 In the first week following the new marketing campaign they find their average sale rose to £109.66.
 Higher indeed than the expected average of £100.
 
-<!-- ![Profit for the week following website changes](improved-sales.png){#fig-improved-profit fig-align='left' width=30% alt='The profit observed in the week following improvements to the website was £109.66'} -->
+![Profit for the week following website changes](improved-sales.png){#fig-improved-profit fig-align="left" width="30%" alt="The profit observed in the week following improvements to the website was £109.66"}
 
 Boss congratulates the team, and declares their new marketing strategy a success.
 
@@ -49,7 +78,7 @@ We are going to explore how different possible answers to those questions might 
 
 ### Average expectation
 
-![Sample average (observed) vs expected average](images/improved-sales.png){#fig-exp-vs-sample alt="Plot showing a horizontal line labelled \"Expected\" at y" fig-align="left" width="40%"}
+![Sample average (observed) vs expected average](images/plot--improved-sales.png){#fig-exp-vs-sample alt="Plot showing a horizontal line labelled \"Expected\" at y = £100, and an \"Observed\" value of £109.66 " fig-align="left" width="40%"}
 
 @fig-exp-vs-sample above shows a horizontal gold line at £100.
 This indicates the all-time historic average for our company.
@@ -87,7 +116,7 @@ Record your value in your table.
 Please keep an easily referenced
 
 Now... unbeknownst to the Boss we have been granted superhero like powers that allow us to explore different realities.
-We have the ability to simulate what the observed value might be like in some of these other realities, by pressing the ![](images/btn--new-sample.png){width="108"} button.
+We have the ability to simulate what the observed value might be like in some of these other realities, by pressing the ![](images/btn--new-sample){width="108" alt="\"New sample\""} button.
 Press it several times, and, after each press, record the new observed value.
 You should see that the observed value changes - possibly by quite a lot!
 Notice also that the two graphs on the right respond to any changes---more about these later.
@@ -97,7 +126,7 @@ There are quite a few controls, so lets explore them one at a time.
 
 ### Sample size
 
-![](images/input--n-sales-5.png){display="inline" width="300"}
+![](images/input--n-sales-5.png){#fig-n-sales-input display="inline" width="300" alt="sample size input, set to n = 5"}
 
 The first control we will look at on the left is labeled "Number of sales".
 It is currently set at `5`, and indicates that five sales were made during the week.
@@ -117,11 +146,11 @@ What message might you have for the Boss?
 
 Let's have a look at the individual sales, tick the "Show sales" box.
 
-![](images/input--cb-show-sales.png){width="300"}
+![](images/input--cb-show-sales.png){width="300" alt="two checkboxes labeled \"Margin of error\" and \"Sales\". The bottom box, \"Sales\" has been checked"}
 
 The small red points that appeared on the plot show the values of each of the sales made.
 It might now be clearer that the large red point labelled "Observed value" actually represents the mean of all the sales.
-Press the ![](images/btn--new-sample.png){alt="new sample" width="108"} button several more times.
+Press the ![](images/btn--new-sample.png){width="108" alt="\"New sample\""} button several more times.
 
 ::: {.callout-tip icon="false"}
 #### **5. Discuss**
@@ -135,7 +164,7 @@ How might you convey these insights to the Boss?
 :::
 
 In your table, create a new column with the header `n = 20` .
-Now change the "Number of sales" input to 20, and try several new samples (press ![](images/btn--new-sample.png){alt="new sample" width="107"}).
+Now change the "Number of sales" input to 20, and try several new samples (press ![](images/btn--new-sample.png){width="107" alt="\"New sample\""}).
 Record each of the new values in your table.
 
 ::: {.callout-tip icon="false"}
@@ -169,7 +198,7 @@ Hopefully we were able to see, and articulate in our teams, how more sales affec
 However, just having more sales might not be enough to allow us to come to a decision.
 If you carried out the last instruction in the box above, you show have number of sales set to 100.
 The input below that is called "Spread of values".
-Change this input to 50, hit ![](images/btn--new-sample.png){alt="new sample" width="107"} a few more times.
+Change this input to 50, hit ![](images/btn--new-sample.png){width="107" alt="\"New sample\""} a few more times.
 Hmm, things just got unpredictable again, right?
 
 ::: {.callout-tip icon="false"}
@@ -206,14 +235,6 @@ Which business should be able to make the most accurate projections for the futu
 Which would be least accurate?
 :::
 
-```{r}
-
-hist(colMeans(replicate(100, (sample(85:105, 5, T)))))
-hist(colMeans(replicate(100, (sample(80:90, 5, T)))))
-sd(80:90)
-sd(85:105)
-```
-
 Ok, time for a slight confession---I'm afraid the task above was a little bit of a mean trick!
 To be fair, though, there was a clue in the section header.
 See, given a large enough number of sales, all three businesses could create similarly **accurate** projections.
@@ -229,13 +250,13 @@ First you will notice there are now error bars extending form the red point on t
 One other thing that has changed is the box under the plot labelled "Confidence interval" now show the range of the margin of error (MoE).
 
 ::: {layout="[[30, -5, 30], [30, -5, 30]]" layout-valign="center"}
-![](images/input-n100-s50.png){width="250"}
+![](images/input-n100-s50.png){width="250" alt="Two numeric inputs for changing the number of sales (top - displaying 100) and the \"spread\" of the data (bottom - displaying 50)."}
 
-![](images/vb--ci-unknown.png)
+![](images/vb--ci-unknown.png){width="250" alt="Value box, showing a confidence interval of unknown value. The colour of the title bar is yellow, indicating the value is unknown, or does not cover the expected value of 100."}
 
-![](images/input--cb-show-moe-sales.png){width="250"}
+![](images/input--cb-show-moe-sales.png){width="250" alt="Two checkboxes labeled \"Margin of error\" and \"Sales\". Both boxes have been checked."}
 
-![](images/vb--ci-known-sig.png)
+![](images/vb--ci-known-sig.png%20alt='Value%20box%20displaying%20a%20margin%20of%20error%20of%20102.5-118.2.%20The%20title%20bar%20of%20the%20box%20is%20green%20indicating%20that%20the%20margin%20of%20error%20does%20not%20cover%20the%20expected%20value%20of%20100.')
 :::
 
 ::: {.callout-tip icon="false"}
@@ -283,7 +304,7 @@ Make a note of any ideas you have for these also.
 So far we have been dealing with a 95%.
 Go ahead ahead now and change the selection.
 
-![](images/input--rb-ci-95.png){width="250"}
+![](images/input--rb-ci-95.png){width="250" alt="Radio button allowing choices for the margin of error between 90%, 95% and 99%. Displays 95% as selected"}
 
 Watch what happens to the error bars as you do this.
 Compare the changes to the notes you took in your previous discussion.
@@ -346,9 +367,9 @@ To this effect, Boss has heard tell of a magic number that "just tells you" if t
 
 ::: columns
 ::: column
-![](images/vb--p-998.png){width="210"}
+![](images/vb--p-998.png){width="210" alt="Value box showing a p-value of 0.998. The title bar is blue indicating the results is non-significant."}
 
-![](images/vb--pval-sig.png){width="213"}
+![](images/vb--pval-sig.png){width="213" alt="Value box showing a p-value of 0.013. The title bar is green indicating the results is higher than the expected result to a meaningful degree."}
 :::
 
 ::: column
@@ -359,7 +380,7 @@ This is a metric that asks if the customer base **had not** changed, how unusual
 :::
 
 The more weird the data is, the more different the new average will be from the old average, and the smaller this magic number is.
-It work on pass/fail basis based on a hard threshold.
+It works on pass/fail basis based on a hard threshold.
 Without delving any more deeply into the stats, we can say that this threshold is determined in the same way as the CI.
 Each margin of error is associated with a probability, which
 
@@ -377,7 +398,12 @@ You will know when you have managed because the bar under the box where "P value
 
 If you manage this, look at the CI box to the right, look at the error bars on the plot above, and take note of the location of the red points on the two graphs on the right (the CDF and PDF).
 
-![](images/plot--distrs-sig-neg.png){width="30%"}
+![](images/plot--distrs-sig-neg.png){width="30%" alt'Two plot stacked verically.
+Top: an "s" shaped curve with the y axis ranging between 0 and 1.
+Bottom: a bell shaped curve with the y axis ranging from 0 to 0.4.
+The x axes range from -4 to 4.
+There is a point on each curve at x = -3, and is very close to 0 on the y axis.
+These points are shown to be further left than the significance threshold, shown at -2'}
 :::
 
 The p-value is a useful metric, but the importance of it is easily and often overstated.
@@ -407,7 +433,7 @@ The second section labelled **Above** is for recording values above the old expe
 Fill the columns as labelled.
 The **Observed** value can be read off the left hand plot, and the remaining values can be taken from the appropriate boxes under the plots.
 
-Hit ![](images/btn--new-sample.png){alt="new sample" width="107"} enough times to fill your table.
+Hit ![](images/btn--new-sample.png){width="107" alt="\"New sample\""} enough times to fill your table.
 
 #### Questions
 
@@ -469,7 +495,7 @@ The corresponding value on the $y$ axis is the probability of obtaining the curr
 ::: {.callout-tip icon="false"}
 #### **14 Discuss**
 
-Hit the ![](images/btn--new-sample.png){width="108"} button a few times, use what we have already learned today to try and get a p-value below the threshold.
+Hit the ![](images/btn--new-sample.png){width="108" alt="\"New sample\""} button a few times, use what we have already learned today to try and get a p-value below the threshold.
 
 If your observed value happens to be below the expected value, things might start to make sense.
 
@@ -536,7 +562,7 @@ They want some **definitive** answers to the following questions:
     -   You might want to consider some nuance here.
     -   Do you really want to put your neck on the line by giving a single estimated value?
 4.  The Boss wants to try a new marketing campaign.
-    -   Hit the ![](images/btn--new-campaign.png){width="122" height="40"} button at the top of the menu bar to target a different customer base, and start again!
+    -   Hit the ![](images/btn--new-campaign.png){width="122" height="40" alt='New campaign"} button at the top of the menu bar to target a different customer base, and start again!
 
 ## Conclusion
 

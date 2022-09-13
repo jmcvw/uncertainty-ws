@@ -1,22 +1,25 @@
-Data literacy
+Data Literacy: two day workshop
 ================
 
 <!-- Do not modify the README.md file directly. -->
 <!-- Instead edit the README.qmd file -->
 
+## 2 day data literacy workshop
+
 ## Repo folder structure
 
 - `session-content`
-  - This folder contains the notes for the workshop.
+  - Contains the notes for the workshop.
   - Notes are named with a prefix such as `d1-s1` which indicate the
     notes for day 1 session 1.
   - **Currently only notes for day 2 session 1 are available.**
-- `app` folder contains the app that accompanies the d2 s1 notes.
+- `app`
+  - Contains the app that accompanies the d2 s1 notes.
 
 ## Workshop Curriculum
 
 - Day 1 Session 1:
-  - **Envisioned as a friendly, mostly lecture based intro**
+  - **Envisioned as a mostly lecture-based, friendly intro**
   - Interpreting visual data
   - Misleading with data
   - Correlation vs causation
