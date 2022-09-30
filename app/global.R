@@ -1,4 +1,3 @@
-library(shiny)
 library(bs4Dash)
 
 # Init Values / data -----------------------------------------------------------
@@ -6,7 +5,7 @@ library(bs4Dash)
 ccpal <- c(students1  = '#38b0e3',
            students2  = '#50a3cd',
            students3  = '#e8f3f9',
-           partners1  = '#fad350',
+           partners1  = '#e6c372',
            data1      = '#e9415e',
            psd_blue1  = '#1b3445',
            partners2  = '#e3c375',
@@ -38,7 +37,7 @@ inputUI <- function(id) {
       purrr::pmap(input_init, numericInput)[-1],
       actionButton(ns('update_btn'), 'New sample'),
 
-      checkboxGroupInput(ns('show_data'), 'Show...', choices = c('Margin of error', 'Sales')),
+      checkboxGroupInput(ns('show_data'), 'Show...', choices = c('Sales', 'Margin of error')),
 
       radioButtons(ns('alpha'), 'Set margin of error',
                    choiceNames = paste(c(90, 95, 99), '%'),
@@ -68,6 +67,20 @@ inputServer <- function(id) {
 diffPlotUI <- function(id) {
   ns <- NS(id)
   plotOutput(ns('difference_plot'))
+}
+
+add_inset_plot <- function(x, y) {
+  # op <- par('fig', 'mar')
+  # on.exit(par(op))
+  par(fig = c(0.8, 0.95, 0.001, 0.4), mar = c(1,0,0,0), new = T)
+
+  plot(x, y, type = 'p', bty = 'o', axes = FALSE,
+       xlim = c(.8, 1.2), ylim = c(min(c(0, y)), max(y)),
+       pch = 20,
+       col = ifelse(y > 150 | y < 0, ccpal['data1'], 'grey50'),
+  )
+  segments(.95, c(0, 150), 1.2, c(0, 150))
+  text(c(1.2, 1.2), c(10, 140), c('0', '150'), adj = 1)
 }
 
 diffPlotServer <- function(id, sdata, res, i) {
@@ -110,6 +123,9 @@ diffPlotServer <- function(id, sdata, res, i) {
           set.seed(NULL)
 
           points(j, sdata(), pch = 20, col = ccpal['data1'], cex = 1)
+
+          if (any(150 - sdata() < 0))
+            add_inset_plot(j, sdata())
         }
       })
     })
@@ -127,9 +143,9 @@ plot_base <- function(xs, ys, xax = FALSE, yax, ylab) {
     axis(1, xlabs, cex.axis = 2)
   }
 
-  axis(2, yax, las = 1, cex.axis = 2)
+  axis(2, yax, las = 1, cex.axis = 1.8)
 
-  mtext(ylab, side = 2, line = 3,
+  mtext(ylab, side = 2, line = 4.5,
         cex = 1.8, col = ccpal['psd_blue1'], outer = FALSE)
 
 }
@@ -176,7 +192,7 @@ distrPlotServer <- function(id, distr_data, res, ci_is_ticked) {
             xpd = TRUE, bg = ccpal['students1'])
 
         plot_base(distr_data()$xs, distr_data()$pfun, FALSE,
-                  seq(0, 1, .25), 'Cumulative\ndistribution\n')
+                  seq(0, 1, .25), 'Cumulative\ndistribution')
         abline(v = -4:4, col = 'grey70')
         add_p_curve(distr_data(), 'p', res()$df)
         if ('Margin of error' %in% ci_is_ticked$ss())
@@ -186,7 +202,7 @@ distrPlotServer <- function(id, distr_data, res, ci_is_ticked) {
         # --------------------------------------------- #
 
         plot_base(distr_data()$xs, distr_data()$dfun, TRUE,
-                  0:4/10, 'Probability\ndensity\n')
+                  0:4/10, 'Probability\ndensity')
         segments(-4:4, rep(-.01, 9), -4:4, rep(.5, 9), col = 'grey70')
         add_p_curve(distr_data(), 'd', res()$df)
         if ('Margin of error' %in% ci_is_ticked$ss())
@@ -231,7 +247,7 @@ valueBoxServer <- function(id, x, ci_is_ticked) {
                                          } else if (x()$ci_upr < mean_init) {
                                              'danger'
                                          } else {
-                                             'warning'
+                                             'lightblue'
                                          }
                    } else {
                      ci_value <- '???'
