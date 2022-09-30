@@ -1,26 +1,26 @@
 ---
-title: "Engaging With Uncertainty"
+title: "Understanding Uncertainty<span style='color: #e6c372'>_</span>"
+subtitle: 'How can we measure or quantify uncertainty?'
 format:
   html:
     include-before-body: images/cc-data-banner.html
     toc: true
-    standalone: true
-    theme: cerulean
     mainfont: Gilroy
+    fontsize: 1.25rem
     css: style.css
 execute: 
   eval: true
-  cache: true
+  echo: false
+  cache: false
 ---
 
-```{r setup}
+```{r}
+#| label: setup
 #| include: false
 
-knitr::opts_chunk$set(echo=FALSE, eval=FALSE)
-
-LoadPackages(tidyr, dplyr, purrr, ggplot2, gt)
-
+library(gt)
 load('data/lab_objs.Rdata')
+
 ```
 
 ## Introduction
@@ -34,40 +34,40 @@ Using an interactive simulation we can get an idea of how data can vary, and how
 The activity is split into two parts.
 The first part focuses on developing an understanding of how data quality affects our understanding of our system.
 
-::: {.callout-important icon="false"}
-#### TODO:
-
-In the second part....
-
-( things take a bit more of a technical / statsy / jargony twist --- maybe )
-:::
+In the second part things become a bit more theoretical.
+It is where those of you who like to know *"why"* will begin to engage with the answers to those questions.
+We will explore how probability distributions to help understand why the more practical ideas from the first session work.
 
 By the end of the activity we should start to see the importance of engaging with uncertainty, through our discussions, begin to see possibilities for going beyond just engaging, to actively embracing uncertainty.
 
-At several points during the activity you will be asked to take a record of thoughts, ideas and questions surfaced by your group, as well as some of the values output by the app.
-Please write anything that occurs down because some of these will be referred to at later points int the activity.
+At several points during the activity you will be asked to record the thoughts, ideas, and questions surfaced by your group, as well as some of the values output by the app.
+Please write anything that occurs down because some of these will be referred to at later points in the activity.
 You can choose whether to keep your own notes or to nominate a scribe for the group.
 
 ## Scenario
 
-Consider a situation where a business has an average weekly sales value of exactly £100.
+Consider a business that sells a wide range of items related to the field of Jiggery-pokery.
+Their stock include specialist items like flooglebinders, dooflickers, hingmies, ans well as more prosaic items like widgets, watsits, and doodahs.
+The great thing about this stock is that all items sell at (their own) consistent rates throughout the year.
+That is to say, that are entirely unaffected by season or cyclic trends, or world events, such as economic catastrophes or pandemics.
+The average weekly sales value of sales made by this business is exactly £100.
 This figure is the average over the entire history of the business, and is known to be exactly correct.
 
-The Boss of this business wants to increase the average sale, so decides to implement a new marketing campaign designed to more effectively target a different subset of its customers - hopefully ones that spend more money.
+The Boss (whose name shall also be Boss) of this business wants to increase the average sales, so decides to implement a new marketing campaign designed to more effectively target a different subset of its customers - hopefully ones that spend more money.
 
 In the first week following the new marketing campaign they find their average sale rose to £109.66.
 Higher indeed than the expected average of £100.
 
-![Profit for the week following website changes](improved-sales.png){#fig-improved-profit fig-align="left" width="30%" alt="The profit observed in the week following improvements to the website was £109.66"}
+![Profit for the week following website changes](images/plot--improved-sales.png){#fig-improved-profit fig-align="left" width="40%" alt="The profit observed in the week following improvements to the website was £109.66"}
 
 Boss congratulates the team, and declares their new marketing strategy a success.
 
 Was Boss right to do so?
 
 ::: {.callout-tip icon="false"}
-## **1. Formulate business relevant questions**
+## **`r i()` Formulate business relevant questions**
 
-With your colleague(s) discuss what more information you would like to know before agreeing or disagreeing with the Boss.
+With your colleague(s) discuss what more information you would like to know before agreeing or disagreeing with The Boss.
 
 Create a list of as many important questions you can think of, that you would like answered.
 :::
@@ -75,6 +75,18 @@ Create a list of as many important questions you can think of, that you would li
 ## Part 1 --- How can we be sure?
 
 We are going to explore how different possible answers to those questions might affect how we come to a decision.
+
+::: callout-caution
+### Assumptions for our scenario
+
+The scenario is deliberately simple.
+
+There is a historic average, which should consider as a baseline for our business, and should be taken at face value.
+
+This baseline is based on the business' performance prior to the "marketing campaign".
+The observed value should also be taken at face value as the performance after the marketing campaign.
+The purpose of it is to provide a scaffold for discussions, not to get tied up with the real life business details about how flooglebinder sales might respond to external, or seasonal, or etc, factors.
+:::
 
 ### Average expectation
 
@@ -88,35 +100,35 @@ It is therefore not a statistic, since statistics are values that are used to **
 Looking at this we see that the recent sample yielded an average value higher than the historic average.
 
 ::: {.callout-tip icon="false"}
-### **2. Questions**
+### **`r i('Questions')`**
 
 1.  How much would you trust that this increased value is likely to continue in future weeks?
 2.  What factors can you identify that might support your answer for question 1?
-    i.  If you would be enthusiastic that this is a strong result to take to the Boss, create a list of reasons that justify your belief.
-    ii. If you are less than enthusiastic create a list of reasons, along with ideas that would increase your willingness to go to the Boss.
+    i.  If you would be enthusiastic that this is a strong result to take to The Boss, create a list of reasons that justify your belief.
+    ii. If you are less than enthusiastic create a list of reasons, along with ideas that would increase your willingness to go to The Boss.
     iii. If you are not sure, create both of the above lists!
 :::
 
 Now that you have created a list follow this [link](https://cc-stats.shinyapps.io/uncertainty).
 The plot on the left is the same as that in @fig-exp-vs-sample, but with a different "observed" value.
 The value you see will be unique to your team, and is the result that you will be considering.
-If it is above expectation, the Boss will be happy, if not, they won't!
-For our purposes, we will assume a change of at least **1 percentage point** to be an outcome that has real importance for our business.
-It is your job to decide whether the marketing campaign was a success or a failure, and choose to either agree or disagree with the Boss.
+If it is above expectation, The Boss will be happy, if not, they won't!
+For our purposes, we will assume a change of at least **1 percent** to be an outcome that has real importance for our business.
+It is your job to decide whether the marketing campaign was a success or a failure, and choose to either agree or disagree with The Boss.
 
 ::: {.callout-tip icon="false"}
-#### **3. Discuss**
+#### **`r i('Discuss')`**
 
-What are your impressions of this new value with regards to the marketing campaign, and the Boss' assumed reaction?
+What are your impressions of this new value with regards to the marketing campaign, and The Boss' assumed reaction?
 :::
 
 Now create a table with a column called `n = 5` (we will add a few more columns as we go).
-You can create your table on paper or using a desktop app.
+You can create your table on paper or using the desktop app of your choice.
 Record your value in your table.
-Please keep an easily referenced
+Please keep your notes close at hand for future reference.
 
-Now... unbeknownst to the Boss we have been granted superhero like powers that allow us to explore different realities.
-We have the ability to simulate what the observed value might be like in some of these other realities, by pressing the ![](images/btn--new-sample){width="108" alt="\"New sample\""} button.
+Now... unbeknownst to The Boss we have somehow acquired superhero like powers that allow us to see how/whether sales continue to respond to our marketing campaign.
+We have the ability to simulate what the observed value might be like in future weeks, by pressing the ![](images/btn--new-sample){width="108" alt="\"New sample\""} button.
 Press it several times, and, after each press, record the new observed value.
 You should see that the observed value changes - possibly by quite a lot!
 Notice also that the two graphs on the right respond to any changes---more about these later.
@@ -124,7 +136,7 @@ Notice also that the two graphs on the right respond to any changes---more about
 There are several controls in the left sidebar that we can experiment with to help understand some of the factors that influence the value, and possibly indicate how much faith we should have in our results.
 There are quite a few controls, so lets explore them one at a time.
 
-### Sample size
+### Sample size {#sample-size}
 
 ![](images/input--n-sales-5.png){#fig-n-sales-input display="inline" width="300" alt="sample size input, set to n = 5"}
 
@@ -133,7 +145,7 @@ It is currently set at `5`, and indicates that five sales were made during the w
 You have just seen how the observed value changes, sometimes quite dramatically, week to week.
 
 ::: {.callout-tip icon="false"}
-#### **4. Discuss**
+#### **`r i('Discuss')`**
 
 Given that our information is based on five customers discuss why the fact that this is based on 5 sales causes the value to jump around so much?
 
@@ -141,7 +153,7 @@ How likely is it that they represent our "average customer"?
 
 How confident would you feel making future decisions based on these five sales?
 
-What message might you have for the Boss?
+What message might you have for The Boss?
 :::
 
 Let's have a look at the individual sales, tick the "Show sales" box.
@@ -153,14 +165,15 @@ It might now be clearer that the large red point labelled "Observed value" actua
 Press the ![](images/btn--new-sample.png){width="108" alt="\"New sample\""} button several more times.
 
 ::: {.callout-tip icon="false"}
-#### **5. Discuss**
+#### **`r i('Discuss')`**
 
 How do you think increasing the number of sales will affect the observed value?
 
 How do you think increasing the number of sales will affect your opinion of the marketing strategy?
 
-Remember, the Boss has no idea about any of these alternative realities.
-How might you convey these insights to the Boss?
+Remember, The Boss has no idea about any of these future outcomes.
+
+How might you convey these insights to The Boss?
 :::
 
 In your table, create a new column with the header `n = 20` .
@@ -168,19 +181,19 @@ Now change the "Number of sales" input to 20, and try several new samples (press
 Record each of the new values in your table.
 
 ::: {.callout-tip icon="false"}
-#### **6. Discuss**
+#### **`r i('Discuss')`**
 
 Compare the values from each of the two columns of your table.
 
 Discuss how the values are similar and how they are different.
 
-What does having more sales mean in terms of approaching the Boss with a decision?
+What does having more sales mean in terms of approaching The Boss with a decision?
 
 What if we had 100 sales?
 Try a new column `n = 100` and compare those values.
 :::
 
-At this point the Boss tracks you down, and wants confirmation that they were correct.
+At this point The Boss tracks you down, and wants confirmation that they were correct.
 What can you tell them?
 
 -   Has the marketing campaign affected the customer base?
@@ -196,13 +209,13 @@ They want you to give a best guess that somehow accounts for this variation.
 
 Hopefully we were able to see, and articulate in our teams, how more sales affected our average sales value.
 However, just having more sales might not be enough to allow us to come to a decision.
-If you carried out the last instruction in the box above, you show have number of sales set to 100.
-The input below that is called "Spread of values".
-Change this input to 50, hit ![](images/btn--new-sample.png){width="107" alt="\"New sample\""} a few more times.
+If you carried out the last instruction in the box above, you should have number of sales set to 100.
+Change the input below that is called "Spread of values", to 50, hit ![](images/btn--new-sample.png){width="107" alt="\"New sample\""} a few more times.
+
 Hmm, things just got unpredictable again, right?
 
 ::: {.callout-tip icon="false"}
-#### **7. Discuss**
+#### **`r i('Discuss')`**
 
 What does this "Spread of values" input represent---in a real-world/business context?
 
@@ -210,6 +223,7 @@ What does this "Spread of values" input represent---in a real-world/business con
 ##### Hint
 
 Consider the price range of the stock.
+How similar are multiple sales likely to be?
 :::
 :::
 
@@ -218,19 +232,19 @@ Suppose everything we sold cost £100.
 With 5 sales, we could be 100% certain of what our average sales would be £100.
 
 ::: {.callout-tip icon="false"}
-#### **8. Discuss**
+#### **`r i('Discuss')`**
 
 Consider the following business:
 
 1.  Budget store -- prices range between £80 - £90
 2.  Generalist store -- prices range between £85 - £105
-3.  Specialist high-end store -- prices range between \$105 - £110
+3.  Specialist high-end store -- prices range between £105 - £110
 
 Suppose each business makes the same number of sales.
 
 How would this range of stock prices affect the average sales values?
 
-Which business should be able to make the most accurate projections for the future?
+Which business should be able to make the most precise projections for the future?
 
 Which would be least accurate?
 :::
@@ -238,7 +252,7 @@ Which would be least accurate?
 Ok, time for a slight confession---I'm afraid the task above was a little bit of a mean trick!
 To be fair, though, there was a clue in the section header.
 See, given a large enough number of sales, all three businesses could create similarly **accurate** projections.
-This what the mean does.
+This is what the mean does.
 while the estimate may jump about wildly when the sample size (number of sales) is small, it does so around the actual true mean.
 Where the businesses would differ is in the **precision** of their projections.
 In order to increase our precision we have to reduce the range within which the estimate jumps around.
@@ -256,38 +270,40 @@ One other thing that has changed is the box under the plot labelled "Confidence 
 
 ![](images/input--cb-show-moe-sales.png){width="250" alt="Two checkboxes labeled \"Margin of error\" and \"Sales\". Both boxes have been checked."}
 
-![](images/vb--ci-known-sig.png%20alt='Value%20box%20displaying%20a%20margin%20of%20error%20of%20102.5-118.2.%20The%20title%20bar%20of%20the%20box%20is%20green%20indicating%20that%20the%20margin%20of%20error%20does%20not%20cover%20the%20expected%20value%20of%20100.')
+![](images/vb--ci-known-sig.png){width="250" alt="Value box displaying a margin of error of 102.5-118.2. The title bar of the box is green indicating that the margin of error does not cover the expected value of 100."}
 :::
 
 ::: {.callout-tip icon="false"}
-#### **9. Task**
+#### **`r i('Task')`**
 
 Experiment with the sample size and spread values to manipulate the margin of error.
 
 Which combinations create a wide MoE, and which create a narrow MoE.
+
+Record a few observations---they might come in handy later.
+
+Also have a think about what those combinations might mean in a real-world context.
+For example, consider the three business types above.
 
 ::: {.callout icon="false" collapse="true"}
 ##### **Hint**
 
 If the spread is small, how many sales do we need to have a small MoE?
 :::
-
-Record a few observations---they might come in handy later.
-
-Also have think about what those combinations might mean in a real-world context.
-For example, consider the three business types above.
 :::
 
 We can now see that while the sample size help us guess what the average is, but how much future weeks deviate from our guess depends on the spread, or the **variation** in our sales values.
 
-The next time the Boss comes calling we can now give an average and a likely upper and lower limit for our estimate.
+The next time The Boss comes calling we can now give an average and a likely upper and lower limit for our estimate.
 "That's great," says Boss, "But what do you mean by *likely* limits?"
 
+### Margin of error {#margin-of-error}
+
 What we have been tip-toeing around is the concept of a **confidence interval** (CI).
-The language for dealing with these is a bit statsy and confusing, so we'll work try and set some expectations first which we will then try and test to confirm or refute.
+The language for dealing with these is a bit statsy and confusing, so we'll try and set some expectations first which we will then try and test to confirm or refute.
 
 ::: {.callout-tip icon="false"}
-#### **10. Discuss**
+#### **`r i('Discuss')`**
 
 You inform Boss that the margin of error you quoted is actually a 95% confidence interval.
 "Very good," says Boss, "Why only 95%? Why not 99%? Actually, do we even need to be 95% confident? Can't we settle for 90%?"
@@ -343,7 +359,7 @@ Now, here's the clever bit.
     -   And that the spread of the data is accounted for well enough that we have evidence that the new customers are indeed from a different group than the old customers.
 
 ::: {.callout-tip icon="false"}
-#### **11. Discussion**
+#### **`r i('Discussion')`**
 
 Spend five minutes working through the details of this stuff.
 Given that using a 90% CI makes it easier for the marketing department to claim success, why would anyone use any other CI threshold?
@@ -356,41 +372,75 @@ Or a 50% CI?
 :::
 :::
 
+### Summary
+
+So far we have built our understanding that the average weekly sales value is centred around some value that is what our customer base spends on average per week.
+Sometimes customers spend more than this central value, and sometimes they spend less.
+However, the final point to realise, is that no matter what each individual spends, the total weekly sales value will tend to cluster around the expected average for our business (@fig-summary-bell-curve).
+
+![Possible distibution of average weekly sales.](images/plot--part-1-summary.png){#fig-summary-bell-curve width="40%" fig-align="left" alt="Bell shaped curve centred over 100"}
+
+How close they are to the average depends on the number of sales made (the sample size) and the variance (or spread) of sales values.
+The further away from the average week our observed value is, the more likely it is that the customers from that week were unusual---again depending on the size and spread of our sales.
+And this is what our margin of error is trying to help us understand.
+
 Whew!
 That's quite a lot to chew on.
-And Boss, want more!
+But Boss, want more.
+
+Let's take a break and freshen up before things become *(even more)* theoretical.
 
 ## Part 2 --- But does it matter?
 
+### Introduction
+
+In this second part we will take a look at how another way to tell if the observed difference is meaningful.
+We shall do this to begin to understand where our previous understanding comes from and compare it to the confidence intervals we are already familiar with.
+
+### Boss is back
+
 The Boss is fair impressed with their new understanding of these concepts, but wants some extra assurance that this is not just some fluke week.
-To this effect, Boss has heard tell of a magic number that "just tells you" if the new customers are different from the old.
+To this effect, Boss has heard tell of a magic number that "*just tells you*" if the new customers are different from the old.
 
 ::: columns
 ::: column
-![](images/vb--p-998.png){width="210" alt="Value box showing a p-value of 0.998. The title bar is blue indicating the results is non-significant."}
+![](images/vb--p-998.png){width="210" fig-align="center" alt="Value box showing a p-value of 0.998. The title bar is blue indicating the results is non-significant."}
 
-![](images/vb--pval-sig.png){width="213" alt="Value box showing a p-value of 0.013. The title bar is green indicating the results is higher than the expected result to a meaningful degree."}
+![](images/vb--pval-sig.png){width="213" fig-align="center" alt="Value box showing a p-value of 0.013. The title bar is green indicating the results is different from the expected result to a meaningful degree."}
 :::
 
 ::: column
 This magical number is displayed under the plot, to the left of the CI box.
 This number is closely related to the confidence interval, and is similarly burdened with some heinously (but necessarily) obtuse language.
-This is a metric that asks if the customer base **had not** changed, how unusual would the data obtained from the new customer base be?
+This is a metric that asks:
+
+> if the customer base **had not** changed, how unusual would the data obtained be?
 :::
 :::
 
-The more weird the data is, the more different the new average will be from the old average, and the smaller this magic number is.
+The more weird the data is---compared to our usual data---the more different the new average will be from the old average, and the smaller this **magic number** is.
 It works on pass/fail basis based on a hard threshold.
 Without delving any more deeply into the stats, we can say that this threshold is determined in the same way as the CI.
 Each margin of error is associated with a probability, which
 
 -   If we choose an MoE of 90%, that correspond to a probability of 0.9, which gives a threshold of 0.1
     -   MoE of 95% corresponds to a probability of 0.95, and give a threshold of 0.05
-
     -   MoE of 99% corresponds to a probability of 0.99, and give a threshold of 0.01
+-   In other words subtract the probability from 1 to find the threshold (usually called alpha or $\boldsymbol{\alpha}$).
+
+::: {.callout-tip icon="'false"}
+### **`r i('Discuss')`** {#compare-pops}
+
+If we have successfully shifted our customer base we might see a new distribution of weekly sales (e.g. @fig-dist-comparison).
+Whether or not our magic number told us this was a meaningful change would depend on our sample size and spread, as we have already seen.
+
+Discuss how this relates to our previous discussion (box 11).
+
+![Comparison of old (black) and new (red) weekly sales distributions indicating that our new customers do indeed come from a different base.](images/plot--part-2-bell-comparison.png){#fig-dist-comparison width="40%" fig-align="left" alt="Two bell shaped curves, one centred over 100, another, narrower, one centred over 140."}
+:::
 
 ::: {.callout-tip icon="false"}
-### **12. Task**
+### **`r i('Task')`**
 
 Using what we have learned so far, see if you can create a situation where we this "P value" tells us that our new customers are in fact different from out old ones.
 Depending on the random component of your app, this may be difficult.
@@ -398,30 +448,26 @@ You will know when you have managed because the bar under the box where "P value
 
 If you manage this, look at the CI box to the right, look at the error bars on the plot above, and take note of the location of the red points on the two graphs on the right (the CDF and PDF).
 
-![](images/plot--distrs-sig-neg.png){width="30%" alt'Two plot stacked verically.
-Top: an "s" shaped curve with the y axis ranging between 0 and 1.
-Bottom: a bell shaped curve with the y axis ranging from 0 to 0.4.
-The x axes range from -4 to 4.
-There is a point on each curve at x = -3, and is very close to 0 on the y axis.
-These points are shown to be further left than the significance threshold, shown at -2'}
+![](images/plot--distrs-sig-neg.png){width="40%" alt="Two plots stacked verically. Top: an \"s\" shaped curve with the y axis ranging between 0 and 1. Bottom: a bell shaped curve with the y axis ranging from 0 to 0.4. The x axes range from -4 to 4. There is a point on each curve at x = -3, and is very close to 0 on the y axis. These points are shown to be further left than the significance threshold, shown at -2"}
 :::
 
 The p-value is a useful metric, but the importance of it is easily and often overstated.
 We are going to try and understand it in the context of these other two graphs: the **cumulative distribution function** (CDF) and the **probability density function** (PDF).
 
-### The CDF
+### The CDF {#the-cdf}
 
 Unlike many things in statistics (p value? confidence interval?) the CDF is perhaps less complicated than might be expected.
 To explore it we shall make another table from our data.
 
 ::: {.callout-tip icon="false"}
-#### **13. Task**
+#### **`r i('Task')`**
 
 Make a table like the one below.
-In the example there are enough rows to sample 6 observation -- you may want a few more.
+In the example there are enough rows to record 6 observations -- you may want a few more.
 
 ```{r}
-#| echo: false
+#| label: tbl-distr-table
+#| tbl-cap: Table for recording the probabilities of observed values
 distr_vals
 ```
 
@@ -435,7 +481,7 @@ The **Observed** value can be read off the left hand plot, and the remaining val
 
 Hit ![](images/btn--new-sample.png){width="107" alt="\"New sample\""} enough times to fill your table.
 
-#### Questions
+#### Questions {.qqq}
 
 -   Focusing on the **Below** section of the table, can you identify a pattern between the p-value and the CDF?
 -   How does the pattern in the **Above** section compare?
@@ -493,7 +539,7 @@ Follow the point down to the $x$ axis, and this is how far your observed value d
 The corresponding value on the $y$ axis is the probability of obtaining the current value, or any value even further to the left---a value that is **more extreme** in how far it deviates from the expected value.
 
 ::: {.callout-tip icon="false"}
-#### **14 Discuss**
+#### **`r i('Discuss')`**
 
 Hit the ![](images/btn--new-sample.png){width="108" alt="\"New sample\""} button a few times, use what we have already learned today to try and get a p-value below the threshold.
 
@@ -510,7 +556,7 @@ In those cases, the p-value will be very low, but the point will be high on the 
 -   If the graph should be interpreted as the probability of values further to the left than the point, can you see a way to figure out the probability of an observed value $x$ where $-1 < x \leq 0$
 :::
 
-### The PDF
+### The PDF {#the-pdf}
 
 The second curve on the right is slightly more difficult to grapple with just because the values on the $y$ axis are less intuitive; they are no longer probabilities.
 At least the $x$ axis hasn't changed.
@@ -526,7 +572,7 @@ It turns out that if our two points happen to be at $\pm1$ standard deviation, t
 Even more interesting is that 95% of the total area under the curve is between $\pm2$ standard deviations.
 
 ::: {.callout-tip icon="false"}
-#### **15. Discussion**
+#### **`r i('Discussion')`**
 
 While the CI makes perfectly reasonable sense in the cumulative function, above, the density function allows to come to a slightly different understanding.
 
@@ -545,7 +591,7 @@ We should notice two things.
 Firstly, the shape of the curve changes, and secondly the position of the yellow CI lines move.
 
 ::: {.callout-tip icon="false"}
-#### **16. Questions**
+#### **`r i('Questions')`**
 
 -   What are the implications of these changes?
 -   What do they imply about the relationship between the sample size, our CI, and our ability to declare a true difference between our two customer bases?
@@ -562,14 +608,16 @@ They want some **definitive** answers to the following questions:
     -   You might want to consider some nuance here.
     -   Do you really want to put your neck on the line by giving a single estimated value?
 4.  The Boss wants to try a new marketing campaign.
-    -   Hit the ![](images/btn--new-campaign.png){width="122" height="40" alt='New campaign"} button at the top of the menu bar to target a different customer base, and start again!
+    -   Hit the ![](images/btn--new-campaign){width="122" height="40" alt="New campaign"} button at the top of the menu bar to target a different customer base, and start again!
 
-## Conclusion
+## Conclusion / summary
 
 ::: callout-important
 ## TODO:
 
--   Review these outcomes.
+-   Give a summary of part 2
+-   Summarize most important learning points from whole session
+-   Review outcomes below.
     -   Are they realistic?
     -   Get a second opinion or two
 -   Check consistency of terms
@@ -578,18 +626,23 @@ They want some **definitive** answers to the following questions:
 -   Check consistency of aesthetics eg callouts
 :::
 
--   explored effects of sample size
--   explored effects of variance
--   developed an understanding of CIs
--   developed an awareness that different levels of confidence bring certain trade-offs
--   explored how to tell if a sample belongs to the same population or a different one.
--   begun to develop an awareness of distribution functions
--   begun to understand how distribution function relate to a business question
--   and how they can be used to inform business decisions
--   Wrap up with comment that uncertainty happens.
-    -   If we ignore it, we'll get bitten.
+### Summary of main learning points
 
-    -   If we engage with it we can learn more about the processes of importance to us
+We have covered *a lot* of concepts here
+
+-   Explored effects of [sample size](#sample-size)
+-   Explored effects of [variance](#precicion)
+-   Developed an understanding of [confidence intervals](#Margin-of-error)
+-   Developed an awareness that different levels of confidence bring certain trade-offs.
+    -   i.e. how much are you willing to accept incorrect estimates.
+-   Explored how to tell if a sample belongs to the same population or a different one (Box 12.).
+-   begun to develop an awareness of distribution functions
+-   begun to understand how the distribution function relates to a business question ([CDF](#the-cdf) and [PDF](#the-pdf))
+-   and how they can be used to inform business decisions.
+
+## Conclusion
+
+By experimenting with the way sample size and variance interact we have seen how - If we engage with it we can learn more about the processes of importance to us
 
         -   and incorporate the new understanding in our decision making processes
 
@@ -597,17 +650,4 @@ They want some **definitive** answers to the following questions:
 
     -   If we embrace it better than our competitors, we can create options more quickly than they can
 
-    -   Or some such ¯\_(ツ)\_/¯
-
-::: callout-warning
-## Other thoughts
-
--   Maybe needs an intro?
-    -   Can just do that at the start of the session?
--   crib sheet
-    -   Since there are no answers in this doc, and several important concepts are not mentioned explicitly in this doc, an instructor crib sheet might be handy to help guide participants discussions.
-    -   Maybe number the tasks for easy reference with crib sheet
--   More images of plots when explaining?
-    -   to show different levels of sig
-    -   successful / failed campaigns?
-:::
+    -   Or some such ¯\\\_(ツ)\_/¯

@@ -1,0 +1,50 @@
+/* see apps/style.scss */
+/* $prtnr_gold: #fad350; /* Old style, apparently? */
+.data-banner {
+  width: 100%;
+  border-top: 8px solid #38b0e3;
+  border-bottom: 0;
+  background-color: #1b3445;
+  margin-top: 0;
+  margin-bottom: -20px;
+  margin-left: white;
+  padding: 0 0 50px;
+}
+
+.data-banner:hover {
+  border-top: 8px solid #e9415e;
+}
+
+h1, .h1, h2, .h2,
+h3, .h3, h4, .h4, h5, .h5 {
+  color: #1b3445;
+  padding: 5px 5px 5px;
+  margin-top: 24px;
+  font-weight: bold;
+  border-bottom: 5px solid #38b0e3;
+  border-radius: 10px 10px 0 20px;
+}
+
+h1.title {
+  color: #ffffff;
+  padding-left: 30px;
+  font-size: 3rem;
+  background: #1b3445;
+  border: none;
+  border-radius: 0;
+}
+
+h3, .h3, h4, .h4, h5, .h5 {
+  width: fit-content;
+}
+
+h1.title + p.subtitle {
+  color: #e6c372;
+  text-align: end;
+  background-color: #1b3445;
+  margin-top: 0;
+  border-bottom: 8px solid #38b0e3;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  border-radius: 0 0 0 20px;
+}

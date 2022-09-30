@@ -1,0 +1,8 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+*_files/
+reprex/
+_notes/
+*cache/
