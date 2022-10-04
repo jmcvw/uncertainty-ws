@@ -1,0 +1,56 @@
+---
+title: 'Engaging with Uncertainty<span style="color: #e6c372">_</span>'
+subtitle: 'Data Literacy'
+format:
+  html:
+    mainfont: Gilroy
+    embed-resources: true
+    css: session-content/style.css
+---
+
+## Workshop Agenda
+
+[Glossary](session-content/glossary.html) of statistical terms used during the workshop.
+
+### Day 1, morning: Visualizing data
+
+**Introduction and discussion based lectures**
+
+-   Interpreting visual data
+-   Misleading with data
+-   Correlation vs causation
+-   Numerical reasoning - absolutes, percentages and relative values
+
+### Day 1, afternoon: Identifying uncertainty
+
+**Scenario based discussions**
+
+-   Defining uncertainty
+-   Understanding how our biases affect our perception of uncertainty
+-   Where uncertainty occurs in practice
+-   Engaging with uncertainty
+-   Identifying options for dealing with uncertainty
+
+### Day 2, morning: Understanding uncertainty
+
+**Experiential learning workshop**
+
+-   Understand the inportance of sample size
+-   Develop awareness of the effect of variance
+-   Quantify confidence in estimates
+-   Understand difference between populations
+-   Resources
+    -   [Session notes](session-content/d2-s1_lab_understanding-uncertainty.html)
+    -   [Link to app](https://cc-stats.shinyapps.io/uncertainty)
+
+### Day 2, afternoon: Embracing uncertainty
+
+**Case study examinations**
+
+-   Introduction to modelling and different types of models - conceptual / descriptive / predictive
+-   Explore how models are simplifications
+-   Understand that we can use models to represent system
+-   Understand that we can incorporate uncertainty into our models
+-   Understand that models can be used to plan for different scenarios under different levels / types of uncertainty
+-   Create different responses depending on the likelihood of a particular outcome
+-   Importance of continuous monitoring for updating models
