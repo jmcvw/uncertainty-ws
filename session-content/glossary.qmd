@@ -7,10 +7,6 @@ format:
     toc: true
     mainfont: Gilroy
     css: style.css
-execute: 
-  eval: true
-  cache: true
-editor: visual
 ---
 
 A very brief desctription of the statistical terms encountered during this workshop.

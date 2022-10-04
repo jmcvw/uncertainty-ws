@@ -66,7 +66,7 @@ button {
   background-color: #1b3445 !important;
 }
 
-.small-box-footer, .small-box-footer a {
+.small-box-footer a {
   color: #1b3445 !important;
 }
 
@@ -117,5 +117,5 @@ div.callout-tip.callout {
 }
 
 .accordion {
-  margin-top: 80px;
+  position: revert;
 }

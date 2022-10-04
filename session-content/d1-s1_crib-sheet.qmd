@@ -5,7 +5,6 @@ format:
     toc: true
     mainfont: Gilroy
     fontsize: 1.4rem
-    link-external-newwindow: true
     canononical: true
 css: style.css
 ---
@@ -72,16 +71,6 @@ Let's start by generating just a list of plot types - I'll start you off with **
 -   [Combination](images/d2-s4--growth-plot.png){.external target="_blank"}
 
 (could maybe also add traffic lights / bullets / dumbbells / dot-plots / lollipops / histograms / boxplots / etc...)
-
-```{r}
-#| eval: false
-#| include: false
-plt_imgs <- grep('btn|input|vb|icon|plot|banner|placeholder|full-image', dir('images/'), value = TRUE, invert = TRUE)
-
-purrr::map_chr(plt_imgs, ~{
-  sprintf('[%s](%s){.external target="_blank"}\n', basename(.), .)
-})
-```
 :::
 
 ::: {.callout-note icon="false"}

@@ -5,7 +5,6 @@ format:
     toc: true
     mainfont: Gilroy
     fontsize: 1.4rem
-    link-external-newwindow: true
     canononical: true
 css: style.css
 ---

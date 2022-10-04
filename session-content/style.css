@@ -48,3 +48,28 @@ h1.title + p.subtitle {
   padding-bottom: 10px;
   border-radius: 0 0 0 20px;
 }
+
+ul li::marker {
+  content: url("images/cc-icon-12x12.png") "  ";
+  margin-right: 10px;
+}
+
+.figure-caption {
+  color: #38b0e3;
+}
+
+a:link {
+  color: #38b0e3;
+}
+
+a:hover {
+  color: #e9415e;
+}
+
+a:active {
+  color: #50a3cd;
+}
+
+a:visited {
+  color: #e6c372;
+}
