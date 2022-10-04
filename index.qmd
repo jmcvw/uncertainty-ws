@@ -6,7 +6,11 @@ format:
     mainfont: Gilroy
     embed-resources: true
     css: session-content/style.css
+execute: 
+  cache: false
 ---
+
+<!-- GitHub Pages link: https://codeclan.github.io/data_literacy/ -->
 
 ## Workshop Agenda
 
