@@ -8,24 +8,24 @@ Participants have the links they need on the landing page, here https://codeclan
 
 ## Day 1, Session 1
 
--   [Crib sheet](session-content/d1-s1_crib-sheet.html)
--   [Plot examples](session-content/all-da-plotz.html)
+-   [Crib sheet](d1-s1_crib-sheet.html)
+-   [Plot examples](all-da-plotz.html)
 
 ## Day 1, Session 2
 
--   [Crib sheet](session-content/d1-s2_crib-sheet.html)
--   [Glossary](session-content/glossary.html)
+-   [Crib sheet](d1-s2_crib-sheet.html)
+-   [Glossary](glossary.html)
 
 ## Day 2, Session 1
 
--   [Crib sheet](session-content/d2-s1_crib-sheet.html)
--   [Lab notes](session-content/d2-s1_lab_understanding-uncertainty.html)
+-   [Crib sheet](d2-s1_crib-sheet.html)
+-   [Lab notes](d2-s1_lab_understanding-uncertainty.html)
 -   [App link](cc-stats.shinyapps.io/uncertainty)
 
 ## Day 2, Session 2
 
--   [Crib sheet](session-content/d2-s2_crib-sheet.html)
+-   [Crib sheet](d2-s2_crib-sheet.html)
 -   Case study links
-    -   [All (html)](session-content/d2-s2-case-studies.html)
-    -   [Progressive Insurance (pdf)](session-content/d2-s2_case-study_progressive.pdf)
-    -   [Allrecipes (pdf)](session-content/d2-s2_case-study_allrecipies.pdf)
+    -   [All (html)](d2-s2-case-studies.html)
+    -   [Progressive Insurance (pdf)](d2-s2_case-study_progressive.pdf)
+    -   [Allrecipes (pdf)](d2-s2_case-study_allrecipies.pdf)
