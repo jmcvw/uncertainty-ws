@@ -22,9 +22,9 @@ This is the one instructors should use to demonstrate.
 
 You should be able to hand out the preferred link over Slack.
 
--   All [(html)](session-content/d2-s2-case-studies.html)
--   Progressive Insurance [(pdf)](session-content/d2-s2_case-study_progressive.pdf)
--   Allrecipes [(pdf)](session-content/d2-s2_case-study_allrecipies.pdf)
+-   All [(html)](d2-s2-case-studies.html){.external target="_blank"}
+-   Progressive Insurance [(pdf)](d2-s2_case-study_progressive.pdf){.external target="_blank"}
+-   Allrecipes [(pdf)](d2-s2_case-study_allrecipies.pdf){.external target="_blank"}
 :::
 
 ::: {.callout-important icon="false" collapse="true"}
@@ -107,7 +107,7 @@ However the most important point is to discuss that modelling is useful:
 
 ### Introduce a case study
 
-Introduce the [**Netflix**](session-content/d2-s2-case-studies.html/#netflix) case study.
+Introduce the [**Netflix**](d2-s2-case-studies.html/#netflix){.external target="_blank"} case study.
 
 ### Types of model
 
@@ -179,7 +179,7 @@ Other examples include those "humorous" example showing that "correlation ≠ ca
 Each of these plots shows two trends that follow a similar pattern.
 There is not suggestion of underlying theory, so they are purely descriptive.
 Note that with a disingenuous motive and dispensing of theory it is possible to use this as a trick to mislead your audience.
-([Source: Tyler Vigen](http://tylervigen.com/spurious-correlations))
+([Source: Tyler Vigen](http://tylervigen.com/spurious-correlations){.external target="_blank"})
 :::
 
 Aimed at summarizing or representing the data structure in a compact manner.
@@ -234,9 +234,9 @@ But maybe throwing a question out to the room about why the above might be true,
 ::: {.callout-important icon="false" collapse="true"}
 ## Case study links
 
--   All [(html)](session-content/d2-s2-case-studies.html)
--   Progressive Insurance [(pdf)](session-content/d2-s2_case-study_progressive.pdf)
--   Allrecipes [(pdf)](session-content/d2-s2_case-study_allrecipies.pdf)
+-   All [(html)](d2-s2-case-studies.html){.external target="_blank"}
+-   Progressive Insurance [(pdf)](d2-s2_case-study_progressive.pdf){.external target="_blank"}
+-   Allrecipes [(pdf)](d2-s2_case-study_allrecipies.pdf){.external target="_blank"}
 :::
 
 -   Assign case studies.
