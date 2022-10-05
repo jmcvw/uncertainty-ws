@@ -22,7 +22,7 @@ This is the one instructors should use to demonstrate.
 
 You should be able to hand out the preferred link over Slack.
 
--   All [(html)](d2-s2-case-studies.html){.external target="_blank"}
+-   All [(html)](d2-s2_case-studies.html){.external target="_blank"}
 -   Progressive Insurance [(pdf)](d2-s2_case-study_progressive.pdf){.external target="_blank"}
 -   Allrecipes [(pdf)](d2-s2_case-study_allrecipies.pdf){.external target="_blank"}
 :::
@@ -107,7 +107,7 @@ However the most important point is to discuss that modelling is useful:
 
 ### Introduce a case study
 
-Introduce the [**Netflix**](d2-s2-case-studies.html/#netflix){.external target="_blank"} case study.
+Introduce the [**Netflix**](d2-s2_case-studies.html/#netflix){.external target="_blank"} case study.
 
 ### Types of model
 
@@ -234,7 +234,7 @@ But maybe throwing a question out to the room about why the above might be true,
 ::: {.callout-important icon="false" collapse="true"}
 ## Case study links
 
--   All [(html)](d2-s2-case-studies.html){.external target="_blank"}
+-   All [(html)](d2-s2_case-studies.html){.external target="_blank"}
 -   Progressive Insurance [(pdf)](d2-s2_case-study_progressive.pdf){.external target="_blank"}
 -   Allrecipes [(pdf)](d2-s2_case-study_allrecipies.pdf){.external target="_blank"}
 :::
