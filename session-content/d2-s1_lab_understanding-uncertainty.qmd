@@ -632,23 +632,10 @@ They want some **definitive** answers to the following questions:
 
 ## Conclusion / summary
 
-::: callout-important
-## TODO:
-
--   Give a summary of part 2
--   Summarize most important learning points from whole session
--   Review outcomes below.
-    -   Are they realistic?
-    -   Get a second opinion or two
--   Check consistency of terms
-    -   profit vs sales vs something else
-    -   expected values / observed value / old value / new value etc
--   Check consistency of aesthetics eg callouts
-:::
-
 ### Summary of main learning points
 
-We have covered *a lot* of concepts here
+We have covered *a lot* of concepts here.
+Let's get together and summarize them all with the instructors.
 
 -   Explored effects of [sample size](#sample-size)
 -   Explored effects of [variance](#precicion)
@@ -662,12 +649,11 @@ We have covered *a lot* of concepts here
 
 ## Conclusion
 
-By experimenting with the way sample size and variance interact we have seen how - If we engage with it we can learn more about the processes of importance to us
+By experimenting with the way sample size and variance interact we have seen how engaging with uncertainty helps us learn more about the processes of importance to us and our work.
 
-        -   and incorporate the new understanding in our decision making processes
+Over time, we can develop a deeper appreciation of these concepts.
+Eventually, we will learn to incorporate our new understanding and apply it to our decision making processes, and become better at our own jobs.
 
-    -   If we embrace it, we can create different strategies for when variance bites hard
+As we learn to become more comfortable embracing uncertainty, we can create different strategies for those times when variance bites hard.
 
-    -   If we embrace it better than our competitors, we can create options more quickly than they can
-
-    -   Or some such ¯\\\_(ツ)\_/¯
+If we learn to embrace it better than our competitors, we can create options more quickly than they can, and just be better than them!

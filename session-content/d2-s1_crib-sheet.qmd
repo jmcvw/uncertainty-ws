@@ -18,10 +18,22 @@ library(gt)
 ```
 
 ::: {.callout-important icon="false" collapse="true"}
-## Notes for instructor
+## Notes for part 1
 
 There are notes provided for most of the group discussion tasks.
-The boxes below are numbered to match the discussion tasks.
+The boxes below are numbered to match the discussion tasks---the numbers hopefully match, but you should double check.
+
+My thoughts on this are that:
+
+-   Participants should be split into groups.
+-   They should work mostly within their own groups.
+    -   their apps should have different results.
+-   Doesn't necessarily mean they can't discuss idea across groups.
+    -   if groups can help each other it adds to the experiential value and emulates the type of inter-team collaboration they might find in their workplace.
+
+Note on timings: I think this is quite long and difficult.
+I think three 45 min block with a 15 min break in between should be encouraged.
+That should leave enough time to get together at the end for a quick summery with instructors
 :::
 
 ## Learning outcomes
@@ -136,19 +148,58 @@ If they need some more directon, encourage them to try changing the inputs to co
 
 ## Part 2 --- P-value--CDF
 
+::: {.callout-important icon="false" collapse="true"}
+## Notes for part2
+
+Part two of the task becomes q bit more theoretic.
+There are a couple of plots available that might help explain some of the trickier points about significance - but probably best kept wuiet about unless asked specific questions.
+:::
+
+::: {.callout icon="false" collapse="true"}
+## 12. Are populations different?
+
+There are several points that could be discussed here depending on the questions asked.
+They are provided with this image in their notes.
+
+![](images/plot--part-2-bell-comparison.png){width="30%"}
+
+-   The position of the peaks of each curve show that each population (customer-base segment) has a different average.
+-   The shape / height of the curves indicates that each population (customer-base segment) has a different spread.
+
+Ask groups to consider each of the above points.
+How far apart do they think the peaks should be to say there is a real difference?
+The answer of course depends on the spread of the two populations, but they might not quite grasp that, but I think that is fine.
+The main thing to see is that the peak of one curve is far into the tail of the other curve.
+:::
+
 ### Table
 
-### P-val plots
+::: {.callout icon="false" collapse="true"}
+## 13, 14, 15. P-val plots
 
-![](images/d2-s1-crib-dist-vs-p-val-cdf-val-anno.png)
+The following plot might be helpful to show that just the distsnce of the result from the expected value own its own is not enough to get a low p-value.
+The p-value is closely relatd to the sample size and spread of the data that that produced it --- that's why in their notes I describe the p-value as a summary of "how weird the data" is.
 
-![](images/d2-s1-crib-dist-vs-cdf-sig-threshold.png)
+::: {#fig-p-val-distrs layout-ncol="2"}
+![Significant values are red and outside the gold CI thresholds](images/d2-s1-crib-dist-vs-cdf-sig-threshold.png){#fig-pval-cdf width="40%"}
 
-![](images/)
+![Numbers attached to the points are the cumulative probs, hence .99 is "as significant" as .1.](images/d2-s1-crib-dist-vs-p-val-cdf-val-anno.png){#fig-pval-pdf width="40%"}
 
-## Shaded region plot
+The points in these plots show the p-values from many iterations.
+The red points are the same in both images.
+$n=?can't\ remember,\ \mu=100,\ sd=20$ $\alpha=0.05$.
+:::
+:::
 
-<!-- ## Likelihood vs probability -->
+::: {.callout icon="false" collapse="true"}
+## 16. 68-97-99 rule
+
+No need to be specific, but it might be helpful to illustrate the 68-97-99 percent regions.
+
+![](images/d2-s1_shaded-regions.png)
+:::
+
+68-97-99 <!-- ## Likelihood vs probability -->
 
 ## Final conclusion code reference
 
@@ -188,3 +239,4 @@ You can use that code to refer to the table below to see if they understood the 
 
 ```
 :::
+

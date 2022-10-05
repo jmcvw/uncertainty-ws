@@ -60,6 +60,5 @@ execute:
 -   Importance of continuous monitoring for updating models
 -   Case study links
     -   [All (html)](session-content/d2-s2-case-studies.html)
-    -   [Progressive Insurance (pdf)](session-content/d2-s2_case-study_progressive.pdf)\
+    -   [Progressive Insurance (pdf)](session-content/d2-s2_case-study_progressive.pdf)
     -   [Allrecipes (pdf)](session-content/d2-s2_case-study_allrecipies.pdf)
-
