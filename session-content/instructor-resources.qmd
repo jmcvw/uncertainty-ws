@@ -20,7 +20,7 @@ Participants have the links they need on the landing page, here https://codeclan
 
 -   [Crib sheet](d2-s1_crib-sheet.html){.external target="_blank"}
 -   [Lab notes](d2-s1_lab_understanding-uncertainty.html){.external target="_blank"}
--   [App link](cc-stats.shinyapps.io/uncertainty){.external target="_blank"}
+-   [App link](https://cc-stats.shinyapps.io/uncertainty){.external target="_blank"}
 
 ## Day 2, Session 2
 
