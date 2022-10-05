@@ -1,0 +1,458 @@
+---
+title: 'Case studies<span style="color: #e6c372">_</span>'
+subtitle: '<span style="line-height: 0.5rem;">&zwnj;</span>'
+format:
+  html:
+    include-before-body: images/cc-data-banner.html
+    toc: true
+    mainfont: Gilroy
+    fontsize: 1.25rem
+    css: style.css
+---
+
+## Netflix
+
+When companies take a digital-first approach to customer loyalty, they can collect an incredible amount of user data.
+With these marketing analytics, companies can improve their products, build better marketing campaigns, and drive more revenue.
+
+As this Netflix case study shows, the online content streaming platform has leveraged its user data in a variety of helpful ways.
+
+By using data to improve its content recommendation engine, develop original content, and increase its customer retention rate, Netflix has positioned itself far ahead of the competition.
+
+### Goal
+
+With so much data to leverage, Netflix had wide-ranging goals for the company's marketing analytics.
+However, all of the organization's goals contributed to the company's larger business objectives---which focus on customer retention.
+
+Netflix aimed to go beyond basic user demographics and understand what customers want from a streaming platform---and what was likely to convince them to stay.
+With this knowledge, Netflix could create better products and services for happier customers.
+
+Access issues, service outages, and platform flaws can all lead to unhappy customers and negative sentiment---which can cause customers to seek out an alternative solution.
+
+By identifying problems early through marketing analytics, Netflix could improve its products and continue to innovate.
+
+### Process
+
+To work toward its customer retention objective, Netflix collected data from virtually every interaction with its 150+ million subscribers.
+The company then used marketing analytics tools to process this native data and evaluate everything from how customers navigate the platform to what they watch.
+
+By creating such detailed customer profiles, Netflix could make much more personalized recommendations for each user.
+The more data the company collected, the more it could tailor its algorithm to suggest the ideal content to each individual viewer.
+
+To better understand the platform's users, Netflix collected such data as:
+
+-   The devices viewers used to stream content
+-   Day of week and time of day when users viewed content
+-   Number of serial episodes viewers watched in a row
+-   Whether viewers paused and resumed content
+-   Number and type of searches users performed
+
+Netflix also welcomed user feedback on content.
+The company incorporated these content ratings into their analysis to better understand viewer preferences.
+
+### Outcome of this marketing analytics case study
+
+According to the streaming platform, the Netflix algorithm is responsible for about 80% of viewer activity.
+The company has successfully collected relevant data and used marketing analytics to generate recommendations that encourage viewers to continue watching and subscribing.
+
+The revenue metrics suggest that Netflix's focus on marketing analytics has been hugely beneficial to the company.
+The company estimates that its algorithm generates \$1 billion in value every year, largely due to customer retention.
+
+In recent years, Netflix's customer retention rate has far surpassed competitors like Hulu and Amazon Prime.
+Netflix has an impressive 90% retention rate, meaning the vast majority of viewers continue to subscribe to the service month after month.
+(In contrast, Amazon Prime's retention rate is 75%, and Hulu's is 64%.)
+
+For Netflix, customer retention means more than happy viewers.
+It also means more data, a continually improving algorithm, and substantial business growth.
+
+Netflix has emerged as the world's most highly valued company, with a total valuation of over \$160 billion.
+Netflix can continue to increase this valuation.
+It leverages its data by producing original media and recommending the ideal content to viewers every time they access the streaming platform.
+
+------------------------------------------------------------------------
+
+## Marketing Analytics Case Studies: Progressive Insurance
+
+In the early 2000s, Progressive's website was routinely considered one of the best in the insurance industry.
+When the insurance provider's customers began switching to mobile devices a decade later, the organization aimed to develop a mobile app as effective as its desktop site.
+
+But what did that mean exactly?
+And what was the insurance provider's mobile app missing?
+
+To determine what would make the mobile app more successful, Progressive pursued an in-depth analysis of the organization's marketing data.
+
+### Goal
+
+As Progressive Data & Analytics Business Leader Pawan Divakarla explains, the insurance provider's analytics team has always sought insight into how customers are using the company's tools.
+
+In his words, "At Progressive, we sell insurance. But if you think about it, our product is actually data."
+
+After launching the mobile app, Progressive began looking for ways to optimize the user experience.
+As this Progressive case study explains, the organization aimed to streamline the login process and improve user satisfaction to meet its ultimate goals of increasing customer loyalty and new customer acquisition.
+
+### Process
+
+Because Progressive's mobile app generated so much information, the organization needed data visualization tools for collection and processing.
+To analyze customers' experiences and actions, the company opted to use a combination of Google Analytics 360 and Google Tag Manager 360.
+
+This choice was a relatively simple one for Progressive because the company already used these tools to run A/B tests and optimize its website.
+
+Using Google's analytical tools to review the company's mobile app would allow Progressive to understand what features to test and how to optimize the user experience across countless mobile devices and operating systems.
+
+Progressive used the two Google tools for separate yet complementary functions:
+
+-   With Google Analytics 360, Progressive could track user sessions and demographics. The company integrated BigQuery for more insight into user behaviors.
+-   With Google Tag Manager 360, Progressive could easily implement tracking tags to measure various actions, conversions, and navigation patterns.
+
+To get the insights the company needed to improve its mobile app, Progressive took a three-pronged approach:
+
+#### User device data
+
+First, Progressive aimed to identify which devices and operating systems were most common among the app's user base.
+With this information, the company would be able to develop more effective tests for its mobile app.
+
+#### App crash data
+
+Next, Progressive wanted to analyze app crash data.
+The company planned to use Google Analytics 360 and BigQuery data to understand the cause for the crash and how users reacted when the app stopped working abruptly.
+
+#### Login and security data
+
+Finally, Progressive aimed to learn how users responded when failed login attempts locked them out of the app.
+The company planned to use Google Analytics 360 and BigQuery to see what actions users took.
+It planned to then test new prompts that would guide users more effectively.
+
+### Outcome of this marketing analytics case study
+
+Using marketing analytics tools, Progressive was able to process customer behavior, identify appropriate tests, and implement successful solutions.
+
+Here's how each of the three approaches generated useful results that helped Progressive reach its ultimate acquisition and loyalty goals.
+
+#### User device data
+
+First, Progressive developed session-based reports that reflected the most common mobile devices and operating systems for the app's user base.
+With those insights, the company identified which device and operating system combinations to prioritize for its mobile app tests.
+
+As a result, the company reduced testing time by 20% for its mobile app---allowing the organization to find solutions much more quickly than its typical timeline would have allowed.
+
+#### App crash data
+
+Next, Progressive reviewed the actions customers took right before the app crashed.
+The company pinpointed a server issue as the cause of a major crash that disrupted countless mobile app sessions.
+
+Using this data, Progressive could address the server issue and prevent it from happening again.
+
+#### Login and security data
+
+Finally, Progressive created a custom funnel in Google Analytics 360 to evaluate users' typical login path.
+After learning that many users who became locked out of their accounts never attempted to log in again, the company developed a workflow that provided better guidance.
+
+The new workflow sends users to a Forgot Password page, which has increased logins by 30%.
+
+------------------------------------------------------------------------
+
+## Allrecipes
+
+As the world's biggest digital food brand, Allrecipes has 18 websites and more than 85 million users.
+But the brand also has plenty of competition from other food-focused apps and websites.
+
+To stay ahead of other recipe sites and ensure that it continues to provide all the solutions that users want, Allrecipes relies on marketing analytics.
+
+With marketing analytics, the digital brand can better understand the customer journey and analyze trends as they emerge.
+As this Allrecipes case study explains, the brand can expand its audience and attract even more lucrative demographics using these insights.
+
+### Goal
+
+To continue to gain ground as the world's top digital food brand, Allrecipes established several wide-ranging goals.
+
+Some of the brand's primary objectives included the following.
+
+#### Improve user experience
+
+With more than a billion and a half visitors across the brand's sites every year, Allrecipes generates a ton of traffic.
+But the company needed a way to understand how visitors were using the site, so it could improve the user experience and gauge the health of the sites.
+
+#### Increase video engagement
+
+To take advantage of a demand for video content, Allrecipes had decided to invest heavily in video.
+However, the video production team needed strategic guidance.
+The brand needed to know what types of content would drive the most engagement.
+
+#### Drive mobile engagement
+
+To continue to meet the needs of its user base, Allrecipes had to look beyond its websites.
+As more and more people began using mobile devices to access the brand's content, Allrecipes realized that the company needed to optimize its mobile app.
+
+#### Inform product strategy
+
+To promote new features and integrations or pursue partner programs, Allrecipes needed to know what its community wanted.
+Had they adopted the new integrations yet?
+Did they need new features to use the site or app more effectively?
+
+#### Expand user base
+
+Cooking and dining trends come and go, and Allrecipes needed a simple yet effective way to identify these developments.
+
+By responding quickly to trends, the brand would be able to capture a larger user base, including elusive millennials.
+
+#### Grow advertising revenue
+
+Like many digital brands, Allrecipes has a native advertising program that allows the company to monetize its website.
+The company aimed to increase its advertising revenue, yet the organization didn't want to compromise the user experience.
+To find the right partners to grow this program, Allrecipes needed deeper insights into its audience.
+
+### Process
+
+Although the brand's goals were varied, the approach was relatively straightforward.
+To process marketing analytics from a wide range of channels, the brand opted to use Tableau, a business intelligence platform.
+
+With Tableau, Allrecipes could establish a single platform for visualizing data from Adobe Marketing Cloud, Hitwise, and comScore.
+By linking Adobe Marketing Cloud to Tableau, the brand could pull in all of its website and marketing analytics.
+By linking Hitwise and comScore, the brand could source demographic data.
+
+Using Tableau allowed Allrecipes to build custom dashboards and develop tailored reports to answer all of the brand's questions.
+This tool also allowed the brand to pursue collaboration options across the organization.
+
+In fact, departments ranging from marketing and design to product and finance contributed to the tool.
+Teams used Tableau Server to publish dashboards, creating a single space where stakeholders could visualize or analyze data.
+
+### Outcome
+
+With Tableau, Allrecipes was able to visualize the brand's data successfully, enabling smarter decisions and making progress toward key goals.
+Here's what the brand accomplished using marketing analytics: Improve user experience
+
+Using insights from Tableau, Allrecipes was able to see how visitors typically used the site---including how they submit recipes, share content, and post links on social media channels.
+The organization then used this data to devise a plan for improving the site.
+
+Knowing how visitors were already engaging with the site allowed the brand to make data-driven, goal-focused decisions.
+
+#### Increase video engagement
+
+With Tableau's marketing analytics, Allrecipes found that out of all types of recipes, dessert typically generated more views and attracted more comments and photos.
+As a result, the brand opted to focus on this highly engaging niche, creating a separate video hub for dessert recipes.
+Drive mobile engagement
+
+To increase engagement on mobile devices, Allrecipes devised an A/B test that displayed the brand's mobile site on all devices.
+Then the organization used the analytics to identify what drove interactions on mobile.
+The brand then used insights to improve the mobile site, including optimizing content and encouraging photo uploads.
+
+#### Inform product strategy
+
+Tableau's data visualizations helped Allrecipes understand trends in its user community and respond to preferences more efficiently.
+Using these insights, the brand was able to promote integrations and features while gathering data for future product enhancements.
+
+#### Expand user base
+
+By using Tableau's insights to process trends, Allrecipes was able to segment audiences for various recipe types, ultimately identifying millennial users' interests and preferences.
+The brand was then able to create more content geared toward this growing user base---likely responding much more quickly than competitors could.
+
+#### Grow advertising revenue
+
+By tapping into real-time marketing analytics, Allrecipes was able to share popular recipe searches and trending content with its advertising partners during a recent holiday season.
+Advertisers could then create ads tailored to these interests, generating a better ROI and creating a more appealing experience for users.
+
+------------------------------------------------------------------------
+
+<!-- ## Smaller A/B testing case studies -->
+
+<!-- https://ppc.org/3-ab-testing-conversion-rate-case-studies-to-make-you-inspire/ -->
+
+<!-- ## [APCAG Executive Briefing](https://www.oneearth.org/apcag-executive-briefing/) -->
+
+<!-- We face a worsening climate crisis, with record temperatures causing rampant fires, rapidly melting polar ice, and extreme flooding. -->
+
+<!-- The world has already reached a global average temperature rise of 1.1 degrees Celsius above pre-industrial levels. -->
+
+<!-- A world of 1.5 degrees Celsius is almost unimaginable and must be avoided at all costs. -->
+
+<!-- Fortunately, a breakthrough climate model shows that we have a window to stay below the dangerous threshold of 1.5 degrees Celsius, achieving net-zero emissions before 2040. -->
+
+<!-- **why 2040?** -->
+
+<!-- The two-year collaboration with 17 leading scientists, entitled Achieving the Paris Climate Agreement Goals (APCAG), shows that we can prevent the worst impacts of climate change with currently available solutions, unlocking trillions in economic benefits. -->
+
+<!-- In the 1.5C scenario, there are two main efforts required--- - a rapid decarbonization of our energy system - large-scale land restoration -->
+
+<!-- ---which combined, provide a **66% likelihood** of staying below 1.5 degrees Celsius. -->
+
+<!-- For the global energy transition, electricity use will roughly double from today's levels by 2050, meeting a majority of our energy needs across all three major sectors -- Transportation, Industry, and Buildings & Infrastructure. -->
+
+<!-- Half of all transportation will be powered by electricity, with hydrogen and other renewable fuels replacing petroleum products. -->
+
+<!-- Industry will double its electricity use, meeting more than one-third of heating & process-energy requirements in addition to other renewable fuels. -->
+
+<!-- Buildings & infrastructure will also double electricity use, with more than one-third of heating needs met by geothermal, biomass, and solar heat sources. -->
+
+<!-- ::: {.callout-note icon="false"} -->
+
+<!-- ### Questions? -->
+
+<!-- -   Where does this 1.5 C figure come from? -->
+
+<!-- -   Who decided 2040 is the deadline? -->
+
+<!-- -   How did they come up with the idea that economic benefits would be in the trillions? -->
+
+<!-- -   How do the now their measures provide a 66% likelihood of success? -->
+
+<!-- Where do these estimates come from? -->
+
+<!-- - Electricity use will double from today's levels by 2050 - Half of all transportation will be powered by electricity - Industry will double its electricity use - Buildings & infrastructure will also double electricity use -->
+
+<!-- What obstacles are likely to be in the way of success? -->
+
+<!-- What happens if the measures are not implemented by 2040? -->
+
+<!-- Or 2060, or etc? -->
+
+<!-- ::: -->
+
+<!-- ------------------------------------------------------------------------ -->
+
+<!-- ## GM foods -->
+
+<!-- Genetically modified (GM) crops first appeared commercially in the mid-1990s to what seemed a bright and promising future. -->
+
+<!-- Resistant to pests and the herbicides used to control weeds, these new crops were so popular with farmers that millions of acres were planted with them by the turn of the millennium. -->
+
+<!-- Today \[this article was published in 2005\], GM crops are grown commercially by 8.25 million farmers on 200 million acres spread throughout 17 countries, reports the International Service for the Acquisition of Agri-Biotech Applications (ISAAA), an international nonprofit that advocates for the technology. -->
+
+<!-- The world's top five producers---the United States, Argentina, Canada, Brazil, and China---account for 96% of global GM cultivation; of this, more than half is in the United States. -->
+
+<!-- Yet these impressive numbers tell only part of the story. -->
+
+<!-- Fully as notable as the growth of GM agriculture is the relentless backlash that has developed against it. -->
+
+<!-- Although GM supporters insist the technology raises harvest yields, reduces agrochemical use, and will eventually even produce high-nutrition food that can grow in depleted soils, skeptics counter that the risks of GM foods---made with gene splicing methods from biotechnology---are unknown and poorly addressed by current testing methods. -->
+
+<!-- They also worry that the spread of GM crops, which are supplied mainly by a handful of multinational companies, fuels corporate ownership of the seed supply and threatens the purity of indigenous crops, with which GM varieties can breed by cross-pollination. -->
+
+<!-- Consider the case of Golden Rice, the product of a largely humanitarian effort led by Syngenta and a consortium of nonprofit research groups. -->
+
+<!-- Golden Rice was meant as a means to boost daily intakes of vitamin A; deficiency-related blindness and death currently afflicts nearly 2 million people annually, according to the United Nations Children's Fund. -->
+
+<!-- However, Golden Rice is under sustained assault by Greenpeace, which claims that health effects have not been sufficiently addressed, that the rice could breed with and contaminate wild varieties, and that the whole effort is merely a ploy to gain acceptance for GM food in developing countries. -->
+
+<!-- Jorge Mayer, manager of the Golden Rice Project at the University of Freiburg in Germany, as quoted in the 2 April 2005 New Scientist, countered that Greenpeace's blanket opposition to Golden Rice is impeding the very trials that will provide the answers the group demands. -->
+
+<!-- "It's a catch-22," he said. -->
+
+<!-- ::: {.callout-important collapse="true" collapse="true"} -->
+
+<!-- ### Notes---for instructors -->
+
+<!-- Possibly good case study for revealing personal bias, especially for non-scientific laymen -->
+
+<!-- The article is almost 20 years old. -->
+
+<!-- How has the scenario played out? -->
+
+<!-- Are we all eating GM foods on a regular basis? -->
+
+<!-- Sources of uncertainty Just who are **ISAAA**? -->
+
+<!-- Do they have a vested interest? -->
+
+<!-- What can we do to mitigate uncertainty? -->
+
+<!-- [Full article](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1280366/) -->
+
+<!-- ::: -->
+
+<!-- ------------------------------------------------------------------------ -->
+
+<!-- ## World ending asteroid -->
+
+<!-- Long before humans came to inhabit the area, a massive space rock slammed into woodlands that are now the Arizona desert. -->
+
+<!-- Mammoths, giant sloths, and other Pleistocene animals may have glanced up as explosions tore through the sky --- only to be vaporized an instant later. -->
+
+<!-- Estimated to be about 50 meters wide and weighing as much as 300 million kilograms, the incoming mass of iron ionized the atmosphere as it streaked toward Earth at some 43,000 km/h. -->
+
+<!-- The meteorite hit with a force 150 times more powerful than the atomic bomb dropped on Hiroshima. -->
+
+<!-- Shock waves propagated through the ground and air alike, destroying everything for miles. -->
+
+<!-- In the blink of an eye, the impact excavated a hole 1.2 kilometers wide and 170 m deep. -->
+
+<!-- Evidence of the collision's true power can be seen in the uplifting of massive limestone blocks, shocked rock formations, and even microscopic diamonds formed by the intense pressure and heat of the strike. -->
+
+<!-- Ejected fragments from the largely vaporized meteorite have since been recovered miles away. -->
+
+<!-- The strike that created Meteor Crater was surely dramatic and devastating. -->
+
+<!-- However, that impact pales in comparison to the long-term beating Earth has endured since its formation. -->
+
+<!-- #### Extinction factor -->
+
+<!-- The small town of Chicxulub in Yucatán, Mexico, is very near the center of one of the largest impact craters on Earth. -->
+
+<!-- The town's beautiful beaches belie the epic event that took place there some 66 million years ago. -->
+
+<!-- Recent research suggests it was spring in the Northern Hemisphere when an asteroid or comet, moving at nearly 72,500 km/h, impacted Earth near the coast of the Yucatán Peninsula. -->
+
+<!-- The object may have been as large as 13 km across. -->
+
+<!-- The strike released the power of a 100-million-megaton blast, carving out a crater more than 160 km wide and penetrating 0 km into Earth's crust. -->
+
+<!-- Earthquakes, volcanoes, and a monster tsunami that reached the center of North America were only some of the aftereffects of this powerful event. -->
+
+<!-- A long period of cooling also began as trillions of tons of dust and debris were blasted into the atmosphere, nearly bringing a stop to all photosynthesis. -->
+
+<!-- Over time, weather and erosion eventually erased most of the visual evidence of this devastating impact, which wiped out an estimated 70 to 80 percent of all species on Earth, including the dinosaurs. -->
+
+<!-- Nonetheless, life slowly recovered. -->
+
+<!-- New and diverse forms of life ultimately reclaimed the planet. -->
+
+<!-- Fortunately, an Earth-altering event like this only happens, on average, about every 100 million years. -->
+
+<!-- ::: {.callout-important icon="false" collapse="true"} -->
+
+<!-- ### Notes---for instructors -->
+
+<!-- There are a lot of numbers quoted here - some of which seem quite precise. -->
+
+<!-- [Full article](https://astronomy.com/magazine/news/2022/09/earths-greatest-hits-a-history-of-impacts) -->
+
+<!-- ::: -->
+
+<!-- ------------------------------------------------------------------------ -->
+
+<!-- ## Budget uncertainty -->
+
+<!-- In March's Spring Statement \[2022\], the Chancellor said his tests for judging the performance of the Government's financial policies -- the so-called "fiscal targets" -- were on track to be met by 2024/25. -->
+
+<!-- This was based on forecasts from the independent Office for Budget Responsibility (OBR). -->
+
+<!-- However, the OBR's calculations can be difficult to understand. -->
+
+<!-- This Insight looks at how the OBR's forecasts work, and what that might mean for spending policy in the next few years. -->
+
+<!-- Under the terms of the Charter for Budget Responsibility, the OBR has to judge whether the Government has a greater than **50%** chance of meeting its fiscal targets under its current policies. -->
+
+<!-- Two of these targets are: -->
+
+<!-- -   The national debt must be falling, relative to the size of the economy, by the third year of the forecast period (2024/25 at the time of the Spring Statement) -->
+
+<!-- -   The current budget must be balanced -- the Government must be spending no more on day-to-day services than it collects in taxes and other revenue -- also by the third year of the forecast. -->
+
+<!-- The OBR concluded in its March 2022 Economic and fiscal outlook that each of these targets was more likely to be met than not in 2024/25. -->
+
+<!-- However, just because the OBR thinks that each individual target is on course to be met, that doesn't necessarily mean it thinks both targets will be met together. -->
+
+<!-- ::: {.callout-important icon="false" collapse="true"} -->
+
+<!-- ## Notes---for instructors -->
+
+<!-- [Full article](https://commonslibrary.parliament.uk/uncertainty-in-the-uks-economic-forecasts/) -->
+
+<!-- ::: -->
+
+<!-- ## UNICEF: measles outbreaks -->
+
+<!-- https://www.who.int/news/item/27-04-2022-unicef-and-who-warn-of--perfect-storm--of-conditions-for-measles-outbreaks--affecting-children -->
+
+<!-- ## WHO: Polio outbreaks -->
+
+<!-- https://www.who.int/news/item/24-06-2022-statement-of-the-thirty-second-polio-ihr-emergency-committee -->
