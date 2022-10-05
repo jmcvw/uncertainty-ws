@@ -39,7 +39,7 @@ execute:
 
 **Experiential learning workshop**
 
--   Understand the inportance of sample size
+-   Understand the importance of sample size
 -   Develop awareness of the effect of variance
 -   Quantify confidence in estimates
 -   Understand difference between populations

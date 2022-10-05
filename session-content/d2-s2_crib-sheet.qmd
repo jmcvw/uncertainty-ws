@@ -36,7 +36,7 @@ You should be able to hand out the preferred link over Slack.
 ::: {.callout-important icon="false" collapse="true"}
 ## Notes --- for instructors
 
-**There are a lot of notes here.** Use your judgment with an eye on the timings to cover the most salient points, while leaving them enough time to prepre a short presentation.
+**There are a lot of notes here.** Use your judgment with an eye on the timings to cover the most salient points, while leaving them enough time to prepare a short presentation.
 Outline:
 
 -   Tell them upfront that they are expected to put together a **presentation** that makes use of the concepts that will be covered in this session.
@@ -49,10 +49,10 @@ Outline:
     -   Specifically, they should try and identify use-cases for each of the types of model mentioned.
     -   They should also try and think about what barriers to creating those model might might be present.
     -   Since they are not involved in building models themselves, the point is that they gain an insight into the uses and difficulties faced by the data teams that they may have to communicate with.
-    -   Tell them the presentations can (*should?*) be really simple, i.e. sheets of flipchart paper held up by someone at the front.
+    -   Tell them the presentations can (*should?*) be really simple, i.e. sheets of flip-chart paper held up by someone at the front.
     -   If the really must a PowerPoint type affair is fine too.
     -   Where possible the presentations should have an example of each type of model
-        -   **The focus here is on generating something that captures the spirit of a model, more than a realistic representation. (Especially since that is likely impossible based judt on the case study alone.)**
+        -   **The focus here is on generating something that captures the spirit of a model, more than a realistic representation. (Especially since that is likely impossible based just on the case study alone.)**
     -   Presentations should also tie-in any concepts they are able to from elsewhere in the course.
     -   Presentations should identify parallels and analogies with their own work.
 
@@ -76,7 +76,7 @@ If things are so uncertain, why try and plan for it; why not just wait and see w
 Unfortunately, that is not really embracing uncertainty, it is just not doing anything!
 All uncertainty really means is that instead of not making plans, we plan for different contingencies.
 In this session we will use case studies to apply everything we have discussed so far to begin to see how we can prepare for uncertain events.
-In particular, we shall highlight whether uncertainty arises form our own lack of knowledge or understanding, whether in is a natural, and irreducible random cmponent of our system, or whether it comes from inadequate data collection or handling.
+In particular, we shall highlight whether uncertainty arises form our own lack of knowledge or understanding, whether in is a natural, and irreducible random component of our system, or whether it comes from inadequate data collection or handling.
 
 <!-- add note about judging prob of events -->
 
@@ -199,9 +199,9 @@ The goal of explanatory modelling is to show how some metric (e.g. a KPI) respon
 They take the form of trying to measure how changes in one variable are associated with changes in one, or several, other variables.
 
 One example would be explaining a change in sales following a new marketing campaign.
-While it is certainly possible to build horrendouly complicated explanatory models, it is desirable, and usually a particular aim, to keep the model as simple as possible (but no simpler).
+While it is certainly possible to build horrendously complicated explanatory models, it is desirable, and usually a particular aim, to keep the model as simple as possible (but no simpler).
 Relating to the descriptive models above, you can see how adding a variable measuring cheese consumption might happen to be closely correlated with your KPI.
-However, including it in your explanatory model make the model somewhet less simple than it could be.
+However, including it in your explanatory model make the model somewhat less simple than it could be.
 This is where your knowledge of the underlying mechanisms that influence the system become important.
 And where time spent creating a decent conceptual model pays off.
 
@@ -212,7 +212,7 @@ An explanatory model would be one that would allow you to say, with some confide
 
 Asking participants to approximate a realistic model on case studies they know nothing about might be difficult.
 However, they should be able to make a naive guess at what sort of things might help to explain any trends or patterns in the case study.
-Refering back to their previous two models might help.
+Referring back to their previous two models might help.
 Hopefully, they will also be able to discuss some underlying theory for their own work.
 The aim of this section should just be to encourage thinking in a theoretical way about relationships between different variables.
 :::
@@ -224,7 +224,7 @@ Since KPIs are the metric of most interest to most businesses, these model are v
 The focus of these models is to be as correct as possible as often as possible.
 Since the aim of predictive modelling is to be as accurate as possible, it is common to add many, many variables to try and improve the model as much as possible.
 In other words, we free ourselves from the constraint that our models must be as simple as possible.
-This commonly also seem to translate into an assumption that we are alos free of the need for underlying theory.
+This commonly also seem to translate into an assumption that we are also free of the need for underlying theory.
 But this is definitely not true!
 It may be that we don't fully understand how or why a particular variable improves our model, but that is no excuse for throwing everything we have at the model without careful consideration.
 

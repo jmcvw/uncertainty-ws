@@ -199,11 +199,9 @@ No need to be specific, but it might be helpful to illustrate the 68-97-99 perce
 ![](images/d2-s1_shaded-regions.png)
 :::
 
-68-97-99 <!-- ## Likelihood vs probability -->
-
 ## Final conclusion code reference
 
-The new populations are sample from a distribution with an integer mean between 96 ans 104.
+The new populations are sample from a distribution with an integer mean between 96 and 104.
 A mean of 100 is not included in the app, so there is guaranteed to be a difference.
 It is possible for groups to infer the exact integer mean for their own scenario.
 At the bottom of the app there is a blue expandable container that contains some extra gubbins (the plots there-in might even be interesting to discuss, time permitting).

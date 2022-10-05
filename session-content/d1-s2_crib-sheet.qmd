@@ -49,7 +49,7 @@ There is a cycle to the session, the scribe / reporters can (should?) change in 
 -   Develop awareness of different sources of uncertainty.
 -   Realise that uncertainty is normal and cannot be removed or ignored.
 -   Realise that it is possible to develop strategies for dealing with uncertainty that can make decisions more robust.
--   Awareness that own (un)concious biases affect interpretation of uncertainty.
+-   Awareness that own (un)conscious biases affect interpretation of uncertainty.
 
 ## Intro
 
@@ -134,7 +134,7 @@ Aims:
     -   Could it be an opportunity?
         -   Personal development / staff training?
     -   **This will lead into the next question about biases**
--   These are examples of uncertinty we can identify.
+-   These are examples of uncertainty we can identify.
     -   But there may also be uncertainty about what we know
     -   I.e. not knowing what we don't know
         -   How can we prepare for things we don't even suspect?
@@ -145,7 +145,7 @@ Aims:
 Aims:
 
 :   Recognize that sometimes it is difficult to update our preexisting world view.
-    We all have preconcieved notions, i.e., this is normal, but ot can become a problem if they blind us to patterns in out data.
+    We all have preconceived notions, i.e., this is normal, but it can become a problem if they blind us to patterns in out data.
     Discuss how different types of bias affect our judgments.
     How can we go about mitigating our biases.
 
@@ -166,9 +166,9 @@ Many of these overlap
         -   Perhaps you're so convinced a certain decision or course of action is for the best, you can't / won't consider alternatives.
 -   **Data biases**
     -   Selection bias
-        -   If ads target a particular demographic, it might be easy to assume that everyone is similar to the respondents, when reaaly they could be a very distinct subset.
+        -   If ads target a particular demographic, it might be easy to assume that everyone is similar to the respondents, when really they could be a very distinct subset.
     -   Survivor effects
-        -   How do customers ustomers that don't churn (survivors) affect perceptions
+        -   How do customers that don't churn (survivors) affect perceptions
     -   Attrition bias (kind of)
         -   Who are the customers that churn?
         -   Is there a systematic pattern that makes certain types of people more likely to churn?
@@ -181,7 +181,7 @@ Aims:
 :   Identify the steps that can help reduce anxiety caused by uncertainty, and that might suggest strategies of minimizing disruption.
     Discuss how we might begin to quantify either the uncertainty itself, or its consequences on decision making (this will help set up tomorrows lab session).
 
-Appropriate management of uncertainty will depend on both where the uncertainty originates, and how we percieve and interact with the causes (i.e. the two prevous topics).
+Appropriate management of uncertainty will depend on both where the uncertainty originates, and how we perceive and interact with the causes (i.e. the two previous topics).
 
 ::: {.callout-important icon="false" collapse="true"}
 ## Try and work towards a framework
@@ -203,20 +203,20 @@ i.e. how large an effect is the uncertainty likely to have on expectations?
 
 ## Q4: How can we become comfortable with uncertainty?
 
-**Aim:** To try and set expectation that, since incertainty exists, and we cannot completely remove it, we need to learn to *embrace* it.
+**Aim:** To try and set expectation that, since uncertainty exists, and we cannot completely remove it, we need to learn to *embrace* it.
 
 ::: {.callout-important icon="false" collapse="true"}
 ## Since we can't beat it, let's plan for it
 
--   What if everyone else (i.e. competitiors) manages uncertainty better that you?
+-   What if everyone else (i.e. competitors) manages uncertainty better that you?
 -   Is there any danger of overcompensating?
     -   i.e. trying to plan for too many possibilities?
--   **This would be a good time to hint at some kind of modeling approack**
+-   **This would be a good time to hint at some kind of modeling approach**
 :::
 
 ::: {.callout-important icon="false" collapse="true"}
 ## Good thing; bad thing
 
 -   What advantages might come from planning for different circumstances?
--   What disadvanteges might associated with planning for uncertainty?
+-   What disadvantages might associated with planning for uncertainty?
 :::
