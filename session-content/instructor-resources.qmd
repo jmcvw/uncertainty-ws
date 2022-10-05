@@ -26,6 +26,10 @@ Participants have the links they need on the landing page, here https://codeclan
 
 -   [Crib sheet](d2-s2_crib-sheet.html){.external target="_blank"}
 -   Case study links
-    -   [All (html)](d2-s2_case-studies.html){.external target="_blank"}
-    -   [Progressive Insurance (pdf)](d2-s2_case-study_progressive.pdf){.external target="_blank"}
-    -   [Allrecipes (pdf)](d2-s2_case-study_allrecipies.pdf){.external target="_blank"}
+    -   All [(html)](d2-s2_case-studies.html){.external target="_blank"}
+    -   **Progressive Insurance**
+        -   [(html)](d2-s2_case-study_progressive.html){.external target="_blank"}
+        -   [(pdf)](d2-s2_case-study_progressive.pdf){.external target="_blank"}
+    -   **Allrecipes**
+        -   [(html)](d2-s2_case-study_allrecipies.html){.external target="_blank"}
+        -   [(pdf)](d2-s2_case-study_allrecipies.pdf){.external target="_blank"}

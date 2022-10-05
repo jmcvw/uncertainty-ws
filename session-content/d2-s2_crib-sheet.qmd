@@ -22,9 +22,15 @@ This is the one instructors should use to demonstrate.
 
 You should be able to hand out the preferred link over Slack.
 
--   All [(html)](d2-s2_case-studies.html){.external target="_blank"}
--   Progressive Insurance [(pdf)](d2-s2_case-study_progressive.pdf){.external target="_blank"}
--   Allrecipes [(pdf)](d2-s2_case-study_allrecipies.pdf){.external target="_blank"}
+-   [Crib sheet](d2-s2_crib-sheet.html){.external target="_blank"}
+-   Case study links
+    -   All [(html)](d2-s2_case-studies.html){.external target="_blank"}
+    -   **Progressive Insurance**
+        -   [(html)](d2-s2_case-study_progressive.html){.external target="_blank"}
+        -   [(pdf)](d2-s2_case-study_progressive.pdf){.external target="_blank"}
+    -   **Allrecipes**
+        -   [(html)](d2-s2_case-study_allrecipies.html){.external target="_blank"}
+        -   [(pdf)](d2-s2_case-study_allrecipies.pdf){.external target="_blank"}
 :::
 
 ::: {.callout-important icon="false" collapse="true"}
@@ -147,7 +153,7 @@ Encourage the participants to go as deep as they are able drawing on the details
 
 To illustrate the point here is an example:
 
-![Note the use of shape, colour and annotations](images/d2-s2--data-flow.png){#fig-concept-mod-complex}
+![Note the use of shape, colour and annotations](images/d2-s2--data-flow.png){#fig-concept-mod-complex width="50%"}
 :::
 
 #### Descriptive model
@@ -234,9 +240,15 @@ But maybe throwing a question out to the room about why the above might be true,
 ::: {.callout-important icon="false" collapse="true"}
 ## Case study links
 
--   All [(html)](d2-s2_case-studies.html){.external target="_blank"}
--   Progressive Insurance [(pdf)](d2-s2_case-study_progressive.pdf){.external target="_blank"}
--   Allrecipes [(pdf)](d2-s2_case-study_allrecipies.pdf){.external target="_blank"}
+-   [Crib sheet](d2-s2_crib-sheet.html){.external target="_blank"}
+-   Case study links
+    -   All [(html)](d2-s2_case-studies.html){.external target="_blank"}
+    -   **Progressive Insurance**
+        -   [(html)](d2-s2_case-study_progressive.html){.external target="_blank"}
+        -   [(pdf)](d2-s2_case-study_progressive.pdf){.external target="_blank"}
+    -   **Allrecipes**
+        -   [(html)](d2-s2_case-study_allrecipies.html){.external target="_blank"}
+        -   [(pdf)](d2-s2_case-study_allrecipies.pdf){.external target="_blank"}
 :::
 
 -   Assign case studies.

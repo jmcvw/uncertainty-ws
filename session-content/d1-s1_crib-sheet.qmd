@@ -70,6 +70,11 @@ Let's start by generating just a list of plot types - I'll start you off with **
 -   [Line](images/interest-rates-c.png){.external target="_blank"}
 -   [Combination](images/d2-s2--growth-plot.png){.external target="_blank"}
 
+If there are any problems opening the plots above, the link below has links to them all.
+Right click the desired image and select "Open image in new tab"
+
+-   [Lots of plots](all-da-plotz.html){.external target="_blank"}
+
 (could maybe also add traffic lights / bullets / dumbbells / dot-plots / lollipops / histograms / boxplots / etc...)
 :::
 

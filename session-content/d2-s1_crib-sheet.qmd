@@ -236,7 +236,9 @@ You can use that code to refer to the table below to see if they understood the 
 ## And the pop mean is...
 
 ```{r}
-
+gt::gt(
+  data.frame(Code = c('c573', 'c6df', 'b67b', 'f120', 'd344', 'a3d2', 'cd5b', '9f3a', 'bd15'), Mean = c(96:104))
+) |>
+  gt::cols_width(everything() ~ px(80))
 ```
 :::
-
