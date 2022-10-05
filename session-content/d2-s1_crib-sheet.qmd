@@ -19,6 +19,9 @@ library(gt)
 
 ::: {.callout-important icon="false" collapse="true"}
 ## Notes for instructor
+
+There are notes provided for most of the group discussion tasks.
+The boxes below are numbered to match the discussion tasks.
 :::
 
 ## Learning outcomes

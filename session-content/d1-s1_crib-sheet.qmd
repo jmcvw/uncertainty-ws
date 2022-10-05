@@ -68,7 +68,7 @@ Let's start by generating just a list of plot types - I'll start you off with **
 -   [Funnel](images/funnel-vs-bar1--funnel.png){.external target="_blank"}
 -   [Pie](images/pie_three_cats.png){.external target="_blank"}
 -   [Line](images/interest-rates-c.png){.external target="_blank"}
--   [Combination](images/d2-s4--growth-plot.png){.external target="_blank"}
+-   [Combination](images/d2-s2--growth-plot.png){.external target="_blank"}
 
 (could maybe also add traffic lights / bullets / dumbbells / dot-plots / lollipops / histograms / boxplots / etc...)
 :::

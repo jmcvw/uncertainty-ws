@@ -58,3 +58,8 @@ execute:
 -   Understand that models can be used to plan for different scenarios under different levels / types of uncertainty
 -   Create different responses depending on the likelihood of a particular outcome
 -   Importance of continuous monitoring for updating models
+-   Case study links
+    -   [All (html)](session-content/d2-s2-case-studies.html)
+    -   [Progressive Insurance (pdf)](session-content/d2-s2_case-study_progressive.pdf)\
+    -   [Allrecipes (pdf)](session-content/d2-s2_case-study_allrecipies.pdf)
+
