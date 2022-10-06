@@ -172,8 +172,6 @@ The answer of course depends on the spread of the two populations, but they migh
 The main thing to see is that the peak of one curve is far into the tail of the other curve.
 :::
 
-### Table
-
 ::: {.callout icon="false" collapse="true"}
 ## 13, 14, 15. P-val plots
 
