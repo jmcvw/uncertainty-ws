@@ -33,7 +33,7 @@ Data Literacy: two day workshop
   [codeclan.github.io/data_literacy](https://www.https://codeclan.github.io/data_literacy)
   for student landing page
 - Day 1 Session 1:
-  - **Partlt lecture-based facilitated discussion**
+  - **Partly lecture-based facilitated discussion**
   - Friendly intro session
   - Interpreting visual data.
   - Misleading with data.
