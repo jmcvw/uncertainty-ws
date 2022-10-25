@@ -14,7 +14,7 @@ execute:
 
 ## Workshop Agenda
 
-[Glossary](session-content/glossary.html) of statistical terms used during the workshop.
+[Glossary](session-content/glossary.html){.external target="_blank"} of statistical terms used during the workshop.
 
 ### Day 1, morning: Visualizing data
 
@@ -44,8 +44,8 @@ execute:
 -   Quantify confidence in estimates
 -   Understand difference between populations
 -   Resources
-    -   [Session notes](session-content/d2-s1_lab_understanding-uncertainty.html)
-    -   [Link to app](https://cc-stats.shinyapps.io/uncertainty)
+    -   [Session notes](session-content/d2-s1_lab_understanding-uncertainty.html){.external target="_blank"}
+    -   [Link to app](https://cc-stats.shinyapps.io/uncertainty){.external target="_blank"}
 
 ### Day 2, afternoon: Embracing uncertainty
 
@@ -59,6 +59,6 @@ execute:
 -   Create different responses depending on the likelihood of a particular outcome
 -   Importance of continuous monitoring for updating models
 -   Case study links
-    -   [All (html)](session-content/d2-s2_case-studies.html)
-    -   [Progressive Insurance (pdf)](session-content/d2-s2_case-study_progressive.pdf)
-    -   [Allrecipes (pdf)](session-content/d2-s2_case-study_allrecipies.pdf)
+    -   All [(html)](session-content/d2-s2_case-studies.html){.external target="_blank"}
+    -   Progressive Insurance [(pdf)](session-content/d2-s2_case-study_progressive.pdf){.external target="_blank"}
+    -   Allrecipes [(pdf)](session-content/d2-s2_case-study_allrecipies.pdf){.external target="_blank"}

@@ -3,6 +3,5 @@
 .RData
 .Ruserdata
 *_files/
-reprex/
-_notes/
-*cache/
+*_cache/
+

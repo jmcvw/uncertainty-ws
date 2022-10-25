@@ -213,7 +213,7 @@ An explanatory model would be one that would allow you to say, with some confide
 Asking participants to approximate a realistic model on case studies they know nothing about might be difficult.
 However, they should be able to make a naive guess at what sort of things might help to explain any trends or patterns in the case study.
 Referring back to their previous two models might help.
-Hopefully, they will also be able to discuss some underlying theory for their own work.
+Hopefully, they will also be able to relate some underlying theory from their own work.
 The aim of this section should just be to encourage thinking in a theoretical way about relationships between different variables.
 :::
 
