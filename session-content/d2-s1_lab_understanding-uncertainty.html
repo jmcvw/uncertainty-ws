@@ -2718,7 +2718,7 @@ Assumptions for our scenario
 </div>
 <div class="callout-body-container callout-body">
 <p>The scenario is deliberately simple.</p>
-<p>There is a historic average, which should consider as a baseline for our business, and should be taken at face value.</p>
+<p>There is a historic average sales value, which should consider as a baseline for our business, and should be taken at face value.</p>
 <p>This baseline is based on the business’ performance prior to the “marketing campaign”. The observed value should also be taken at face value as the performance after the marketing campaign. The purpose of it is to provide a scaffold for discussions, not to get tied up with the real life business details about how flooglebinder sales might respond to external, or seasonal, or etc, factors.</p>
 </div>
 </div>
@@ -2730,8 +2730,8 @@ Assumptions for our scenario
 <p></p><figcaption class="figure-caption">Figure 2: Sample average (observed) vs expected average</figcaption><p></p>
 </figure>
 </div>
-<p><a href="#fig-exp-vs-sample">Figure 2</a> above shows a horizontal gold line at £100. This indicates the all-time historic average for our company. For the purposes of this exercise, we shall consider this an unambiguous “truth” of what our business has made in an average week. It is therefore not a <strong>statistic</strong>, since statistics are values that are used to <strong>estimate</strong> “true” parameters.</p>
-<p>Looking at this we see that the recent sample yielded an average value higher than the historic average.</p>
+<p><a href="#fig-exp-vs-sample">Figure 2</a> above shows a horizontal gold line at £100. This indicates the overall, average customer spend over the entire history of our company. This is to say that, on average, each individual customer spends £100. For the purposes of this exercise, we shall consider this an unambiguous “truth”. It is therefore not a <strong>statistic</strong>, since statistics are values that are used to <strong>estimate</strong> “true” parameters. The goal of the marketing campaign is to focus on a new subset of customers who may be more likely to make larger purchases.</p>
+<p>The red dot represents the average of all sales for the past week. Therefore, over the past week the average customer spend was higher that the historic average.</p>
 <div class="callout-tip callout callout-style-default no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -2827,6 +2827,7 @@ Assumptions for our scenario
 <p>Discuss how the values are similar and how they are different.</p>
 <p>What does having more sales mean in terms of approaching The Boss with a decision?</p>
 <p>What if we had 100 sales? Add one more column <code>n = 100</code> and compare those values.</p>
+<p>(You could continue experimenting with larger and larger sample sizes. However, sizes greater than, maybe, half a billion(?) will take quite a long time!)</p>
 </div>
 </div>
 <p>At this point The Boss tracks you down, and wants confirmation that they were correct. What can you tell them?</p>
@@ -3176,11 +3177,11 @@ Hint
 <div class="cell-output-display">
 <div id="tbl-distr-table" class="anchored">
 
-<div id="gscvlzzmok" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="nurcegadkk" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
 font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
-#gscvlzzmok .gt_table {
+#nurcegadkk .gt_table {
 display: table;
 border-collapse: collapse;
 margin-left: auto;
@@ -3204,7 +3205,7 @@ border-left-style: none;
 border-left-width: 2px;
 border-left-color: #D3D3D3;
 }
-#gscvlzzmok .gt_heading {
+#nurcegadkk .gt_heading {
 background-color: #FFFFFF;
 text-align: center;
 border-bottom-color: #FFFFFF;
@@ -3215,7 +3216,7 @@ border-right-style: none;
 border-right-width: 1px;
 border-right-color: #D3D3D3;
 }
-#gscvlzzmok .gt_title {
+#nurcegadkk .gt_title {
 color: #333333;
 font-size: 125%;
 font-weight: initial;
@@ -3226,7 +3227,7 @@ padding-right: 5px;
 border-bottom-color: #FFFFFF;
 border-bottom-width: 0;
 }
-#gscvlzzmok .gt_subtitle {
+#nurcegadkk .gt_subtitle {
 color: #333333;
 font-size: 85%;
 font-weight: initial;
@@ -3237,12 +3238,12 @@ padding-right: 5px;
 border-top-color: #FFFFFF;
 border-top-width: 0;
 }
-#gscvlzzmok .gt_bottom_border {
+#nurcegadkk .gt_bottom_border {
 border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 }
-#gscvlzzmok .gt_col_headings {
+#nurcegadkk .gt_col_headings {
 border-top-style: solid;
 border-top-width: 2px;
 border-top-color: #D3D3D3;
@@ -3256,7 +3257,7 @@ border-right-style: none;
 border-right-width: 1px;
 border-right-color: #D3D3D3;
 }
-#gscvlzzmok .gt_col_heading {
+#nurcegadkk .gt_col_heading {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -3275,7 +3276,7 @@ padding-left: 5px;
 padding-right: 5px;
 overflow-x: hidden;
 }
-#gscvlzzmok .gt_column_spanner_outer {
+#nurcegadkk .gt_column_spanner_outer {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -3286,13 +3287,13 @@ padding-bottom: 0;
 padding-left: 4px;
 padding-right: 4px;
 }
-#gscvlzzmok .gt_column_spanner_outer:first-child {
+#nurcegadkk .gt_column_spanner_outer:first-child {
 padding-left: 0;
 }
-#gscvlzzmok .gt_column_spanner_outer:last-child {
+#nurcegadkk .gt_column_spanner_outer:last-child {
 padding-right: 0;
 }
-#gscvlzzmok .gt_column_spanner {
+#nurcegadkk .gt_column_spanner {
 border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
@@ -3303,7 +3304,7 @@ overflow-x: hidden;
 display: inline-block;
 width: 100%;
 }
-#gscvlzzmok .gt_group_heading {
+#nurcegadkk .gt_group_heading {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -3327,7 +3328,7 @@ border-right-width: 1px;
 border-right-color: #D3D3D3;
 vertical-align: middle;
 }
-#gscvlzzmok .gt_empty_group_heading {
+#nurcegadkk .gt_empty_group_heading {
 padding: 0.5px;
 color: #333333;
 background-color: #FFFFFF;
@@ -3341,13 +3342,13 @@ border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 vertical-align: middle;
 }
-#gscvlzzmok .gt_from_md > :first-child {
+#nurcegadkk .gt_from_md > :first-child {
 margin-top: 0;
 }
-#gscvlzzmok .gt_from_md > :last-child {
+#nurcegadkk .gt_from_md > :last-child {
 margin-bottom: 0;
 }
-#gscvlzzmok .gt_row {
+#nurcegadkk .gt_row {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -3365,7 +3366,7 @@ border-right-color: #D3D3D3;
 vertical-align: middle;
 overflow-x: hidden;
 }
-#gscvlzzmok .gt_stub {
+#nurcegadkk .gt_stub {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -3377,7 +3378,7 @@ border-right-color: #D3D3D3;
 padding-left: 5px;
 padding-right: 5px;
 }
-#gscvlzzmok .gt_stub_row_group {
+#nurcegadkk .gt_stub_row_group {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -3390,10 +3391,10 @@ padding-left: 5px;
 padding-right: 5px;
 vertical-align: top;
 }
-#gscvlzzmok .gt_row_group_first td {
+#nurcegadkk .gt_row_group_first td {
 border-top-width: 2px;
 }
-#gscvlzzmok .gt_summary_row {
+#nurcegadkk .gt_summary_row {
 color: #333333;
 background-color: #FFFFFF;
 text-transform: inherit;
@@ -3402,14 +3403,14 @@ padding-bottom: 8px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#gscvlzzmok .gt_first_summary_row {
+#nurcegadkk .gt_first_summary_row {
 border-top-style: solid;
 border-top-color: #D3D3D3;
 }
-#gscvlzzmok .gt_first_summary_row.thick {
+#nurcegadkk .gt_first_summary_row.thick {
 border-top-width: 2px;
 }
-#gscvlzzmok .gt_last_summary_row {
+#nurcegadkk .gt_last_summary_row {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -3418,7 +3419,7 @@ border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 }
-#gscvlzzmok .gt_grand_summary_row {
+#nurcegadkk .gt_grand_summary_row {
 color: #333333;
 background-color: #FFFFFF;
 text-transform: inherit;
@@ -3427,7 +3428,7 @@ padding-bottom: 8px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#gscvlzzmok .gt_first_grand_summary_row {
+#nurcegadkk .gt_first_grand_summary_row {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -3436,10 +3437,10 @@ border-top-style: double;
 border-top-width: 6px;
 border-top-color: #D3D3D3;
 }
-#gscvlzzmok .gt_striped {
+#nurcegadkk .gt_striped {
 background-color: rgba(128, 128, 128, 0.05);
 }
-#gscvlzzmok .gt_table_body {
+#nurcegadkk .gt_table_body {
 border-top-style: solid;
 border-top-width: 2px;
 border-top-color: #D3D3D3;
@@ -3447,7 +3448,7 @@ border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 }
-#gscvlzzmok .gt_footnotes {
+#nurcegadkk .gt_footnotes {
 color: #333333;
 background-color: #FFFFFF;
 border-bottom-style: none;
@@ -3460,7 +3461,7 @@ border-right-style: none;
 border-right-width: 2px;
 border-right-color: #D3D3D3;
 }
-#gscvlzzmok .gt_footnote {
+#nurcegadkk .gt_footnote {
 margin: 0px;
 font-size: 90%;
 padding-left: 4px;
@@ -3468,7 +3469,7 @@ padding-right: 4px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#gscvlzzmok .gt_sourcenotes {
+#nurcegadkk .gt_sourcenotes {
 color: #333333;
 background-color: #FFFFFF;
 border-bottom-style: none;
@@ -3481,58 +3482,58 @@ border-right-style: none;
 border-right-width: 2px;
 border-right-color: #D3D3D3;
 }
-#gscvlzzmok .gt_sourcenote {
+#nurcegadkk .gt_sourcenote {
 font-size: 90%;
 padding-top: 4px;
 padding-bottom: 4px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#gscvlzzmok .gt_left {
+#nurcegadkk .gt_left {
 text-align: left;
 }
-#gscvlzzmok .gt_center {
+#nurcegadkk .gt_center {
 text-align: center;
 }
-#gscvlzzmok .gt_right {
+#nurcegadkk .gt_right {
 text-align: right;
 font-variant-numeric: tabular-nums;
 }
-#gscvlzzmok .gt_font_normal {
+#nurcegadkk .gt_font_normal {
 font-weight: normal;
 }
-#gscvlzzmok .gt_font_bold {
+#nurcegadkk .gt_font_bold {
 font-weight: bold;
 }
-#gscvlzzmok .gt_font_italic {
+#nurcegadkk .gt_font_italic {
 font-style: italic;
 }
-#gscvlzzmok .gt_super {
+#nurcegadkk .gt_super {
 font-size: 65%;
 }
-#gscvlzzmok .gt_footnote_marks {
+#nurcegadkk .gt_footnote_marks {
 font-style: italic;
 font-weight: normal;
 font-size: 75%;
 vertical-align: 0.4em;
 }
-#gscvlzzmok .gt_asterisk {
+#nurcegadkk .gt_asterisk {
 font-size: 100%;
 vertical-align: 0;
 }
-#gscvlzzmok .gt_indent_1 {
+#nurcegadkk .gt_indent_1 {
 text-indent: 5px;
 }
-#gscvlzzmok .gt_indent_2 {
+#nurcegadkk .gt_indent_2 {
 text-indent: 10px;
 }
-#gscvlzzmok .gt_indent_3 {
+#nurcegadkk .gt_indent_3 {
 text-indent: 15px;
 }
-#gscvlzzmok .gt_indent_4 {
+#nurcegadkk .gt_indent_4 {
 text-indent: 20px;
 }
-#gscvlzzmok .gt_indent_5 {
+#nurcegadkk .gt_indent_5 {
 text-indent: 25px;
 }
 </style>
