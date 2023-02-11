@@ -1,0 +1,22 @@
+project:
+  title: "data-literacy"
+  execute-dir: project
+  output-dir: resources-rendered
+  render:
+    - resources-teaching/
+    - resources-students/
+  preview:
+    port: 4200
+    browser: true
+
+toc: true
+mainfont: Gilroy
+fontsize: 1.25rem
+df-print: kable
+css: style.css
+embed-resources: true
+subtitle: '&zwnj;'
+
+execute:
+  echo: false
+  cache: true

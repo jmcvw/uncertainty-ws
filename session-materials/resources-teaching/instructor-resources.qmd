@@ -1,0 +1,34 @@
+---
+title: 'Instructor resources'
+---
+
+This doc is an attempt to provide a one-stop-shop for instructor use.
+Participants have the links they need on the landing page, at this link [https://codeclan.github.io/data_literacy/](https://codeclan.github.io/data_literacy/)
+
+## Day 1, Session 1
+
+- [Crib sheet](d1-s1_crib-sheet.html){.external target="_blank"}
+- [Plot examples](all-da-plotz.html){.external target="_blank"}
+
+## Day 1, Session 2
+
+- [Crib sheet](d1-s2_crib-sheet.html){.external target="_blank"}
+- [Glossary](../resources-students/glossary.html){.external target="_blank"}
+
+## Day 2, Session 1
+
+- [Crib sheet](d2-s1_crib-sheet.html){.external target="_blank"}
+- [Lab notes](../resources-students/d2-s1_lab_understanding-uncertainty.html){.external target="_blank"}
+- [App link](https://cc-stats.shinyapps.io/uncertainty){.external target="_blank"}
+
+## Day 2, Session 2
+
+- [Crib sheet](d2-s2_crib-sheet.html){.external target="_blank"}
+- Case study links
+    - All [(html)](../resources-students/d2-s2_case-studies.html){.external target="_blank"}
+    - **Progressive Insurance**
+        - [(html)](../resources-students/d2-s2_case-study_progressive.html){.external target="_blank"}
+        - [(pdf)](../resources-students/d2-s2_case-study_progressive.pdf){.external target="_blank"}
+    - **Allrecipes**
+        - [(html)](../resources-students/d2-s2_case-study_allrecipies.html){.external target="_blank"}
+        - [(pdf)](../resources-students/d2-s2_case-study_allrecipies.pdf){.external target="_blank"}

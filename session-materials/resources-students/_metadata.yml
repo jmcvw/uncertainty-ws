@@ -1,0 +1,5 @@
+format:
+  html:
+    include-in-header: ../images/cc-header.html
+    include-before-body: ../images/cc-data-banner.html
+    include-after-body: ../images/cc-footer.html

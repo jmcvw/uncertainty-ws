@@ -1,0 +1,211 @@
+---
+title: 'Embracing Uncertainty'
+subtitle: 'What do we mean by "Modelling"?'
+execute: 
+  eval: true
+  cache: false
+notes: These notes should provide a **high level** overview of the concepts (possibly not) covered in the workshop session.\nThey are provided as a reminder for participants, and to give jumping off points for further research.\n**They are not intended as a teaching resource or an exhaustive description of the workshop content.**
+---
+
+## Learning outcomes
+
+-   Awareness of different types of model
+    -   conceptual / descriptive / explanatory / predictive
+-   Understand that we can use models to represent system
+-   Understand that models are simplifications system
+-   Understand that we can incorporate uncertainty into our models
+-   Understand that models can be used to plan for different scenarios under different levels / types of uncertainty
+-   Create different responses depending on the likelihood of a particular outcome
+
+## Introduction
+
+Being told we should embrace uncertainty sound great in theory, but what does it mean in practice?
+If things are so uncertain, why try and plan for it; why not just wait and see what happens, then decide?
+Unfortunately, that is not really embracing uncertainty, it is just not doing anything!
+All uncertainty really means is that instead of not making plans, we plan for different contingencies.
+In this session we will use case studies to apply everything we have discussed so far to begin to see how we can prepare for uncertain events.
+In particular, we shall highlight whether uncertainty arises form our own lack of knowledge or understanding, whether it is a natural, and irreducible random component of our system, or whether it comes from inadequate data collection or handling.
+
+In this session we discussed four different types of modelling approaches: - Conceptual models - Descriptive models - Explanatory models - Predictive models
+
+There is some overlap between these models, some are more mathematical or technical than others, but all of them are ways of representing complex systems in simpler way.
+They each have different purpose...meh meh meh
+
+## Conceptual models
+
+### What are they?
+
+Conceptual models go by a variety of names, and take a variety of forms.
+Often, they look like flow diagrams or mind maps, and may be referred to as **frameworks**, **concept maps**, **systems maps**, **goal trees**, as well as several other terms - basically any kind of schematic representation of a system.
+
+The different names usually describes the particular focus of the model, but, regardless of what they are called, the aim is usually the same: to elucidate the structure of your system.
+Their main use is as a thinking tool where we can identify or make explicit the links between the different constituent parts of a system.
+When working in a team another use, arguably more important, is as a communication tool.
+Often each member of a team will have a slightly different mental model of a system.
+By working together to create a conceptual model, focussed on the most salient issues faced by the team, it is possible to ensure everyone is pulling in the same directions
+
+### When would they be used?
+
+The benefits of conceptual models include - Identifying loops, causality and connectedness in our system.
+
+-   Bringing unknowns to the surface.
+-   Helping ourselves to understand the structure of our system of interest.
+-   Allowing everyone in the team to share their thoughts and clarify.
+-   Ensuring everyone on the team has the same mental model.
+-   Highlighting areas that need further exploration or development.
+
+Thus, they are particularly useful at the beginning of a project because they can create a more tangible idea of a system when the uncertainty can be particularly high amongst team members.
+Once created, they also provide a fall-back resource for a team to refer to as a project matures.
+Of course, that is not to suggest they should be seen as a set-in-stone, static, goal to aim for.
+Repeated reference to them throughout a project should lead to continuous updating, as well as a historical record of the evolution of a project.
+Such diagrams are also great for passing ideas between department across hierarchical levels and informing stakeholders.
+
+### Examples and resources
+
+::: panel-tabset
+## Netflix case study
+
+![](../images/d2-s2_conceptual-model_netflix.png)
+
+## Impact map
+
+![](https://i0.wp.com/www.impactmapping.org/assets/im_template.png?resize=640%252C465&ssl=1)
+
+## Value exchange map
+
+![Goal tree](https://about.gitlab.com/images/blogimages/optimizing-the-value-exchange/d7.png)
+
+## Iterative workflow
+
+![Iterative workflow](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/image_data/file/149699/systems-thinking-figure-2.svg)
+
+## Links and references
+
+Some free [Templates](https://www.edrawsoft.com/templates/system.html)
+
+Some introductory [slides](https://www.unescap.org/sites/default/files/Introduction%20to%20systems%20thinking%20tools_Eng.pdf) on **systems thinking**
+:::
+
+## Descriptive models
+
+### What are they?
+
+What's the difference between the "conceptual" model above and a "descriptive" model?
+Depends on who you ask.
+However, for our purposes we shall consider them in the sense of a statistical description.
+From a previous session, we will remember that a descriptive statistic was a value that in some way summarized our data.
+Often, there is less need for any underlying theory for a descriptive statistic.
+It simply describes, either the current or historical condition of, some component of our system.
+The same is true for descriptive models.
+Descriptive models are very common and are used to highlight associations or trends without needing to apply lots of, potentially gnarly theory.
+They show
+
+### When would they be used?
+
+These are the models that are often presented at team meetings or at stakeholder meetings.
+They are used when the focus is in "big picture" concepts such as historical trends or recent divergences form expectation---when the message concerns *what* has happened rather then *why*.
+
+### Examples and resources
+
+::: panel-tabset
+## A descriptive model
+
+![](../images/d2-s2_growth-plot.png)
+
+## Correlation vs causation
+
+![](../images/spurious-correlations_nic-cage.svg)
+
+See [Tyler Vigen](http://tylervigen.com/spurious-correlations) for other examples.
+:::
+
+## Explanatory models
+
+### What are they?
+
+The goal of explanatory modelling is to show how some metric (e.g. a KPI) responds to some other metrics collected by a business.
+They take the form of trying to measure how changes in one variable are associated with changes in one, or several, other variables.
+These models differ from the purely descriptive models because the attempt to ascribe changes in the system to changes in some other variable.
+
+One example would be explaining a change in sales following a new marketing campaign.
+While it is certainly possible to build horrendously complicated explanatory models, it is desirable, and usually a particular aim, to keep the model as simple as possible (but no simpler).
+Relating to the descriptive models above, you can see how adding a variable measuring cheese consumption might happen to be closely correlated with your KPI.
+However, including it in your explanatory model make the model somewhat less simple than it could be.
+This is where your knowledge of the underlying mechanisms that influence the system become important.
+And where time spent creating a decent conceptual model pays off.
+
+An explanatory model would be one that would allow you to say, with some confidence in a meeting with the company seniors, that the recent trend in some KPI is likely being driven by a combination of factors apparent in the data.
+
+### When would they be used?
+
+These models allow us to measure how much something has changed relative to some other component.
+More importantly they allow us to say if the change was **caused** by some other component of our model.
+Because of this, explanatory models are often used in a research context for building and testing theory.
+This is also important in a business context because it allows a way to test theories and ideas around whether decisions have had a real affect on the KPIs of interest.
+
+### Examples and resources
+
+::: panel-tabset
+## Model types
+
+Each of these model types overlaps each other, so how do you know what type of model you need, or are looking at?
+If your confused, your in good company.
+According to Jeff Leek and Roger Peng, not uderstanding the question is the [most common error in data analysis](https://andreashandel.github.io/MADAcourse/media/leek15science.pdf).
+The image below was adapted slightly from their paper.
+
+![Leek, J. & Peng, R. (2015) What is the question?](../images/d2-s2_model-types.jpg)
+
+## Links and resources
+
+See [Shmueli, G. (2010) To explain or predict](https://projecteuclid.org/journalArticle/Download?urlId=10.1214%2F10-STS330){.external target="_blank"} for an accessible, if somewhat academic, discussion on the differences between descriptive, explanatory, and predictive models
+:::
+
+## Predictive models
+
+As the name implies this type of model is concerned with trying to anticipate future change in our KPIs.
+Since KPIs are the metric of most interest to most businesses, these model are very common in industry settings.
+The focus of these models is to be as correct as possible as often as possible.
+Since the aim of predictive modelling is to be as accurate as possible, it is common to add many, many variables to try and improve the model as much as possible.
+In other words, we free ourselves from the constraint that our models must be as simple as possible.
+This commonly also seem to translate into an assumption that we are also free of the need for underlying theory.
+But this is definitely not true!
+It may be that we don't fully understand how or why a particular variable improves our model, but that is no excuse for throwing everything we have at the model without careful consideration.
+When deciding what should be included in a model, it is best to be guided by theory / domain / expert knowledge.
+If there is no reasonable mechanism for a variable to influence an outcome, consider not including it.
+
+### What are they?
+
+Predictive models are based on the same methods as the other types of model discussed.
+The difference mostly lies in how a model output can be interpreted.
+An explanatory model provides a measure of evidence that a predictor in the model has some influence on the output.
+In a predictive model this is more difficult because the reason for a predictor's effect might be difficult to isolate form the effects of the other predictors.
+
+### When would they be used
+
+Possibly the most obvious example of a predictive model id the weather forecast.
+Another example that might be familiar is how Google maps estimates time of arrival (ETA) after being given a route.
+The ETA is computed based on the types of roads used, the presence, and frequency of roadworks, and several other factors.
+While these examples might be the most familiar, they are not the ones that have the biggest impact on our lives.
+Insurance companies use predictive models to decide what premium to charge us; banks use them to decide whether or not to approve loans or mortgages; Amazon, Netflix, and Spotify use them to decide which products/content to advertize to us - **individually**.
+The list of who uses them, and for what purpose is a long one!
+
+### Examples and resources
+
+::: panel-tabset
+## Storm path prediction
+
+Path of hurricane Dorian (2019), as predicted by the National Oceanic and Atmospheric Administration (NOAA) (and President Trump).
+
+::: {layout-ncol="2"}
+![NOAA's prediction](../images/hurricane-orig.jpg)
+
+![Trump's prediction](../images/hurricane-altered.jpg)
+:::
+
+Notice how the NOAA's prediction gets wider and wider the further they get from the current location.
+That is because it is easy to be confident about what the storm will do tomorrow, by it is far far less certain where it will be in five days.
+
+## Sales forcast
+
+![Current sales slump is predicted to continue.](../images/sales-forecast.png) Notice the shaded area of probability.
+:::

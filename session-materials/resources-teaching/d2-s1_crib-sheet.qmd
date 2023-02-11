@@ -1,0 +1,230 @@
+---
+title: 'Understanding Uncertainty'
+---
+
+```{r}
+#| include: false
+library(gt)
+```
+
+::: {.callout-important icon="false" collapse="true"}
+## Notes for part 1
+
+There are notes provided for most of the group discussion tasks.
+The boxes below are numbered to match the discussion tasks---the numbers hopefully match, but you should double check.
+
+My thoughts on this are that:
+
+-   Participants should be split into groups.
+-   They should work mostly within their own groups.
+    -   their apps should have different results.
+-   Doesn't necessarily mean they can't discuss idea across groups.
+    -   if groups can help each other it adds to the experiential value and emulates the type of inter-team collaboration they might find in their workplace.
+
+Note on timings: I think this is quite long and difficult.
+I think three 45 min block with a 15 min break in between should be encouraged.
+That should leave enough time to get together at the end for a quick summery with instructors
+:::
+
+## Learning outcomes
+
+-   Experiential learning situation
+-   Further develop awareness of sources of uncertainty
+-   Understand factors that affect the magnitude of uncertainty
+-   Learn how uncertainty should be communicated (e.g. use of confidence intervals)
+-   Begin to engage with underlying statistical concepts such as:
+    -   sample size
+    -   summary statistics (mean, sd)
+    -   probability distributions
+    -   normal distributions
+    -   Understand how to recognize difference between populations
+
+::: {.callout icon="false" collapse="true" appearance="minimal"}
+## 1. Business relevant questions
+
+Some possible questions we would like to have answered:
+
+-   How big would we like the increase to be before declaring it a success?
+-   How big was the increase in average sale value?
+    -   A particularly large deviation from expected may be less likely to be within normal range of fluctuations.
+-   How many sales were made?
+    -   A single large (or small) sale could have an over-sized influence on the average: consider the extreme case where only one sale of £1000 was made.
+-   How similar in size were the individual sales?
+    -   Did all the sales occur around the same value, or were they spread out across a wide range.
+    -   How typical such a range of values is would be an important consideration.
+-   How likely is it that we just got lucky this week?
+    -   Again consider a single rare, but high value, sale.
+:::
+
+::: {.callout icon="false" collapse="true" appearance="minimal"}
+## 2. Evaluating the first week
+
+This question should have groups thinking about projections.
+
+They should realize that it is impossible to have any idea about next week based on just this one sample of 5 sales.
+
+i.  The only thing I can think of here is if we have a prior expectation that this result confirms, then that might give us confidence.
+    -   Any confidence would be unrealistic.
+    -   This would be an example of **confirmation bias**
+ii. They should realize that no two weeks are the same.
+    -   they should be able to recognize that this is based on only 5 sales
+    -   following weeks could have more or fewer sales
+    -   The value of individual sales is also likely to fluctuate a lot.
+:::
+
+::: {.callout icon="false" collapse="true" appearance="minimal"}
+## 4. Effect of small samples
+
+Small samples are very likely to be different from each other.
+This is because it is not too difficult to get 5 observations over £100, and it is equally likely that you could get 5 observation below £100.
+Also, if even 1 of the observations happens, just by pure chance to be extremely different from the other 4, it will have an out-sized effect on the mean.
+Another factor is that the values could be clustered close together or be spread widely apart.
+:::
+
+::: {.callout icon="false" collapse="true" appearance="minimal"}
+## 5. Increasing sample size
+
+Larger sample make it more difficult for a single value to have a large influence.
+As the sample gets larger it gets even more difficult because of regression to the mean.
+Extreme values become rare compared to more "normal" values.
+:::
+
+::: {.callout icon="false" collapse="true" appearance="minimal"}
+## 6. Comparing small sample to (less) small sample
+
+More observations lead to more consistent estimates.
+(More accurate and more precise, but that comes next.)
+:::
+
+::: {.callout icon="false" collapse="true" appearance="minimal"}
+## 7. The spread might represent the range of value of the stock sold by this business.
+
+In this scenario the spread could represent different sales values.
+Relating back to their work it could be the amount of traffic on their website; the number / rate of conversions / customer churn / profits / etc.
+:::
+
+::: {.callout icon="false" collapse="true" appearance="minimal"}
+## 8. Accuracy and precission of projections
+
+Store one can expect the lowest return - **on average**, but not necessarily always.
+Because the value of store 2's stock overlaps with store 1, it is perfectly possible for them to have an unusually poor week, that coincides with an excellent week for store 1.
+
+This range of fluctuations for store 2 is greater than for store 1, so they can expect to have less consistent sales week to week, but they will always consistently make more over a longer period of time.
+
+Store 3 has a very narrow range.
+This means that no week will ever be particularly surprising for them.
+It all their items sell at a similar rate, they will always be close to £107.50.
+Even on the worst weeks, they can expect to be no more than £2.50 away from that average expectation.
+:::
+
+::: {.callout icon="false" collapse="true" appearance="minimal"}
+## 10. CIs: 90% vs 99%
+
+Narrower CI are fine if the consequences of being wrong are small.
+If a precise estimate is mission critical, using a wider CI will give a wider range of possibilities, but will make it less likely to get a nasty surprise.
+
+There is a direct relationship between the sample size, the variance and the confidence interval.
+
+The hint provided for them is a bit loose.
+If they need some more direction, encourage them to try changing the inputs to cover the following possibilities:
+
+-   Large spread; small N
+-   Large spread; large N
+-   Small spread; large N
+-   Small spread; small N
+:::
+
+------------------------------------------------------------------------
+
+## Part 2 --- P-value--CDF
+
+::: {.callout-important icon="false" collapse="true"}
+## Notes for part2
+
+Part two of the task becomes q bit more theoretic.
+There are a couple of plots available that might help explain some of the trickier points about significance - but probably best kept quiet about unless asked specific questions.
+:::
+
+::: {.callout icon="false" collapse="true"}
+## 12. Are populations different?
+
+There are several points that could be discussed here depending on the questions asked.
+They are provided with this image in their notes.
+
+![](../images/d2-s1_plot_part-2_bell-comparison.png){width="30%"}
+
+-   The position of the peaks of each curve show that each population (customer-base segment) has a different average.
+-   The shape / height of the curves indicates that each population (customer-base segment) has a different spread.
+
+Ask groups to consider each of the above points.
+How far apart do they think the peaks should be to say there is a real difference?
+The answer of course depends on the spread of the two populations, but they might not quite grasp that, but I think that is fine.
+The main thing to see is that the peak of one curve is far into the tail of the other curve.
+:::
+
+::: {.callout icon="false" collapse="true"}
+## 13, 14, 15. P-val plots
+
+The following plot might be helpful to show that just the distance of the result from the expected value own its own is not enough to get a low p-value.
+The p-value is closely related to the sample size and spread of the data that that produced it --- that's why in their notes I describe the p-value as a summary of "how weird the data" is.
+
+::: {#fig-p-val-distrs layout-ncol="2"}
+![Significant values are red and outside the gold CI thresholds](../images/d2-s1_crib-dist-vs-cdf-sig-threshold.png){#fig-pval-cdf.png){#fig-pval-cdf width="40%"}
+
+![Numbers attached to the points are the cumulative probs, hence .99 is "as significant" as .1.](../images/d2-s1_crib-dist-vs-p-val-cdf-val-anno.png){#fig-pval-pdf width="40%"}
+
+The points in these plots show the p-values from many iterations.
+The red points are the same in both images.
+$n=?can't\ remember,\ \mu=100,\ sd=20$ $\alpha=0.05$.
+:::
+:::
+
+::: {.callout icon="false" collapse="true"}
+## 16. 68-97-99 rule
+
+No need to be specific, but it might be helpful to illustrate the 68-97-99 percent regions.
+
+![](../images/d2-s1_shaded-sigmas.png)
+:::
+
+## Final conclusion code reference
+
+The new populations are sample from a distribution with an integer mean between 96 and 104.
+A mean of 100 is not included in the app, so there is guaranteed to be a difference.
+It is possible for groups to infer the exact integer mean for their own scenario.
+At the bottom of the app there is a blue expandable container that contains some extra gubbins (the plots there-in might even be interesting to discuss, time permitting).
+Under the plots there is a four character code, that indicates what the mean of their scenario's new population is.
+You can use that code to refer to the table below to see if they understood the concepts, and were able to manipulate the app into revealing a very tight CI covering a single integer value.
+
+<!-- n   |  code -->
+
+<!-- ----|------ -->
+
+<!-- 96  |  c573 -->
+
+<!-- 97  |  c6df -->
+
+<!-- 98  |  b67b -->
+
+<!-- 99  |  f120 -->
+
+<!-- 100 |  d344 -->
+
+<!-- 101 |  a3d2 -->
+
+<!-- 102 |  cd5b -->
+
+<!-- 103 |  9f3a -->
+
+<!-- 104 |  bd15 -->
+
+::: {.callout-important icon="false" collapse="true"}
+## And the pop mean is...
+
+```{r}
+gt::gt(
+  data.frame(Code = c('c573', 'c6df', 'b67b', 'f120', 'd344', 'a3d2', 'cd5b', '9f3a', 'bd15'), Mean = c(96:104))
+) |>
+  gt::cols_width(everything() ~ px(80))
+```
+:::

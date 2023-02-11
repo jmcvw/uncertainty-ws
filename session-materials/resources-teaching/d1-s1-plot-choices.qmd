@@ -1,0 +1,210 @@
+---
+title: 'What Plot?'
+format: 
+  html:
+    df-print: paged
+---
+
+```{r setup}
+#| include: false
+#| message: false
+
+LoadPackages(tidyr, purrr, dplyr, ggplot2, scales)
+
+load('data/what-plot-data.Rda')
+```
+
+## App downloads: Number per day, during a **single week**
+
+what type of plot would you choose to visualize the data below?
+
+```{r}
+
+n_dl |> 
+  knitr::kable(format = 'html') |> 
+  kableExtra::column_spec(seq_along(n_dl), width = '50px')
+
+```
+
+::: {.callout-tip icon="false" collapse="true"}
+## What plot?
+
+::: panel-tabset
+### Bar
+
+![](../images/what-plot_ndl_bar.png)
+
+-   Bar plot
+    -   good for counts
+    -   good for discrete point values
+    -   but why not just use a point?
+
+### Point
+
+![](../images/what-plot_ndl_point.png)
+
+-   Point plot
+    -   Conveys *exactly* the same information as the bar plot
+    -   However, points might look a bit disconnected
+    -   Using points also reduces the need to include 0 on the y axis because there is no longer any possibility of comparing bar areas.
+
+### Lollipop
+
+![](../images/what-plot_ndl_lollipop.png)
+
+-   Lollipop plot
+    -   Conveys *exactly* the same information as the bar plot.
+    -   helps reduce the "floatiness" of the points.
+    -   Again 0 should be included.
+    -   Works well with lots of points.
+
+### Line
+
+![](../images/what-plot_ndl_line.png)
+
+-   Line plot
+    -   Connecting points with a line suggests the points follow a sequence, e.g. day order.
+
+### Pie
+
+![](../images/what-plot_ndl_pie.png)
+
+-   Pie chart
+    -   Eww, yuck!
+    -   Too many categories.
+    -   Which is bigger: Tue, Wed, Thu, or Sun?
+    -   We are pretty decent at noticing deviations from straight / level
+        -   but pretty poor at putting a number on the deviation.
+:::
+:::
+
+## Clients: Age data
+
+Here we have many values for each of three categories.
+The data show the ages of people downloading an app, from three different sectors.
+Each category has a different number of observations.
+Decide if we want to see every single observation or summarize in some way.
+
+-   N observations
+    -   Retail: 80\
+    -   Construction: 50\
+    -   Care: 30
+
+```{r}
+
+age_by_ind
+
+```
+
+::: {.callout-tip icon="false" collapse="true"}
+## what plot?
+
+::: panel-tabset
+### Hist age
+
+![](../images/what-plot_age-by-ind_density.png)
+
+-   Density plot
+    -   Good for visualizing distribution of continuous data
+    -   Nice to overlap if only a few categories
+
+### Dotplot
+
+![](../images/what-plot_age-by-ind_dotplot.png)
+
+### Violin plot
+
+![](../images/what-plot_age-by-ind_beeswarm.png)
+
+Violin plots convey more info than either bar plots or boxplots, especially if you show points.
+
+This plot hints at a compelling story about how users from different industries use the app.
+
+### Average summary bar chart
+
+![](../images/what-plot_age-by-ind_plot_bar-avg.png)
+
+-   Not a good choice for showing summaries
+    -   Too much information lost
+
+### Boxlot
+
+![](../images/what-plot_age-by-ind_boxplot.png)
+
+### Combo plot
+
+![](../images/what-plot_age-by-ind_summary-combo.png)
+:::
+:::
+
+## Churn: percent-per-year plots
+
+```{r}
+
+churn_data |> 
+  rename('churn (%)' = churn) |>
+  knitr::kable(format = 'html') |> 
+  kableExtra::column_spec(2, width = '100px')
+
+```
+
+::: {.callout-tip icon="false" collapse="true"}
+## What plot?
+
+::: panel-tabset
+### Bar plot
+
+![](../images/what-plot_churn_bar.png)
+
+### Stacked bars as percent
+
+![](../images/what-plot_churn_bar-stacked.png)
+
+### Pie
+
+![](../images/what-plot_churn_pie.png)
+
+What's wrong with this plot?
+:::
+:::
+
+## Clients: By industry
+
+Using the same data as earlier, we want to get a better idea of the breakdown of industry types using our app.
+
+Remember, in the full data there are:
+
+-   N observations
+    -   Retail: 80\
+    -   Construction: 50\
+    -   Care: 30
+
+Here's a recap of how it looks
+
+```{r}
+age_by_ind |> 
+  group_by(industry) |> 
+  slice(1:3)
+```
+
+::: {.callout-tip icon="false" collapse="true"}
+## What plot?
+
+::: panel-tabset
+### Bar plot - Count
+
+![](../images/what-plot_age-by-ind_bar-count.png)
+
+### Stacked count
+
+![](../images/what-plot_age-by-ind_bar-stacked.png)
+
+### Stacked percent
+
+![](../images/what-plot_age-by-ind_bar-stacked-pc.png)
+
+### Pie
+
+![](../images/what-plot_age-by-ind_pie.png)
+:::
+:::

@@ -1,0 +1,251 @@
+---
+title: 'Embracing Uncertainty'
+subtitle: 'What do we mean by "Modelling"?'
+execute: 
+  eval: true
+  cache: true
+---
+
+::: {.callout-important icon="false" collapse="true"}
+## Case study links
+
+These links are presented again in [part 2](#part-2)
+
+The first case study in the HTML doc is for Netflix.
+This is the one instructors should use to demonstrate.
+
+You should be able to hand out the preferred link over Slack.
+
+-   [Crib sheet](d2-s2_crib-sheet.html){.external target="_blank"}
+-   Case study links
+    -   All [(html)](d2-s2_case-studies.html){.external target="_blank"}
+    -   **Progressive Insurance**
+        -   [(html)](d2-s2_case-study_progressive.html){.external target="_blank"}
+        -   [(pdf)](d2-s2_case-study_progressive.pdf){.external target="_blank"}
+    -   **Allrecipes**
+        -   [(html)](d2-s2_case-study_allrecipies.html){.external target="_blank"}
+        -   [(pdf)](d2-s2_case-study_allrecipies.pdf){.external target="_blank"}
+:::
+
+::: {.callout-important icon="false" collapse="true"}
+## Notes --- for instructors
+
+**There are a lot of notes here.** Use your judgement with an eye on the timings to cover the most salient points, while leaving them enough time to prepare a short presentation.
+Outline:
+
+-   Tell them upfront that they are expected to put together a **presentation** that makes use of the concepts that will be covered in this session.
+    -   **Presentation timings:**
+        -   10 minutes(?) *max*
+        -   \~ about 2 mins per model type - and they don't even have to cover *all* the model types.
+        -   any less and I think they'll struggle to tie everything together.
+        -   And saying 10 mins means they ramble a bit and 12-15 mins :)
+        -   **So should probably allow 30 mins for presentations** (including questions)
+    -   Specifically, they should try and identify use-cases for each of the types of model mentioned.
+    -   They should also try and think about what barriers to creating those model might might be present.
+    -   Since they are not involved in building models themselves, the point is that they gain an insight into the uses and difficulties faced by the data teams that they may have to communicate with.
+    -   Tell them the presentations can (*should?*) be really simple, i.e. sheets of flip-chart paper held up by someone at the front.
+    -   If the really must a PowerPoint type affair is fine too.
+    -   Where possible the presentations should have an example of each type of model
+        -   **The focus here is on generating something that captures the spirit of a model, more than a realistic representation. (Especially since that is likely impossible based just on the case study alone.)**
+    -   Presentations should also tie-in any concepts they are able to from elsewhere in the course.
+    -   Presentations should identify parallels and analogies with their own work.
+
+Maybe plant a seed to engender some competitive spirit between groups for best presentation.
+:::
+
+## Learning outcomes
+
+-   Awareness of different types of model
+    -   conceptual / descriptive / explanatory / predictive
+-   Understand that we can use models to represent system
+-   Understand that models are **simplifications** system
+-   Understand that we can incorporate uncertainty into our models
+-   Understand that models can be used to plan for **different scenarios** under different levels / types of uncertainty
+-   Create different responses depending on the likelihood of a particular outcome
+
+## Intro
+
+Being told we should *embrace uncertainty* sound great in theory, but what does it mean in practice?
+If things are so uncertain, why try and plan for it; why not just wait and see what happens, then decide?
+Unfortunately, that is not really embracing uncertainty, it is just not doing anything!
+All uncertainty really means is that instead of not making plans, we plan for different contingencies.
+In this session we will use case studies to apply everything we have discussed so far to begin to see how we can prepare for uncertain events.
+In particular, we shall highlight whether uncertainty arises form our own lack of knowledge or understanding, whether in is a natural, and irreducible random component of our system, or whether it comes from inadequate data collection or handling.
+
+<!-- add note about judging prob of events -->
+
+We will begin by reading a case study together, during which we shall identify the places where different types of uncertainty show up.
+Different typed of model are useful for identifying and handling different types of uncertainty.
+
+::: {#sec-co1 .callout-important icon="false" collapse="true"}
+## Instructor notes
+
+This should be a *quick* run through to demonstrate what we expect the participants to do.
+If we do too thorough a job here, there will be little room for them to explore and learn themselves.
+However the risk in demonstrating a shallow approach could lead them to also do a shallow copy of what has been demonstrated.
+It should, therefore, be stressed that we are taking shortcuts and that they should aim to dig more deeply.
+
+The workshop so far has been delivered with a collaborative spirit -- working in groups, groups encouraged to help each other.
+Since this is the culmination of the workshop, I think dropping some hints that stimulate a slightly competitive spirit will give the final task a different feel, and help to focus minds on putting in a decent effort for their final presentations - 1 million points for the best presentation!
+:::
+
+## Part 1 --- Group discusssion
+
+::: {.callout-important icon="false" collapse="true"}
+## Plan of attack
+
+The sections discuss different types of model, and when (how?) they might be used, and how they help us interact with our system.
+
+However the most important point is to discuss that modelling is useful:
+
+-   to them directly (**conceptual model**).
+-   for present to managers and colleagues (**descriptive model**).
+-   for understanding the processes that drive and influence their system (**explanatory model**).
+-   for preparing for future outcomes (**predictive model**).
+-   These last two points will also help when speaking directly to their data teams.
+:::
+
+### Introduce a case study
+
+Introduce the [**Netflix**](d2-s2_case-studies.html/#netflix){.external target="_blank"} case study.
+
+### Types of model
+
+#### Conceptual
+
+Often looks like a flowchart or framework diagram.
+This type of model is a great place to start because it is often something we do automatically in our mind.
+Writing it down serves several purposes:
+
+-   It allows us to map aspects of our mental model to the system.
+-   Helps identify any faults in our mental model.
+-   Helps us to clarify the messier components of the system.
+-   Provides a common reference for other team members.
+
+The process might start with a mind-mapping process, but, after several iterations, the finished model is more polished.
+
+![Netflix conceptual model](../images/d2-s2_conceptual-model_netflix.png){#fig-concept-mod}
+
+One of the most useful things about this is that it allows us to explicitly identify those sources of uncertainty that we genuinely can do nothing about.
+For example we can highlight the sources of random fluctuations in the system.
+Perhaps an even more useful application of for helping us to realize where the bound of our own knowledge lie.
+It can sometimes be easy to think we have a good understanding of or system.
+However, this is just a way of strengthening our preconceived ideas and biases.
+Once we go through the process of creating our model / framework we are able to reassess both our system and our knowledge of it.
+An importance point to realise is that this is not a static process.
+Our systems, our data, and our own understanding all change over time, and the only way we can keep on top of these changes is by **continuously revisiting** them.
+
+A related and similarly and useful idea is to model the flow of data through the system
+
+![Netfix data flow model](../images/d2-s2_conceptual-model-netflix-dataflow.png){#fig-data-flow-netflix}
+
+::: {.callout-important icon="false" collapse="true"}
+## More complex example
+
+The above are very simple to illustrate the point.
+Encourage the participants to go as deep as they are able drawing on the details in their case study and their professional knowledge, possibly making comparisons to their own job.
+
+To illustrate the point here is an example:
+
+![Note the use of shape, colour and annotations](../images/d2-s2_data-flow.png){#fig-concept-mod-complex width="50%"}
+:::
+
+#### Descriptive model
+
+What's the difference between the "conceptual" model above and a "descriptive" model?
+Depends on who you ask.
+Four our purposes we are going to use the term as a development of the descriptive statistics we are already familiar with.
+From a previous session, we will remember that a descriptive statistic was a value that in some way summarized our data.
+In general, there is no need for any underlying theory for a descriptive statistic.
+The same is true for descriptive models.
+Descriptive models are very common and are used to highlight associations or trends without needing to apply lots of, potentially gnarly theory.
+
+![A model describing the trend in growth over time. This is purely descriptive because there is no attempt to explain why the growth has happened as it has.](../images/d2-s2_growth-plot.png){#fig-desc-model-growth}
+
+Descriptive models are usually based on underlie statistics, and are very often used in meetings to show changes in various metrics / KPIs.
+For this reason a descriptive model is useful for quantifying the uncertainty, just as we saw earlier when we placed confidence intervals around an estimate---and made no attempt to explain the results based on any underlying theory.
+
+Other examples include those "humorous" example showing that "correlation ≠ causation", e.g.
+
+::: {#fig-spurious-corr layout-nrow="2"}
+![](../images/spurious-correlations_arcades.svg)
+
+![](../images/spurious-correlations_cheese.svg)
+
+![](../images/spurious-correlations_nic-cage.svg)
+
+![](../images/spurious-correlations_marriage.svg)
+
+Each of these plots shows two trends that follow a similar pattern.
+There is not suggestion of underlying theory, so they are purely descriptive.
+Note that with a disingenuous motive and dispensing of theory it is possible to use this as a trick to mislead your audience.
+([Source: Tyler Vigen](http://tylervigen.com/spurious-correlations){.external target="_blank"})
+:::
+
+Aimed at summarizing or representing the data structure in a compact manner.
+- Understanding underlying causal theory is unnecessary or informal way.
+- Focus is on measurables (vs construct).
+
+#### Explanatory model
+
+In business contexts these are arguably less common.
+The goal of explanatory modelling is to show how some metric (e.g. a KPI) responds to some other metrics collected by a business.
+They take the form of trying to measure how changes in one variable are associated with changes in one, or several, other variables.
+
+One example would be explaining a change in sales following a new marketing campaign.
+While it is certainly possible to build horrendously complicated explanatory models, it is desirable, and usually a particular aim, to keep the model as simple as possible (but no simpler).
+Relating to the descriptive models above, you can see how adding a variable measuring cheese consumption might happen to be closely correlated with your KPI.
+However, including it in your explanatory model make the model somewhat less simple than it could be.
+This is where your knowledge of the underlying mechanisms that influence the system become important.
+And where time spent creating a decent conceptual model pays off.
+
+An explanatory model would be one that would allow you to say, with some confidence in a meeting with the company seniors, that the recent trend in some KPI is likely being driven by a combination of factors apparent in the data.
+
+::: {.callout-important icon="false" collapse="true"}
+## Explanatory models
+
+Asking participants to approximate a realistic model on case studies they know nothing about might be difficult.
+However, they should be able to make a naive guess at what sort of things might help to explain any trends or patterns in the case study.
+Referring back to their previous two models might help.
+Hopefully, they will also be able to relate some underlying theory from their own work.
+The aim of this section should just be to encourage thinking in a theoretical way about relationships between different variables.
+:::
+
+#### Predictive model
+
+As the name implies this type of model is concerned with trying to anticipate future change in our KPIs.
+Since KPIs are the metric of most interest to most businesses, these model are very common in industry settings.
+The focus of these models is to be as correct as possible as often as possible.
+Since the aim of predictive modelling is to be as accurate as possible, it is common to add many, many variables to try and improve the model as much as possible.
+In other words, we free ourselves from the constraint that our models must be as simple as possible.
+This commonly also seem to translate into an assumption that we are also free of the need for underlying theory.
+But this is definitely not true!
+It may be that we don't fully understand how or why a particular variable improves our model, but that is no excuse for throwing everything we have at the model without careful consideration.
+
+::: {.callout-important icon="false" collapse="true"}
+## Instructor note --- Overfitting
+
+Not going into it!
+But maybe throwing a question out to the room about why the above might be true, might lead to an interesting chat.
+:::
+
+## Part 2 --- Break-out teams {#part-2}
+
+::: {.callout-important icon="false" collapse="true"}
+## Case study links
+
+-   [Crib sheet](d2-s2_crib-sheet.html){.external target="_blank"}
+-   Case study links
+    -   All [(html)](d2-s2_case-studies.html){.external target="_blank"}
+    -   **Progressive Insurance**
+        -   [(html)](d2-s2_case-study_progressive.html){.external target="_blank"}
+        -   [(pdf)](d2-s2_case-study_progressive.pdf){.external target="_blank"}
+    -   **Allrecipes**
+        -   [(html)](d2-s2_case-study_allrecipies.html){.external target="_blank"}
+        -   [(pdf)](d2-s2_case-study_allrecipies.pdf){.external target="_blank"}
+:::
+
+-   Assign case studies.
+-   Note time.
+-   Allow time at end for 10 min presentation plus questions.
+-   Allow for final course recap to round up.

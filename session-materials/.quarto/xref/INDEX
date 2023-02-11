@@ -1,0 +1,104 @@
+{
+  "student-resources/d2-s2_student-notes-modelling.qmd": {
+    "d2-s2_student-notes-modelling.html": "791fffde"
+  },
+  "teaching-resources/d2-s2_case-studies.qmd": {
+    "d2-s2_case-studies.html": "36cdf629"
+  },
+  "teaching-resources/instructor-resources.qmd": {
+    "instructor-resources.html": "4737d2b4"
+  },
+  "teaching-resources/glossary.qmd": {
+    "glossary.html": "23505155"
+  },
+  "teaching-resources/d1-s1-plot-choices.qmd": {
+    "d1-s1-plot-choices.html": "4a11e511"
+  },
+  "teaching-resources/d2-s2_case-study_allrecipies.qmd": {
+    "d2-s2_case-study_allrecipies.html": "d6f9f0c3",
+    "d2-s2_case-study_allrecipies.tex": "430dfa48"
+  },
+  "teaching-resources/d1-s2_crib-sheet.qmd": {
+    "d1-s2_crib-sheet.html": "4db1ef88"
+  },
+  "teaching-resources/d2-s1_crib-sheet.qmd": {
+    "d2-s1_crib-sheet.html": "c7856b45"
+  },
+  "teaching-resources/d2-s2_case-study_progressive.qmd": {
+    "d2-s2_case-study_progressive.tex": "a4ecc156",
+    "d2-s2_case-study_progressive.html": "fee491a1"
+  },
+  "teaching-resources/d2-s1_lab_understanding-uncertainty.qmd": {
+    "d2-s1_lab_understanding-uncertainty.html": "160a8bfa"
+  },
+  "teaching-resources/d1-s1_crib-sheet.qmd": {
+    "d1-s1_crib-sheet.html": "bec0cd7c"
+  },
+  "teaching-resources/d2-s2_crib-sheet.qmd": {
+    "d2-s2_crib-sheet.html": "0db23f78"
+  },
+  "student-resources/d2-s1_lab_understanding-uncertainty.qmd": {
+    "d2-s1_lab_understanding-uncertainty.html": "9259c600"
+  },
+  "resources-teaching/d2-s2_case-studies.qmd": {
+    "d2-s2_case-studies.html": "7d70560c"
+  },
+  "resources-teaching/instructor-resources.qmd": {
+    "instructor-resources.html": "b89b1dae"
+  },
+  "resources-teaching/d1-s1-plot-choices.qmd": {
+    "d1-s1-plot-choices.html": "a86afb05"
+  },
+  "resources-teaching/d2-s2_case-study_allrecipies.qmd": {
+    "d2-s2_case-study_allrecipies.html": "f4001c64",
+    "d2-s2_case-study_allrecipies.tex": "59e3d7c5"
+  },
+  "resources-teaching/d1-s2_crib-sheet.qmd": {
+    "d1-s2_crib-sheet.html": "7a7ce7c2"
+  },
+  "resources-teaching/d2-s1_crib-sheet.qmd": {
+    "d2-s1_crib-sheet.html": "b568a835"
+  },
+  "resources-teaching/d2-s2_case-study_progressive.qmd": {
+    "d2-s2_case-study_progressive.tex": "6bdc7b1e",
+    "d2-s2_case-study_progressive.html": "711e03af"
+  },
+  "resources-teaching/d1-s1_crib-sheet.qmd": {
+    "d1-s1_crib-sheet.html": "2ffc0a61"
+  },
+  "resources-teaching/d2-s2_crib-sheet.qmd": {
+    "d2-s2_crib-sheet.html": "54aaba02"
+  },
+  "resources-student/d2-s2_student-notes-modelling.qmd": {
+    "d2-s2_student-notes-modelling.html": "74322287"
+  },
+  "resources-student/glossary.qmd": {
+    "glossary.html": "99f4e7c9"
+  },
+  "resources-student/d2-s1_lab_understanding-uncertainty.qmd": {
+    "d2-s1_lab_understanding-uncertainty.html": "81a4cdfc"
+  },
+  "resources-students/d2-s2_student-notes-modelling.qmd": {
+    "d2-s2_student-notes-modelling.html": "a9bb052e"
+  },
+  "resources-students/glossary.qmd": {
+    "glossary.html": "0b343531"
+  },
+  "resources-students/d2-s1_lab_understanding-uncertainty.qmd": {
+    "d2-s1_lab_understanding-uncertainty.html": "0e79e364"
+  },
+  "resources-students/d2-s2_case-studies.qmd": {
+    "d2-s2_case-studies.html": "ab30bbfc"
+  },
+  "resources-students/d2-s2_case-study_allrecipies.qmd": {
+    "d2-s2_case-study_allrecipies.html": "b3991669",
+    "d2-s2_case-study_allrecipies.tex": "c778b9b1"
+  },
+  "resources-students/d2-s2_case-study_progressive.qmd": {
+    "d2-s2_case-study_progressive.tex": "606e792e",
+    "d2-s2_case-study_progressive.html": "24a561e1"
+  },
+  "resources-students/d1-s1_plot-tricks.qmd": {
+    "d1-s1_plot-tricks.html": "587cf32c"
+  }
+}

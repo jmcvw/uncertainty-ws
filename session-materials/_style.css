@@ -1,0 +1,57 @@
+/* Uncertainty style */
+
+@charset "UTF-8"; .callout-tip.callout.callout-style-simple.no-icon.callout-captioned { border: 1px solid #198754; }
+
+summary::marker { color: blue; content: url(cc-icon-small.png) !i
+mportant; }
+
+p.caption { font-size: 0.9em; font-style: italic; color: grey; margin-right: 10%; margin-left: 10%; text-align: justify; }
+
+div.emphasis { background-color: #e6f0ff; border-radius: 5px; padding: 20px; }
+
+details.maths { background-color: #90EE90; border-radius: 5px; padding: 20px; border-style: solid; }
+
+blockquote.task { background-color: #fadadd; padding: 20px; font-size: 0.9em; }
+
+#TOC .nav-link.active { color: #e9415e !i
+mportant; background-color: #fef0f2; border-radius: 25px 15px 50px 25px; border-left: 1px solid #e9415e; }
+
+#toc-title { color: #1b3445; background-color: #fef0f2; border-bottom: 1px solid #e9415e; }
+
+/\* // For when the image is placed as the doc title h1.title.display-7 { border-top: 8px solid \$cc-bg-highlight; border-bottom: 0; background-color: \$cc-bg; margin-top: 0; margin-bottom: 0; //border-top: 10px solid \$cc-bg-highlight; //padding-bottom: 0; margin-left: white; padding: 0 0 1px; }
+
+// For when the image is icluded at the start of the document //.title-img img { // border-top: 8px solid \$cc-bg-highlight; // border-bottom: 0; // background-color: \$cc-bg; // margin-top: 0; // margin-bottom: -20px; // //border-top: 10px solid \$cc-bg-highlight; // //padding-bottom: 0; // margin-left: white; // padding: 0 0 50px; //} \*/ .data-banner { width: 100%; border-top: 8px solid #38b0e3; border-bottom: 0; background-color: #1b3445; margin-top: 0; margin-bottom: -20px; margin-left: white; padding: 0 0 50px; }
+
+.data-banner:hover { border-top: 8px solid #e9415e; }
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 { padding: 5px 5px 5px; margin-top: 24px; font-weight: bold; color: #1b3445; background-color: #fef0f2; border-bottom: 5px solid #e9415e; border-radius: 10px 10px 50px 10px; }
+
+h2, .h2 { width: fit-content; }
+
+h3, .h3 { color: #1b3445; width: fit-content; background-color: white; border-bottom: 2px solid #e9415e; }
+
+h4, .h4, h5, .h5 { color: #1b3445; width: fit-content; background-color: white; border-bottom: 2px solid #e9415e; border-radius: 0; }
+
+.quarto-title h1 { margin-top: 0; font-weight: bold; color: #ffffff; border-bottom: 8px solid #e9415e; background-color: #1b3445; padding: 0 10px 10px; border-radius: 0; }
+
+kbd { line-height: 2.1rem; }
+
+div.callout-body { margin-top: 0px; padding: 0 8.1px 1px; border-top: 1px; }
+
+.callout-tip .callout-body summary { border-top: none; border-left: none; border-right: none; border-bottom: 2px solid #198754; background-color: none; padding: 10px; width: fit-content; margin-bottom: 20px; }
+
+.callout-tip .callout-body summary:hover { border-radius: 5px 5px 0 0; background-color: #ebf4f0; border-top: 1px solid #ebf4f0; border-left: 1px solid #ebf4f0; border-right: 1px solid #ebf4f0; }
+
+#create-an-rstudio-project li::marker { content: "➥"; color: #e9415e; }
+
+li::marker { content: url(cc-icon-small.png) " "; margin-right: 10px; }
+
+li::marker { content: url(cc-icon-small.png) " "; margin-right: 10px; }
+
+.panel-tabset li::marker { content: ""; }
+
+.task .tab-content { border: none; }
+
+.task .nav-link.active { border-top: none; border-left: none; border-right: none; border-bottom: 2px solid #198754; }
+
+.task .nav-link:hover { background-color: #ebf4f0; }
