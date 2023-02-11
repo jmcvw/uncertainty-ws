@@ -4,6 +4,11 @@ Data Literacy: two day workshop
 <!-- Do not modify the README.md file directly. -->
 <!-- Instead edit the README.qmd file -->
 
+## tl;dr
+
+Looking for teaching materials?
+[Here](session-materials/resources-rendered/)
+
 ## Repo folder structure
 
 - `session-materials`
