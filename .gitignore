@@ -4,5 +4,5 @@
 .Ruserdata
 *_files/
 *_cache/
-
+/.quarto/
 _misc/

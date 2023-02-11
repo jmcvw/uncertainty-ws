@@ -6,24 +6,29 @@ Data Literacy: two day workshop
 
 ## Repo folder structure
 
-- `session-content`
+- `session-materials`
   - Contains the notes and resources for the workshop.
-  - All resources are available in`html` format.
-  - All resources are create via the corresponding `.qmd` files.
-  - Notes are named with a prefix such as `d1-s1` which indicate the
+  - There are three folder names resources-\*\*\*.
+    - `resources-teaching/` contains the raw `.qmd` documents for
+      teaching crib sheets.
+    - `resources-student/` contains the raw `.qmd` documents for student
+      facing materials / handouts.
+    - `resources-rendered/` contains all resources rendered in `.html`
+      format.
+  - Notes are named with a prefix such as *d1-s1* which indicate the
     notes for day 1 session 1.
   - All files named `crib-sheet` contain various questions and prompts
     for instructor use.
   - `instructor_resources.html` contains links to all materials required
     by instructors to run the workshop.
-  - `call-da-plotz.html` is a cheatsheet of plots than can be used at
+  - `all-da-plotz.html` is a cheatsheet of plots than can be used at
     various points to illustrate issues if questions arise.
-    `glossary.html` contains a glossary of statisticl terms for
+  - `glossary.html` contains a glossary of statistical terms for
     participants’ use.
-  - `pdf` file contain d2-s2 case studies and are optional formats for
+  - `pdf` file contain *d2-s2* case studies and are optional formats for
     distributing to participants.
 - `app`
-  - Contains the app that accompanies the d2 s1 notes.
+  - Contains the app that accompanies the *d2-s1* notes.
   - The app can be found at
     [cc-stats.shinyapps.io/uncertainty](https://cc-stats.shinyapps.io/uncertainty)
 
