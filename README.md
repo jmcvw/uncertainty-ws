@@ -40,7 +40,7 @@ Looking for teaching materials?
 ## Workshop Curriculum
 
 - See
-  [codeclan.github.io/data_literacy](https://www.https://codeclan.github.io/data_literacy)
+  [codeclan.github.io/data_literacy](https://codeclan.github.io/data_literacy)
   for student landing page
 - Day 1 Session 1:
   - **Partly lecture-based facilitated discussion**

@@ -1,8 +1,9 @@
+.DS_Store
 .Rproj.user
 .Rhistory
 .RData
 .Ruserdata
 *_files/
 *_cache/
-/.quarto/
+.quarto/
 _misc/
