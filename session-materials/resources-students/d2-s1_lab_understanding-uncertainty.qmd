@@ -5,7 +5,6 @@ format: html
 execute: 
   eval: true
   echo: false
-  cache: false
 ---
 
 ```{r}
@@ -250,8 +249,7 @@ While the estimate may jump about wildly when the sample size (number of sales) 
 Where the businesses would differ is in the **precision** of their projections.
 In order to increase our precision we have to reduce the range within which the estimate jumps around.
 
-The current input settings should be as show on the right, top.
-To get a better understanding of how the "spread" relates to the precision, tick the "Show margin of error" box (right, bottom).
+The current input settings should be as show on the top left To get a better understanding of how the "spread" relates to the precision, tick the "Show margin of error" box (bottom left).
 This will make a few changes.
 First you will notice there are now error bars extending form the red point on the plot.
 One other thing that has changed is the box under the plot labelled "Confidence interval" now show the range of the margin of error (MoE).
@@ -406,7 +404,7 @@ Let's take a break and freshen up before things become *(even more)* theoretical
 
 ### Introduction
 
-In this second part we will take a look at how another way to tell if the observed difference is meaningful.
+In this second part we will take a look at another way to tell if the observed difference is meaningful.
 We shall do this to begin to understand where our previous understanding comes from and compare it to the confidence intervals we are already familiar with.
 
 ### Boss is back
@@ -455,7 +453,7 @@ Discuss how this relates to our previous discussion on the [best CI level](#box-
 ::: {.callout-tip icon="false"}
 ### **`r i('Task')`**
 
-Using what we have learned so far, see if you can create a situation where we this "P value" tells us that our new customers are in fact different from out old ones.
+Using what we have learned so far, see if you can create a situation where this "P value" tells us that our new customers are in fact different from out old ones.
 Depending on the random component of your app, this may be difficult.
 You will know when you have managed because the bar under the box where "P value" is written will change colour.
 
@@ -478,7 +476,7 @@ To explore it we shall make another table from our data.
 Make a table like the one below.
 In the example there are enough rows to record 6 observations -- you may want a few more.
 
-![](../images/pval-table.png){width='75%' align='center'}
+![](../images/pval-table.png){width="75%" align="center"}
 
 ```{r}
 #| label: tbl-distr-table
