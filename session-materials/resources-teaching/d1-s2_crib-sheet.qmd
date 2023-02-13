@@ -197,7 +197,7 @@ How might you quantify the uncertainty?
 i.e. how large an effect is the uncertainty likely to have on expectations?
 :::
 
-## Q4: How can we become comfortable with uncertainty?
+### Q4: How can we become comfortable with uncertainty?
 
 **Aim:** To try and set expectation that, since uncertainty exists, and we cannot completely remove it, we need to learn to *embrace* it.
 
