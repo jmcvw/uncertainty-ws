@@ -56,12 +56,12 @@ Let's start by generating just a list of plot types - I'll start you off with **
 
 **Image Links**
 
--   [Scatter](images/scatter.png){.external target="_blank"}
--   [Bar](images/funnel-vs-bar2--bar.png){.external target="_blank"}
--   [Funnel](images/funnel-vs-bar1--funnel.png){.external target="_blank"}
--   [Pie](images/pie_three_cats.png){.external target="_blank"}
--   [Line](images/interest-rates-c.png){.external target="_blank"}
--   [Combination](images/d2-s2--growth-plot.png){.external target="_blank"}
+-   [Scatter](../../images/scatter.png){.external target="_blank"}
+-   [Bar](../../images/funnel-vs-bar1_funnel.png){.external target="_blank"}
+-   [Funnel](../../images/funnel-vs-bar2_bar_clr.png){.external target="_blank"}
+-   [Pie](../../images/pie_three_cats.png){.external target="_blank"}
+-   [Line](../../images/interest-rates-c.png){.external target="_blank"}
+-   [Combination](../../images/d2-s2_growth-plot.png){.external target="_blank"}
 
 If there are any problems opening the plots above, the link below has links to them all.
 Right click the desired image and select "Open image in new tab"

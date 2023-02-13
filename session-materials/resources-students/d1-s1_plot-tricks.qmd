@@ -6,19 +6,19 @@ fig-width: 50
 
 ## Different y-axes
 
-:::{.panel-tabset}
+::: panel-tabset
 ## US military spending---Original
 
-![](../images/egregious-plot_mil-spend.png){width='65%'}
+![](../images/egregious-plot_mil-spend.png){width="65%"}
 
-Some might use such a figure to push a particular agenda. "Clearly China is a massive threat to global security!"
+Some might use such a figure to push a particular agenda.
+"Clearly China is a massive threat to global security!"
 
-(Image source: [Federal Reserve Bank of St Louis](https://www.stlouisfed.org/on-the-economy/2023/jan/military-expenditures-how-top-spending-nations-compare) [last accessed: 2023-02-13])
-
+(Image source: [Federal Reserve Bank of St Louis](https://www.stlouisfed.org/on-the-economy/2023/jan/military-expenditures-how-top-spending-nations-compare) \[last accessed: 2023-02-13\])
 
 ## US military spending---Revised
 
-![](../images/egregious-plot_fixed_mil-spend.png){width='60%'}
+![](../images/egregious-plot_fixed_mil-spend.png){width="60%"}
 
 ...While China might say they are just following the example of another huge military power?
 Here expenditure for all countries is plotted on the same scale.
@@ -29,42 +29,41 @@ Here expenditure for all countries is plotted on the same scale.
 
 The first image was produced by the Federal Reserve Bank of St Louis, and there are several issues with it.
 
-1. There are two different axis scales
-1. All countries should be measured on the left axis.
-1. __Except__ the U.S., which has its own. different, scale on the right.
-1. The U.S. specific scale is not zeroed - it begins at $400,000,000,000!
-1. Particularly unhelpful (disingenuous?) is that China's line rises to its maximum right next to the figure $950 billion.
-1. When measured on the left axis, or having the same scale on both axes, we see that China does not even make it onto the right hand scale of the original plot.
+1.  There are two different axis scales
+2.  All countries should be measured on the left axis.
+3.  **Except** the U.S., which has its own. different, scale on the right.
+4.  The U.S. specific scale is not zeroed - it begins at \$400,000,000,000!
+5.  Particularly unhelpful (disingenuous?) is that China's line rises to its maximum right next to the figure \$950 billion.
+6.  When measured on the left axis, or having the same scale on both axes, we see that China does not even make it onto the right hand scale of the original plot.
 
 The second plot presents the same data in a much more honest way.
 By measuring all countries' expenditure on the same, zeroed, axis we see that, China has indeed dramatically increased its military spending, but that they fall significantly short of that of the U.S.
-
 :::
 
 ## Missing zeros
 
-:::{.panel-tabset}
+::: panel-tabset
 ## Nationality heights---Original
 
-![](../images/egregious-plot_height.png){width='60%'}
+![](../images/egregious-plot_height.png){width="60%"}
 
-Also an example of inappropriate use of icons - we are forced to compare the __areas__ of the figures, so Indonesians appear tiny and the Dutch appear giant.
+Also an example of inappropriate use of icons - we are forced to compare the **areas** of the figures, so Indonesians appear tiny and the Dutch appear giant.
 
-(Image source: [Patient.info](https://patient.info/news-and-features/whats-the-average-height-for-men) [Accessed: 2023-01-23])
+(Image source: [Patient.info](https://patient.info/news-and-features/whats-the-average-height-for-men) \[Accessed: 2023-01-23\])
 
 ## Nationality heights---Revised
 
-![](../images/egregious-plot_fixed_height.jpg){width='60%'}
+![](../images/egregious-plot_fixed_height.jpg){width="60%"}
 
 The website later featured a revised visualization.
 
-(Image source: [Patient.info](https://patient.info/news-and-features/whats-the-average-height-for-men) [Accessed: 2023-02-13])
+(Image source: [Patient.info](https://patient.info/news-and-features/whats-the-average-height-for-men) \[Accessed: 2023-02-13\])
 
 ## Nationality heights---Minimal
 
-![](../images/egregious-plot_fixed-minimal_height.png){width='60%'}
+![](../images/egregious-plot_fixed-minimal_height.png){width="60%"}
 
-Here, we lose the silhouettes, which might be conidered by some as "chart junk".
+Here, we lose the silhouettes, which might be considered by some as "chart junk".
 And focus on only the heights.
 We also add in national flags - which might also be considered chart junk.
 Depends on how you want to communicate, and to whom.
@@ -75,21 +74,19 @@ Who really thought the first plot was really a good way to compare the heights o
 
 There are two main problems.
 
-1. The y-axis does not start at 0
-1. The use of human shaped images that are scaled in proportion to the non-zeroed scale mean we compare not only the height of the figures, but also their _areas_.
-1. The second plot appeared on the same site some time after the original - maybe someone had a word with someone?
-1. The third plot suggests a more minimal way of showing the same data focusing only on height
-     - one possible disadvantage is that we lose the sense of how actual people from each country might appear when stood together. 
-
+1.  The y-axis does not start at 0
+2.  The use of human shaped images that are scaled in proportion to the non-zeroed scale mean we compare not only the height of the figures, but also their *areas*.
+3.  The second plot appeared on the same site some time after the original - maybe someone had a word with someone?
+4.  The third plot suggests a more minimal way of showing the same data focusing only on height
+    -   one possible disadvantage is that we lose the sense of how actual people from each country might appear when stood together.
 :::
-
 
 ## Symbol choice
 
-:::{.panel-tabset}
+::: panel-tabset
 ## Truncated axis
 
-![](../images/interest-rates-a.png){width='60%'}
+![](../images/interest-rates-a.png){width="60%"}
 
 Consider a debate in the House of Commons.
 The leader of the opposition uses this plot to claim,
@@ -98,15 +95,16 @@ The leader of the opposition uses this plot to claim,
 
 ## Expanded axis
 
-![](../images/interest-rates-b.png){width='60%'}
+![](../images/interest-rates-b.png){width="60%"}
 
 In the same Commons debate, the government presents this figure and says,
 
-> Nonsense! Under our leadership interest rates have remained remakably stable!
+> Nonsense!
+> Under our leadership interest rates have remained remakably stable!
 
 ## Change symbol?
 
-![](../images/interest-rates-c.png){width='60%'}
+![](../images/interest-rates-c.png){width="60%"}
 
 Here, the same data are presented, again with a truncated axis, but this time with points instead of bars.
 
@@ -121,11 +119,33 @@ In the final plot, we can no longer judge how important the differences are with
 
 So, to summarize,
 
-1. The __truncated__ axis is a problem
-    - because we compare areas of the bars.
-1. The __non-truncated__ axis is a problem
-    - because the differences now totally disappear.
-1. The final plot retains the, often abused, truncated axis
-    - but we are no longer comparing symbol area.
+1.  The **truncated** axis is a problem
+    -   because we compare areas of the bars.
+2.  The **non-truncated** axis is a problem
+    -   because the differences now totally disappear.
+3.  The final plot retains the, often abused, truncated axis
+    -   but we are no longer comparing symbol area.
+:::
 
+## Which graph should you use?
+
+There are four main purposes for creating a graph (@fig-best-graph).
+These are the standard choices, so if you make an unorthodox choice, you may increase the effort required by your audience to receive the correct message.
+
+![Which graph to use depends on its purpose.](../images/best_graph.png){#fig-best-graph alt="Graphs can be used for comparison, or to show connections, distributions or composotion"}
+
+::: columns
+::: column
+![Preattentive attributes in order of discernment](../images/visual_encodings_in_order.jpg){#fig-preattentive-attributes}
+:::
+
+::: column
+However, just because a type of graph **can** be used, doesn't mean it is the best choice.
+\Humans are generally more capable of spotting changes or relationship in some attributes than in others (@fig-preattentive-attributes).
+This provides good reasons for choosing / avoiding certain chart types.
+For example, pie charts are often not recommended because people are less able to compare similar angles.
+Similarly, funnel plots use unaligned bars.
+While this appears to be a comparison that people manage well enough, it still makes comparison harder than just a plain bar chart.
+Finally mapping values to area is often a mistake, and mapping to colour intensity requires careful consideration.
+:::
 :::
