@@ -6,8 +6,10 @@ Data Literacy: two day workshop
 
 ## tl;dr
 
-Looking for teaching materials?
-[Here](session-materials/resources-rendered/)
+- All Rendered [teaching
+  materials](session-materials/resources-rendered/)
+- Links to [Instructor
+  resources](session-materials/resources-rendered/resources-teaching/instructor-resources.html)
 
 ## Repo folder structure
 

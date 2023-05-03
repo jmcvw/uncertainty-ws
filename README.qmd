@@ -9,8 +9,8 @@ format: gfm
 
 ## tl;dr
 
-Looking for teaching materials?
-[Here](session-materials/resources-rendered/)
+-   Links to [Instructor resources](session-materials/resources-rendered/resources-teaching/instructor-resources.html)
+-   All other rendered [materials](session-materials/resources-rendered/)
 
 ## Repo folder structure
 

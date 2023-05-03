@@ -1,6 +1,7 @@
-/* Taster style sheet */
-/* see apps/style.scss */
-/* $prtnr_gold: #fad350; /* Old style, apparently? */
+body {
+  background-color: #fafac8;
+}
+
 .cc-footer {
   width: 40%;
   float: right;
