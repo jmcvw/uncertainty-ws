@@ -41,6 +41,7 @@ h1.title {
   background: #1b3445;
   border: none;
   border-radius: 0;
+  opacity: 1;
 }
 
 h1.title::after {
