@@ -1,5 +1,5 @@
 ---
-title: "Egregious plot tricks"
+title: "d1-s1_egregious plot tricks"
 format: html
 fig-width: 50
 ---
@@ -9,7 +9,7 @@ fig-width: 50
 ::: panel-tabset
 ## US military spending---Original
 
-![](../images/egregious-plot_mil-spend.png){width="65%"}
+![](../images/d1-s1_egregious-plot_mil-spend.png){width="65%"}
 
 Some might use such a figure to push a particular agenda.
 "Clearly China is a massive threat to global security!"
@@ -18,7 +18,7 @@ Some might use such a figure to push a particular agenda.
 
 ## US military spending---Revised
 
-![](../images/egregious-plot_mil-spend_fixed.png){width="60%"}
+![](../images/d1-s1_egregious-plot_mil-spend_fixed.png){width="60%"}
 
 ...While China might say they are just following the example of another huge military power?
 Here expenditure for all countries is plotted on the same scale.
@@ -45,7 +45,7 @@ By measuring all countries' expenditure on the same, zeroed, axis we see that, C
 ::: panel-tabset
 ## Nationality heights---Original
 
-![](../images/egregious-plot_height.png){width="60%"}
+![](../images/d1-s1_egregious-plot_height.png){width="60%"}
 
 Also an example of inappropriate use of icons - we are forced to compare the **areas** of the figures, so Indonesians appear tiny and the Dutch appear giant.
 
@@ -53,7 +53,7 @@ Also an example of inappropriate use of icons - we are forced to compare the **a
 
 ## Nationality heights---Revised
 
-![](../images/egregious-plot_height_fixed.jpg){width="60%"}
+![](../images/d1-s1_egregious-plot_height_fixed.jpg){width="60%"}
 
 The website later featured a revised visualization.
 
@@ -61,7 +61,7 @@ The website later featured a revised visualization.
 
 ## Nationality heights---Minimal
 
-![](../images/egregious-plot_height_fixed-minimal.png){width="60%"}
+![](../images/d1-s1_egregious-plot_height_fixed-minimal.png){width="60%"}
 
 Here, we lose the silhouettes, which might be considered by some as "chart junk".
 And focus on only the heights.
@@ -132,7 +132,7 @@ So, to summarize,
 There are four main purposes for creating a graph (@fig-best-graph).
 These are the standard choices, so if you make an unorthodox choice, you may increase the effort required by your audience to receive the correct message.
 
-![Which graph to use depends on its purpose.](../images/best_graph.png){#fig-best-graph alt="Graphs can be used for comparison, or to show connections, distributions or composotion"}
+![Which graph to use depends on its purpose.](../images/d1-s1_best_graph.png){#fig-best-graph alt="Graphs can be used for comparison, or to show connections, distributions or composotion"}
 
 ::: columns
 ::: column

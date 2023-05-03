@@ -35,7 +35,7 @@ Perhaps they are most focussed on just understanding the last 2 quarter.
 In contrast a larger, more established, business might have a whole analytics department.
 Either way, the questions they will be considering will fall onto a spectrum similar to the one in @fig-analytics-maturity
 
-![Analytics maturity model (image by CC, derived from Davenport and Harris, 2007, *Competing on analytics*)](../images/analytics-maturity-model.png){#fig-analytics-maturity alt="More difficult levels of maturity yield higher value, from: descriptive, to diagnostic, to predictive, to prescriptive analyses." width="70%"}
+![Analytics maturity model (image by CC, derived from Davenport and Harris, 2007, *Competing on analytics*)](../images/d2-s2_analytics-maturity-model.png){#fig-analytics-maturity alt="More difficult levels of maturity yield higher value, from: descriptive, to diagnostic, to predictive, to prescriptive analyses." width="70%"}
 
 ## Conceptual models
 
@@ -213,5 +213,5 @@ That is because it is easy to be confident about what the storm will do tomorrow
 
 ## Sales forcast
 
-![Current sales slump is predicted to continue.](../images/sales-forecast.png) Notice the shaded area of probability.
+![Current sales slump is predicted to continue.](../images/d2-s2_sales-forecast.png) Notice the shaded area of probability.
 :::

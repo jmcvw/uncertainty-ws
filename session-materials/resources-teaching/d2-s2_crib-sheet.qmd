@@ -41,10 +41,10 @@ Outline:
         -   And saying 10 mins means they ramble a bit and 12-15 mins :)
         -   **So should probably allow 30 mins for presentations** (including questions)
     -   Specifically, they should try and identify use-cases for each of the types of model mentioned.
-    -   They should also try and think about what barriers to creating those model might might be present.
+    -   They should also try and think about what barriers to creating those model might be present.
     -   Since they are not involved in building models themselves, the point is that they gain an insight into the uses and difficulties faced by the data teams that they may have to communicate with.
     -   Tell them the presentations can (*should?*) be really simple, i.e. sheets of flip-chart paper held up by someone at the front.
-    -   If the really must a PowerPoint type affair is fine too.
+    -   If they really must a PowerPoint type affair is fine too.
     -   Where possible the presentations should have an example of each type of model
         -   **The focus here is on generating something that captures the spirit of a model, more than a realistic representation. (Especially since that is likely impossible based just on the case study alone.)**
     -   Presentations should also tie-in any concepts they are able to from elsewhere in the course.
