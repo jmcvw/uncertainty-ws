@@ -44,12 +44,12 @@ Consider a business that sells a wide range of items related to the field of *Ji
 Their stock include specialist items like *flooglebinders*, *dooflickers*, and *hingmies*, well as more prosaic items like *widgets*, *watsits*, and *doodahs*.
 The great thing about this stock is that all items sell at (their own) consistent rates throughout the year.
 That is to say, they are entirely unaffected by seasonal or cyclic trends, or world events, such as economic catastrophes or pandemics.
-The average weekly value of sales made by this business is exactly £100.
+The average basket values of a customer is exactly £100.
 This figure is the *average* over the entire history of the business, and is known to be exactly correct.
 
 The Boss (whose name shall also be Boss) of this business wants to increase the average sales, so decides to implement a new marketing campaign designed to more effectively target a different subset of its customers - hopefully ones that spend more money.
 
-In the first week following the new marketing campaign they find their average sale rose to £109.66.
+In the first week following the new marketing campaign they find the average basket value rose to £109.66.
 Higher indeed than the expected average of £100.
 
 ![Profit for the week following website changes](../images/d2-s1_improved-sales.png){#fig-improved-profit fig-align="left" width="40%" alt="The profit observed in the week following improvements to the website was £109.66"}
@@ -87,7 +87,7 @@ The purpose of it is to provide a scaffold for discussions, not to get tied up w
 ![Sample average (observed) vs expected average](../images/d2-s1_improved-sales.png){#fig-exp-vs-sample alt="Plot showing a horizontal line labelled \"Expected\" at y = £100, and an \"Observed\" value of £109.66 " fig-align="left" width="40%"}
 
 @fig-exp-vs-sample above shows a horizontal gold line at £100.
-This indicates the all-time historic average for our company.
+This indicates the all-time historic average customer-spend for our company.
 For the purposes of this exercise, we shall consider this an unambiguous "truth" of what our business has made in an average week.
 It is therefore not a **statistic**, since statistics are values that are used to **estimate** "true" parameters.
 
@@ -478,7 +478,7 @@ To explore it we shall make another table from our data.
 Make a table like the one below.
 In the example there are enough rows to record 6 observations -- you may want a few more.
 
-![](../images/pval-table.png){width='75%' align='center'}
+![](../images/pval-table.png){width="75%" align="center"}
 
 ```{r}
 #| label: tbl-distr-table
