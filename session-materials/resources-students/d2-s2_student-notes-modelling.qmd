@@ -163,7 +163,7 @@ The image below was adapted slightly from their paper.
 
 ## Links and resources
 
-See [Shmueli, G. (2010) To explain or predict](https://projecteuclid.org/journalArticle/Download?urlId=10.1214%2F10-STS330){.external target="_blank"} for an accessible, if somewhat academic, discussion on the differences between descriptive, explanatory, and predictive models
+See [Shmueli, G. (2010) To explain or predict](https://projecteuclid.org/journalArticle/Download?urlId=10.1214%2F10-STS330){.external target="_blank"} for a long and, somewhat academic, discussion on the differences between descriptive, explanatory, and predictive models
 :::
 
 ## Predictive models

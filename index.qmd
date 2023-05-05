@@ -60,6 +60,3 @@ format:
     -   All [(html)](session-materials/resources-rendered/resources-students/d2-s2_case-studies.html){.external target="_blank"}
     -   Progressive Insurance [(pdf)](session-materials/resources-rendered/resources-students/d2-s2_case-study_progressive.pdf){.external target="_blank"}
     -   Allrecipes [(pdf)](session-materials/resources-rendered/resources-students/d2-s2_case-study_allrecipies.pdf){.external target="_blank"}
--   Session [recap](session-materials/resources-rendered/resources-students/d2-s2_student-notes-modelling.html){.external target="_blank"}
-    -   Short discussion on each of the models coverered
-    -   Includes some links for further info

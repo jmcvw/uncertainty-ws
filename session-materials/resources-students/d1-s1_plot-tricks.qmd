@@ -1,5 +1,5 @@
 ---
-title: "d1-s1_egregious plot tricks"
+title: "Egregious plot tricks"
 format: html
 fig-width: 50
 ---
@@ -91,7 +91,7 @@ There are two main problems.
 Consider a debate in the House of Commons.
 The leader of the opposition uses this plot to claim,
 
-> Under this government, interest rates have sky-rocketed!"
+> "Under this government, interest rates have sky-rocketed!"
 
 ## Expanded axis
 
@@ -125,6 +125,7 @@ So, to summarize,
     -   because the differences now totally disappear.
 3.  The final plot retains the, often abused, truncated axis
     -   but we are no longer comparing symbol area.
+    -   In reality the changes here are pretty minuscule. Only this final plot allows us to appreciate both that fact, and also notice that the real story might be about the **rate** of increase.
 :::
 
 ## Which graph should you use?

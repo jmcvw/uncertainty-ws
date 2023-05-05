@@ -1,7 +1,3 @@
-body {
-  background-color: #fafac8;
-}
-
 .cc-footer {
   width: 40%;
   float: right;
@@ -16,7 +12,7 @@ body {
   background-color: #1b3445;
   margin-top: 0;
   margin-bottom: -20px;
-  margin-left: white;
+  margin-left: #ffffff;
   padding: 0 0 50px;
 }
 
@@ -24,8 +20,12 @@ body {
   border-top: 8px solid #e9415e;
 }
 
-h1, .h1, h2, .h2,
-h3, .h3, h4, .h4, h5, .h5 {
+body {
+  background-color: #fafac8;
+}
+
+h1, .h1, h2, .h2, h3, .h3,
+h4, .h4, h5, .h5 {
   color: #1b3445;
   padding: 5px 5px 5px;
   margin-top: 24px;
@@ -42,6 +42,7 @@ h1.title {
   border: none;
   border-radius: 0;
   opacity: 1;
+  color: theme-dim(#fafac8, 8%);
 }
 
 h1.title::after {
@@ -49,7 +50,13 @@ h1.title::after {
   color: #e6c372;
 }
 
-h3, .h3, h4, .h4, h5, .h5 {
+h1.title code {
+  color: navy;
+  /*background-color: blue;*/
+}
+
+h2, .h2, h3, .h3,
+h4, .h4, h5, .h5 {
   width: fit-content;
 }
 
@@ -62,11 +69,6 @@ h1.title + p.subtitle {
   padding-right: 10px;
   padding-bottom: 10px;
   border-radius: 0 0 0 20px;
-}
-
-p + ul li::marker {
-  content: url("images/cc-icon-small.png") "  ";
-  margin-right: 10px;
 }
 
 .figure-caption {
@@ -82,9 +84,48 @@ a:hover {
 }
 
 a:active {
-  color: #50a3cd;
+  color: #38b0e3;
 }
 
 a:visited {
   color: #e6c372;
+}
+
+div.cell-code, code.sourceCode, pre.code-with-copy {
+  background-color: #fafad9;
+  border-color: #fafad9;
+}
+
+.pagedtable-wrapper {
+  background-color: #fafad9;
+  border-color: #fafad9;
+}
+
+pre {
+  background: #fafad9;
+}
+
+code,
+p code:not(.sourceCode),
+li code:not(.sourceCode) {
+  color: navy;
+  background-color: #ffffdd;
+}
+
+/*
+.panel-tabset .nav-link.active,
+.tab-content {
+  background-color: #fafad9;
+}
+*/
+
+/* Either this ^ or that v */
+
+.nav-tabs .nav-link {
+  border-bottom-color: #38b0e3;
+  background-color: #fafad9;
+}
+
+.nav-tabs .nav-link.active {
+  background-color: #fafac8;
 }
