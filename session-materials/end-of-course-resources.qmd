@@ -1,0 +1,35 @@
+---
+title: "Post-Workshop Resources"
+css: style.css
+---
+
+[Glossary](resources-rendered/resources-students/glossary.html){.external target="_blank"} of statistical terms used during the workshop.
+
+## Day 1
+
+### Morning: Visualizing data
+
+A look at some of the plot [tricks / mistakes](resources-rendered/resources-students/d1-s1_plot-tricks.html){.external target="_blank"} we discussed.
+
+<!-- ### Day 1, afternoon: Identifying uncertainty -->
+
+<!-- Nothing here yet! -->
+
+<!-- add cog-bias codex link -->
+
+## Day 2
+
+### Morning: Understanding uncertainty
+
+-   The [lab notes](resources-rendered/resources-students/d2-s1_lab_understanding-uncertainty.html){.external target="_blank"} from the practical session.
+-   Link to the [app](https://cc-stats.shinyapps.io/uncertainty){.external target="_blank"} if case you want to delve deeper!
+
+### Afternoon: Embracing uncertainty
+
+-   Session [recap](resources-rendered/resources-students/d2-s2_student-notes-modelling.html){.external target="_blank"}
+    -   Short discussion on each of the models covered
+    -   Includes some links for further info
+-   Conceptual model [templates](https://www.edrawsoft.com/templates/system.html){.external target="_blank"}
+-   Introduction to [systems thinking](https://www.unescap.org/sites/default/files/Introduction%20to%20systems%20thinking%20tools_Eng.pdf){.external target="_blank"}
+-   Some humorous [spurious correlations](http://tylervigen.com/spurious-correlations){.external target="_blank"}
+-   Short paper (page and a bit) on how to tell what kind of model you [need](https://andreashandel.github.io/MADAcourse/media/leek15science.pdf){.external target="_blank"}
