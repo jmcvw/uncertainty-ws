@@ -6,10 +6,13 @@ Data Literacy: two day workshop
 
 ## tl;dr
 
+- Hosted pages [site](https://jmcvw.github.io/uncertainty-ws/)
 - All Rendered [teaching
   materials](session-materials/resources-rendered/)
 - Links to [Instructor
-  resources](session-materials/resources-rendered/resources-teaching/instructor-resources.html)
+  resources](session-materials/resources-rendered/resources-teaching/)
+- Live [workshop App](https://jw-ddi.shinyapps.io/uncertainty)
+
 
 ## Repo folder structure
 
@@ -37,13 +40,15 @@ Data Literacy: two day workshop
 - `app`
   - Contains the app that accompanies the *d2-s1* notes.
   - The app can be found at
-    [cc-stats.shinyapps.io/uncertainty](https://cc-stats.shinyapps.io/uncertainty)
+    [https://jw-ddi.shinyapps.io/uncertainty](https://jw-ddi.shinyapps.io/uncertainty)
 
 ## Workshop Curriculum
 
 - See
-  [codeclan.github.io/data_literacy](https://codeclan.github.io/data_literacy/)
+<!--
+[codeclan.github.io/data_literacy](https://codeclan.github.io/data_literacy/)
   for student landing page
+-->
 - Day 1 Session 1:
   - **Partly lecture-based facilitated discussion**
   - Friendly intro session
